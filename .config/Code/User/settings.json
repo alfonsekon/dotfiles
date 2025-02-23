@@ -1,0 +1,241 @@
+{
+    "C_Cpp.default.compilerPath": "D:\\MinGW\\bin\\gcc.exe",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "on",
+        "strings": "on"
+    },
+    "editor.wordWrap": "off",
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "cmake.configureOnOpen": true,
+    "cmake.showOptionsMovedNotification": false,
+    "highlight.regexes": {
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#ffcc00",
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc0000",
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#00ccff",
+                    "backgroundColor": "#00ccff",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#00ccff",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc00cc",
+                    "backgroundColor": "#cc00cc",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc00cc",
+                    "color": "#1f1f1f"
+                }
+            ]
+        }
+    },
+    "editor.codeActionsOnSave": {},
+    "editor.minimap.enabled": false,
+    "workbench.settings.applyToAllProfiles": [
+
+    ],
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": true,
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    // "terminal.integrated.defaultProfile.windows": "Git Bash",
+    
+    //stuff i (manually) put are here
+    //extensions needed: Vim (not Neovim), Vim Theme (optional, just a theme), finditfaster
+
+    "editor.lineNumbers": "relative",
+    "vim.commandLineModeKeyBindings": [],
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<Space>",
+    "vim.hlsearch": false, 
+    "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+    },
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // NAVIGATION
+        // switch b/w buffers
+        { "before": ["<S-h>"], "commands": [":bprevious"] },
+        { "before": ["<S-l>"], "commands": [":bnext"] },
+        // splits
+        { "before": ["leader", "v"], "commands": [":vsplit"] },
+        { "before": ["leader", "s", "s"], "commands": [":split"] },
+        // panes
+        {
+        "before": ["leader", "h"],
+        "commands": ["workbench.action.focusLeftGroup"]
+        },
+        {
+        "before": ["leader", "j"],
+        "commands": ["workbench.action.focusBelowGroup"]
+        },
+        {
+        "before": ["leader", "k"],
+        "commands": ["workbench.action.focusAboveGroup"]
+        },
+        {
+        "before": ["leader", "l"],
+        "commands": ["workbench.action.focusRightGroup"]
+        },
+        // NICE TO HAVE
+        { "before": ["leader", "w"], "commands": [":w!"] },
+        { "before": ["leader", "q", "q"], "commands": [":q!"] }, //added another q since i keep fatfingering leader q and closing the window
+        { "before": ["leader", "x"], "commands": [":x!"] },
+        {
+        "before": ["[", "d"],
+        "commands": ["editor.action.marker.prev"]
+        },
+        {
+        "before": ["]", "d"],
+        "commands": ["editor.action.marker.next"]
+        },
+        {
+        "before": ["<leader>", "c", "a"],
+        "commands": ["editor.action.quickFix"]
+        },
+        { "before": ["leader", "p"], "commands": ["workbench.action.findInFiles"] },
+        { "before": ["leader", "s", "h"], "commands": ["workbench.action.replaceInFiles"] },
+        { "before": ["leader", "e"], "commands": ["workbench.files.action.focusFilesExplorer"] },
+        { "before": ["leader", "s", "f"], "commands": ["find-it-faster.findFiles"] },
+        { "before": ["leader", "r", "g"], "commands": ["find-it-faster.findWithinFiles"] },
+        { "before": ["leader", "b"], "commands": ["workbench.action.files.openFolder"] },
+        {
+        "before": ["g", "h"],
+        "commands": ["editor.action.showDefinitionPreviewHover"]
+        },
+        {
+        "before": ["<C-n>"],
+        "commands": [":nohl"]
+        },
+        {
+        "before": ["<leader>", "\\"],
+        "commands": ["workbench.action.closeWindow"]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        // Stay in visual mode while indenting
+        { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+        { "before": [">"], "commands": ["editor.action.indentLines"] },
+        // Move selected lines while staying in visual mode
+        { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+        { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+        // toggle comment selection
+        { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+    ],
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.neovimConfigPath": "~/.local/bin/nvim",
+    // "vim.statusBarColorControl": false,
+    // "workbench.colorCustomizations": {
+    //     "statusBar.background": "#005f87",
+    //     "statusBar.noFolderBackground": "#005f87",
+    //     "statusBar.debuggingBackground": "#005f87",
+    //     "statusBar.foreground": "#ffffff",
+    //     "statusBar.debuggingForeground": "#ffffff"
+    // },
+
+    "python.createEnvironment.trigger": "off",
+    "database-client.autoSync": true,
+    "window.zoomLevel": 0.9,
+    "window.commandCenter": false,
+    "window.density.editorTabHeight": "compact",
+    "editor.cursorStyle": "line",
+    "editor.fontFamily": "'FiraCode', 'monospace'",
+    "editor.fontLigatures": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.stickyScroll.maxLineCount": 1,
+    "editor.lightbulb.enabled": "off",
+    "editor.cursorSurroundingLines": 12,
+    "workbench.editor.wrapTabs": false,
+    "workbench.activityBar.location": "hidden",
+    "workbench.sideBar.location": "right",
+    "workbench.layoutControl.enabled": false,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.allowChords": false,
+    "codeium.enableCodeLens": false,
+    "codeium.enableConfig": {
+        "*": true
+    },
+    //must be running on linux to use
+    "find-it-faster.general.useTerminalInEditor": true,
+    "find-it-faster.general.killTerminalAfterUse": true,
+    "find-it-faster.general.batTheme": "Coldark-Dark",
+    "security.workspace.trust.untrustedFiles": "open",
+    "find-it-faster.general.restoreFocusTerminal": true,
+    "codeium.disableSupercomplete": true,
+    "screencastMode.fontSize": 20,
+    "screencastMode.keyboardOptions": {
+        "showCommands": false
+    },
+    "vim.cursorStylePerMode.insert": "block",
+    "vim.cursorStylePerMode.visualline": "block",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.cursorStylePerMode.replace": "block",
+    "vim.cursorStylePerMode.normal": "block",
+    //when in wsl
+    // "vim.neovimPath": "/usr/bin/nvim", 
+    //when in windows
+    "vim.neovimPath": "nvim",
+    "vim.enableNeovim": true,
+    "breadcrumbs.enabled": false,
+    "find-it-faster.advanced.disableStartupChecks": true,
+    "python.defaultInterpreterPath": "C:\\Users\\Luis\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\pygame-client-hPVMhoM5-py3.13",
+    // "find-it-faster.findWithinFiles.previewWindowConfig": "top,80%,border-bottom,+{2}+3/3,~3",
+    // "find-it-faster.findFiles.previewWindowConfig": "top,50%",
+
+    //xmodmap fix for esc/capslock switch 
+    "keyboard.dispatch": "keyCode",
+    "window.menuBarVisibility": "compact"
+}
