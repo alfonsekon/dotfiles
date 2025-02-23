@@ -89,7 +89,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -184,7 +184,7 @@ bindsym $mod+p exec pavucontrol
 #open vscode
 bindsym $mod+c exec code
 #open brave
-bindsym $mod+b exec brave-browser
+bindsym $mod+shift+b exec brave-browser
 
 bindsym $mod+r mode "resize"
 

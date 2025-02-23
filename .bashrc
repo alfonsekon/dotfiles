@@ -136,6 +136,7 @@ alias codingv='cd ~/coding/vscode && ls' #for opening vsc projects
 alias dotfiles='cd ~/dotfiles && ls'
 alias downloads='cd ~/Downloads && ls'
 alias i3conf='nvim ~/.config/i3/config'
+alias obs='flatpak run com.obsproject.Studio'
 alias savebashrc='source ~/.bashrc'
 alias school='cd ~/school && ls'
 alias shellexec='exec $SHELL'
