@@ -209,6 +209,8 @@ for_window [class="brave-browser"] move to workspace 1
 for_window [class="wezterm"] move to workspace 2
 for_window [class="Code"] move to workspace 3, layout stacking
 for_window [class="jetbrains-studio"] move to workspace 3, layout stacking
+for_window [class="Wihotspot"] move to workspace 8, layout stacking
+for_window [class="Pavucontrol"] move to workspace 8, layout stacking
 
 #swap escape and capslock
 exec --no-startup-id sleep 1 && setxkbmap -option caps:swapescape
@@ -216,8 +218,6 @@ exec --no-startup-id sleep 1 && setxkbmap -option caps:swapescape
 exec --no-startup-id sleep 1 && xinput --set-prop 11 "libinput Accel Speed" 0
 exec --no-startup-id sleep 1 && xinput --set-prop 11 "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 
-#enable alt+tab
-# bindsym $mod+Tab focus right
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
