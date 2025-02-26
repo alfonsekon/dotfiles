@@ -1,0 +1,34 @@
+"plugins"
+set surround
+
+"use system clipboard"
+set clipboard=unnamedplus
+
+"set '/' search to not be case sensitive"
+set ignorecase
+
+"save, quit w/o save, save and quit"
+map <Space>w :w!<CR>
+map <Space>q :q!<CR>
+map <Space>x :x!<CR>
+
+"previous and next tabs"
+map <S-l> :action NextTab<CR>
+map <S-h> :action PreviousTab<CR>
+
+"file tree and searching for files"
+"map <Space><Space> :action SearchEverywhere<CR>
+map <Space>sf :action SearchEverywhere<CR>
+map <Space>f :action FindInPath<CR>
+map <Space>p :action GotoFile<CR>
+map <Space>r :action GotoText<CR>
+map <Space>e :action ActivateProjectToolWindow<CR>
+map <C-e> :action HideActiveWindow<CR>
+
+"move lines up and down in visual mode"
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
+
+"commentary-like behavior"
+map gcc :action CommentByLineComment<CR>
+vmap gc :action CommentByLineComment<CR>
