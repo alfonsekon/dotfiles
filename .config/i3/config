@@ -213,8 +213,8 @@ for_window [class="jetbrains-studio"] move to workspace 3, layout stacking
 #swap escape and capslock
 exec --no-startup-id sleep 1 && setxkbmap -option caps:swapescape
 #turn off mouse accel and lower sens (id=11 is logitech g304)
-exec --no-startup-id sleep 1 && xinput --set-prop 15 "libinput Accel Speed" 0
-exec --no-startup-id sleep 1 && xinput --set-prop 15 "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+exec --no-startup-id sleep 1 && xinput --set-prop 11 "libinput Accel Speed" 0
+exec --no-startup-id sleep 1 && xinput --set-prop 11 "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 
 #enable alt+tab
 # bindsym $mod+Tab focus right
