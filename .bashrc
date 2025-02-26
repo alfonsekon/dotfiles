@@ -131,22 +131,22 @@ eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
 
 #aliases
 alias bashrc='nvim ~/.bashrc'
-alias codinga='cd ~/coding/android-studio && ls' #for opening studio projects
-alias codingv='cd ~/coding/vscode && ls' #for opening vsc projects
-alias dotfiles='cd ~/dotfiles && ls'
-alias downloads='cd ~/Downloads && ls'
+alias codinga='cd ~/coding/android-studio && ls -la' #for opening studio projects
+alias codingv='cd ~/coding/vscode && ls -la' #for opening vsc projects
+alias dotfiles='cd ~/dotfiles && ls -la'
+alias downloads='cd ~/Downloads && ls -la'
 alias i3conf='nvim ~/.config/i3/config'
 alias obs='flatpak run com.obsproject.Studio'
 alias savebashrc='source ~/.bashrc'
-alias school='cd ~/school && ls'
+alias school='cd ~/school && ls -la'
 alias shellexec='exec $SHELL'
 
 #starting TTY
-alias start='startx /usr/bin/i3'
+alias starti3='startx /usr/bin/i3'
 
 #copy and paste between TTYs (hassle as FUCK)
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
 #mouse sensitivity
-alias mouse='xinput set-prop $(xinput | grep -i "logitech" | awk -F"id=" "{print \$2}" | awk "{print \$1}") "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1'
+# alias mouse='xinput set-prop $(xinput | grep -i "logitech" | awk -F"id=" "{print \$2}" | awk "{print \$1}") "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1'
