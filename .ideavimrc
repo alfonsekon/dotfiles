@@ -32,3 +32,6 @@ vnoremap <S-k> :m '<-2<CR>gv=gv
 "commentary-like behavior"
 map gcc :action CommentByLineComment<CR>
 vmap gc :action CommentByLineComment<CR>
+
+"running/testing"
+map <Space>t :action Run<CR>

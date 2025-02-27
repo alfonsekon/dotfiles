@@ -140,6 +140,10 @@ alias obs='flatpak run com.obsproject.Studio'
 alias savebashrc='source ~/.bashrc'
 alias school='cd ~/school && ls -la'
 alias shellexec='exec $SHELL'
+alias ls='exa --icons'
+alias ll='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 #starting TTY
 alias starti3='startx /usr/bin/i3'

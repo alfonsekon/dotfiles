@@ -183,6 +183,8 @@ bindsym $mod+i exec blueman-manager
 bindsym $mod+p exec pavucontrol
 #open vscode
 bindsym $mod+c exec code
+#open android-studio
+bindsym $mod+x exec android-studio
 #open brave
 bindsym $mod+shift+b exec brave-browser
 
