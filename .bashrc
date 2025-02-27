@@ -128,35 +128,48 @@ eval "$(pyenv virtualenv-init -)"
 
 #oh-my-posh config
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
+eval "$(zoxide init bash)"
 
-#aliases
+#aliases for editing files
 alias bashrc='nvim ~/.bashrc'
-alias codinga='cd ~/coding/android-studio && ls -la' #for opening studio projects
-alias codingv='cd ~/coding/vscode && ls -la' #for opening vsc projects
+alias i3conf='nvim ~/.config/i3/config'
+alias savebashrc='source ~/.bashrc'
+alias shellexec='exec $SHELL'
+
+#cd shortcuts
+alias codinga='cd ~/coding/android-studio && ls -la'
+alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
-alias i3conf='nvim ~/.config/i3/config'
-alias obs='flatpak run com.obsproject.Studio'
-alias savebashrc='source ~/.bashrc'
 alias school='cd ~/school && ls -la'
-alias shellexec='exec $SHELL'
+
+#aliases for opening programs
+alias obs='flatpak run com.obsproject.Studio'
+alias starti3='startx /usr/bin/i3'
+alias vim='nvim'
+
+#shell shortcuts
 alias ls='exa --icons'
 alias ll='exa --icons -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias vim='nvim'
 alias j='z'
 alias ji='zi'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
 alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
 
-#starting TTY
-alias starti3='startx /usr/bin/i3'
+#git shortcuts
+alias ga='git add'
+alias gc='git commit -m'
+alias gpush='git push'
+alias gpull='git pull'
+alias gs='git status'
+alias gco='git checkout'
 
 #copy and paste between TTYs (hassle as FUCK)
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
-eval "$(zoxide init bash)"
+#***useless(???)***
 #mouse sensitivity
 # alias mouse='xinput set-prop $(xinput | grep -i "logitech" | awk -F"id=" "{print \$2}" | awk "{print \$1}") "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1'
