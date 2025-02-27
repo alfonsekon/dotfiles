@@ -52,6 +52,13 @@ local config = {
 		{ key = "8", mods = "CTRL", action = act.ActivateTab(7) },
 		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
+		{
+			key = "f",
+			mods = "CTRL",
+			action = wezterm.action.SpawnCommandInNewTab({
+				args = { "/home/luis/scripts/wezterm_sessionizer.sh" },
+			}),
+		},
 	},
 }
 
