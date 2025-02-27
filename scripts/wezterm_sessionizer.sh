@@ -4,7 +4,7 @@ stty echo
 
 CURRENT_PATH="$PWD"
 
-selected=$(find "$CURRENT_PATH" -mindepth 1 -maxdepth 1 | fzf)
+selected=$(find "$CURRENT_PATH" ~/ ~/coding ~/coding/android-studio ~/coding/vscode ~/school -mindepth 1 -maxdepth 1 | fzf)
 
 [ -z "$selected" ] && exit
 
