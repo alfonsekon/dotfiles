@@ -89,7 +89,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+shift+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -186,7 +186,7 @@ bindsym $mod+c exec code
 #open android-studio
 bindsym $mod+x exec android-studio
 #open brave
-bindsym $mod+shift+b exec brave-browser
+bindsym $mod+b exec brave-browser
 
 bindsym $mod+r mode "resize"
 
