@@ -1,8 +1,10 @@
 #!/bin/bash
 
+stty echo
+
 CURRENT_PATH="$PWD"
 
-selected=$(find "$CURRENT_PATH" -mindepth 1 -maxdepth 1 -type d | fzf)
+selected=$(find "$CURRENT_PATH" -mindepth 1 -maxdepth 1 | fzf)
 
 [ -z "$selected" ] && exit
 
@@ -13,5 +15,8 @@ if [[ "$selected" == *"android-studio/"* ]]; then
     android-studio "$selected" &
 else
     echo "Opening in vscode..."
+    # code -n --reuse-window "$selected" &
     code -n --reuse-window "$selected" &
 fi
+
+stty echo
