@@ -144,6 +144,8 @@ alias ls='exa --icons'
 alias ll='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias j='z'
+alias ji='zi'
 
 #starting TTY
 alias starti3='startx /usr/bin/i3'
@@ -152,5 +154,6 @@ alias starti3='startx /usr/bin/i3'
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
+eval "$(zoxide init bash)"
 #mouse sensitivity
 # alias mouse='xinput set-prop $(xinput | grep -i "logitech" | awk -F"id=" "{print \$2}" | awk "{print \$1}") "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1'
