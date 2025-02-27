@@ -55,9 +55,7 @@ local config = {
 		{
 			key = "f",
 			mods = "CTRL",
-			action = wezterm.action.SpawnCommandInNewTab({
-				args = { "/home/luis/scripts/wezterm_sessionizer.sh" },
-			}),
+			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer.sh\n"),
 		},
 	},
 }
