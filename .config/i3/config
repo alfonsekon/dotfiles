@@ -190,6 +190,8 @@ bindsym $mod+b exec brave-browser
 
 bindsym $mod+r mode "resize"
 
+focus_wrapping no
+
 #remove title bar
 for_window [class=".*"] border pixel 0
 
