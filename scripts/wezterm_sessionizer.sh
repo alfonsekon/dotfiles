@@ -12,7 +12,7 @@ selected=$(realpath "$selected")
 
 if [[ "$selected" == *"android-studio/"* ]]; then
     echo "Opening in android-studio..."
-    android-studio "$selected" &
+    android-studio "$selected" > /dev/null 2>&1 &
 else
     echo "Opening in vscode..."
     # code -n --reuse-window "$selected" &
