@@ -133,15 +133,16 @@ eval "$(zoxide init bash)"
 #aliases for editing files
 alias bashrc='nvim ~/.bashrc'
 alias i3conf='nvim ~/.config/i3/config'
+alias todolist='nvim ~/school/todolist'
 alias savebashrc='source ~/.bashrc'
 alias shellexec='exec $SHELL'
 
-#cd shortcuts
-alias codinga='cd ~/coding/android-studio && ls -la'
-alias codingv='cd ~/coding/vscode && ls -la'
-alias dotfiles='cd ~/dotfiles && ls -la'
-alias downloads='cd ~/Downloads && ls -la'
-alias school='cd ~/school/third-year/second-sem/ && ls -la'
+#cd shortcuts (will experiment with zoxide for now)
+alias codinga='z ~/coding/android-studio && ls -la'
+alias codingv='z ~/coding/vscode && ls -la'
+alias dotfiles='z ~/dotfiles && ls -la'
+alias downloads='z ~/Downloads && ls -la'
+alias school='z ~/school/third-year/second-sem/ && ls -la'
 
 #aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio'
@@ -149,6 +150,7 @@ alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 
 #shell shortcuts
+alias treenogit='tree -I ".git" -la'
 alias ls='exa --icons'
 alias ll='exa --icons -la'
 alias j='z'
@@ -170,6 +172,16 @@ alias gco='git checkout'
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
-#***useless(???)***
-#mouse sensitivity
-# alias mouse='xinput set-prop $(xinput | grep -i "logitech" | awk -F"id=" "{print \$2}" | awk "{print \$1}") "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1'
+#for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
+mb() {
+	if [ -z "$1" ]; then
+		xinput | grep "slave  pointer" | awk -F'id=' '{gsub(/^[ \t]+|[ \t]+$/, "", $1); print $1 "\tid=" $2}'
+		echo ""
+		echo "    Usage: mb <device-id>\n"
+		return 1
+	fi
+
+	setxkbmap -option caps:swapescape
+	xinput --set-prop "$1" "libinput Accel Speed" 0
+	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+}
