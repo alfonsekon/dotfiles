@@ -141,7 +141,7 @@ alias codinga='cd ~/coding/android-studio && ls -la'
 alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
-alias school='cd ~/school && ls -la'
+alias school='cd ~/school/third-year/second-sem/ && ls -la'
 
 #aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio'
