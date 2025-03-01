@@ -175,7 +175,7 @@ alias clipp='cat /tmp/tty_clipboard'
 #for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
 	if [ -z "$1" ]; then
-		xinput | grep "slave  pointer" | awk -F'id=' '{gsub(/^[ \t]+|[ \t]+$/, "", $1); print $1 "\tid=" $2}'
+		xinput | grep "slave  pointer" | awk '{print}'
 		echo ""
 		echo "    Usage: mb <device-id>\n"
 		return 1
