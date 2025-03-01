@@ -168,7 +168,7 @@ alias gpull='git pull'
 alias gs='git status'
 alias gco='git checkout'
 
-#copy and paste between TTYs (hassle as FUCK)
+#copy and paste between TTYs (very hassle)
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
