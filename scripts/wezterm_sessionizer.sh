@@ -1,22 +1,27 @@
 #!/bin/bash
 
-stty echo
+# CURRENT_PATH="$PWD"
 
-CURRENT_PATH="$PWD"
+selected=$(find ~/ ~/coding ~/coding/android-studio ~/coding/vscode ~/school -mindepth 1 -maxdepth 1 | fzf)
 
-selected=$(find "$CURRENT_PATH" ~/ ~/coding ~/coding/android-studio ~/coding/vscode ~/school -mindepth 1 -maxdepth 1 | fzf)
-
-[ -z "$selected" ] && exit
+if [[ -z "$selected" ]]; then
+	exit 0
+fi
 
 selected=$(realpath "$selected")
 
+#replace current tab with selection
+wezterm cli spawn --cwd "$selected"
+
+# code "$selected"
+
 if [[ "$selected" == *"android-studio/"* ]]; then
     echo "Opening in android-studio..."
-    android-studio "$selected" > /dev/null 2>&1 &
+    # android-studio "$selected" > /dev/null 2>&1 &
+    android-studio "$selected" 
 else
     echo "Opening in vscode..."
-    # code -n --reuse-window "$selected" &
-    code -n --reuse-window "$selected" &
+    code -n --reuse-window "$selected" 
 fi
 
-stty echo
+wezterm cli kill-pane
