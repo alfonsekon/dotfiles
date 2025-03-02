@@ -2,7 +2,7 @@
 
 # CURRENT_PATH="$PWD"
 
-selected=$(find ~/ ~/coding ~/coding/android-studio ~/coding/vscode ~/school -mindepth 1 -maxdepth 1 | fzf)
+selected=$(find ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
 
 if [[ -z "$selected" ]]; then
 	exit 0

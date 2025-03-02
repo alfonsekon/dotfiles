@@ -53,7 +53,7 @@ local config = {
 		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
 		{
-			key = "f",
+			key = "t",
 			mods = "CTRL",
 			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer.sh\n"),
 		},
