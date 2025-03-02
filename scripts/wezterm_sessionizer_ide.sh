@@ -10,10 +10,15 @@ fi
 
 selected=$(realpath "$selected")
 
-#replace current tab with selection
-wezterm cli spawn --cwd "$selected"
+#old (will still keep incase)
+# #replace current tab with selection
+# wezterm cli spawn --cwd "$selected"
+# sleep 1
+# wezterm cli set-tab-title "$(basename "$selected")"
 
-# code "$selected"
+#new (testing)
+wezterm cli set-tab-title "$(basename "$selected")"
+cd "$selected"
 
 if [[ "$selected" == *"android-studio/"* ]]; then
     echo "Opening in android-studio..."
@@ -26,4 +31,7 @@ else
     i3 workspace 3
 fi
 
-wezterm cli kill-pane
+clear
+
+#old
+# wezterm cli kill-pane
