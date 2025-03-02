@@ -55,7 +55,12 @@ local config = {
 		{
 			key = "t",
 			mods = "CTRL",
-			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer.sh\n"),
+			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer_ide.sh\n"),
+		},
+		{
+			key = "m",
+			mods = "CTRL",
+			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n"),
 		},
 	},
 }
