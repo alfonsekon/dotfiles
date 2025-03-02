@@ -172,6 +172,10 @@ alias gco='git checkout'
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
+#power options
+alias eepy='systemctl suspend'
+alias patay='systemctl poweroff'
+
 #for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
 	if [ -z "$1" ]; then
