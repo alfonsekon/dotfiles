@@ -159,6 +159,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
 alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
+alias wec='wezterm cli'
+alias rn='wezterm cli set-tab-title $(basename $(pwd))'
 
 #git shortcuts
 alias ga='git add'

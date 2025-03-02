@@ -7,6 +7,7 @@ if [[ -z "$selected" ]]; then
 fi
 
 selected=$(realpath "$selected")
+final_path=$(basename "$selected")
 
 wezterm cli spawn --cwd "$selected"
 

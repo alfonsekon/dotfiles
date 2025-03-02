@@ -62,6 +62,11 @@ local config = {
 			mods = "CTRL",
 			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n"),
 		},
+		{
+			key = "i",
+			mods = "CTRL",
+			action = wezterm.action.SendString("wezterm cli set-tab-title $(basename $(pwd))\nclear\n"),
+		},
 	},
 }
 
