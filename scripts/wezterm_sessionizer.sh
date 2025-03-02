@@ -19,9 +19,11 @@ if [[ "$selected" == *"android-studio/"* ]]; then
     echo "Opening in android-studio..."
     # android-studio "$selected" > /dev/null 2>&1 &
     android-studio "$selected" 
+    i3 workspace 3
 else
     echo "Opening in vscode..."
     code -n --reuse-window "$selected" 
+    i3 workspace 3
 fi
 
 wezterm cli kill-pane
