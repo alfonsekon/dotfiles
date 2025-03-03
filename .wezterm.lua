@@ -111,18 +111,4 @@ else
 	table.insert(config.launch_menu, { label = "bash", args = { "bash", "-l" } })
 end
 
--- Dynamic padding adjustment for Neovim
-wezterm.on("update-status", function(window, pane)
-	local is_nvim = pane:get_foreground_process_name():find("nvim")
-	local overrides = window:get_config_overrides() or {}
-
-	if is_nvim then
-		overrides.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
-	else
-		overrides.window_padding = nil -- Reset to default
-	end
-
-	window:set_config_overrides(overrides)
-end)
-
 return config
