@@ -193,7 +193,7 @@ bindsym $mod+r mode "resize"
 focus_wrapping no
 
 #remove title bar
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 2
 
 #bind toggle status bar sa baba
 bindsym $mod+Shift+m bar mode toggle
