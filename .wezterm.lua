@@ -15,7 +15,6 @@ end
 local config = {
 	audible_bell = "Disabled",
 	check_for_updates = false,
-	-- color_scheme = "Afterglow",
 	window_padding = {
 		left = 20,
 		right = 20,
@@ -27,7 +26,12 @@ local config = {
 		saturation = 1.0,
 		brightness = 1.0,
 	},
-	font = wezterm.font("FiraCode"),
+	-- font = wezterm.font("FiraCode"),
+	font = wezterm.font_with_fallback({
+		{ family = "FiraCode", weight = "Regular" },
+		{ family = "FiraCode", weight = "Bold" },
+	}),
+	bold_brightness_ansi_colors = true,
 	font_size = 22.0,
 	launch_menu = {},
 	-- leader = { key="a", mods="CTRL" },
@@ -35,7 +39,7 @@ local config = {
 	window_background_opacity = 0.95,
 	disable_default_key_bindings = false,
 	-- color_scheme = "rose-pine",
-	colors = theme.colors(),
+	colors = theme.colors(), -- rose-pine
 	enable_tab_bar = true,
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
