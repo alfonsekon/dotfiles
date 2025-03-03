@@ -5,7 +5,8 @@
 selected=$(find ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
 
 if [[ -z "$selected" ]]; then
-    exit 0
+    wezterm cli spawn
+    exit 1
 fi
 
 selected=$(realpath "$selected")
@@ -22,8 +23,8 @@ cd "$selected"
 
 if [[ "$selected" == *"android-studio/"* ]]; then
     echo "Opening in android-studio..."
-    # android-studio "$selected" > /dev/null 2>&1 &
-    android-studio "$selected" 
+    android-studio "$selected" > /dev/null 2>&1 
+    # android-studio "$selected" 
     i3 workspace 3
 else
     echo "Opening in vscode..."
