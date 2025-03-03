@@ -71,7 +71,7 @@ local config = {
 		{
 			key = "i",
 			mods = "CTRL",
-			action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\nclear\n"),
+			action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n"),
 		},
 		{
 			key = ".",

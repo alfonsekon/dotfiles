@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# CURRENT_PATH="$PWD"
+CURRENT_PATH="$PWD"
 
 selected=$(find ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
 
 if [[ -z "$selected" ]]; then
-    wezterm cli spawn
-    exit 1
+    wezterm cli spawn --cwd "$PWD"
+    exit 0
 fi
 
 selected=$(realpath "$selected")
