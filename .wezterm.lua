@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 
 local function file_exists(path)
 	local f = io.open(path, "r")
@@ -33,7 +34,8 @@ local config = {
 	window_decorations = "RESIZE",
 	window_background_opacity = 0.95,
 	disable_default_key_bindings = false,
-	color_scheme = "Dracula (Official)",
+	-- color_scheme = "rose-pine",
+	colors = theme.colors(),
 	enable_tab_bar = true,
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
