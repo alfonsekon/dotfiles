@@ -1,7 +1,7 @@
 # .dotfiles
 
 messiest and most vanilla dotfiles known to man, a forever work in progress.\
-Most of the aliases in the `.bashrc` are mostly because I am **lazy**. Do **not** be like me.\
+Most of the aliases in the `.bashrc` are mostly because I am **lazy**. Do **not** be like me.
 
 ## stuff
 - **OS** → `Pop!_OS 22.04 LTS`
