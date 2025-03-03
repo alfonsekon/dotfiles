@@ -61,17 +61,22 @@ local config = {
 		{
 			key = "t",
 			mods = "CTRL",
-			action = wezterm.action.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n"),
+			action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n"),
 		},
 		{
 			key = "m",
 			mods = "CTRL",
-			action = wezterm.action.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n"),
+			action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n"),
 		},
 		{
 			key = "i",
 			mods = "CTRL",
-			action = wezterm.action.SendString("wezterm cli set-tab-title $(basename $(pwd))\nclear\n"),
+			action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\nclear\n"),
+		},
+		{
+			key = ".",
+			mods = "CTRL",
+			action = act.ActivateCopyMode,
 		},
 	},
 }
