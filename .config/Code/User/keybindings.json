@@ -318,5 +318,10 @@
     "key": "enter",
     "command": "-acceptSelectedSuggestion",
     "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+r",
+    "command": "workbench.action.reloadWindow",
+    "when": "isDevelopment"
   }
 ]

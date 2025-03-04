@@ -81,7 +81,14 @@ local config = {
 			key = ";",
 			mods = "CTRL",
 			action = act.SpawnCommandInNewTab({
-				args = { "/home/luis/scripts/test.sh" },
+				args = { "/home/luis/dotfiles/scripts/test.sh" },
+			}),
+		},
+		{
+			key = "'",
+			mods = "CTRL",
+			action = act.SpawnCommandInNewTab({
+				args = { "/home/luis/dotfiles/scripts/wezterm_sessionizer_ide.sh" },
 			}),
 		},
 	},
