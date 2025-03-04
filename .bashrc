@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#exposing nvim to PATH
+#adding nvim to PATH
 export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH=$PATH:/home/luis/.local/bin
 
@@ -125,6 +125,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
+
+#adding nvm to PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #oh-my-posh config
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
@@ -191,3 +196,4 @@ mb() {
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
+

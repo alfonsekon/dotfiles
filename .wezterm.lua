@@ -31,7 +31,6 @@ local config = {
 		{ family = "FiraCode", weight = "Regular" },
 		{ family = "FiraCode", weight = "Bold" },
 	}),
-	bold_brightness_ansi_colors = true,
 	font_size = 22.0,
 	launch_menu = {},
 	-- leader = { key="a", mods="CTRL" },
@@ -77,6 +76,13 @@ local config = {
 			key = ".",
 			mods = "CTRL",
 			action = act.ActivateCopyMode,
+		},
+		{
+			key = ";",
+			mods = "CTRL",
+			action = act.SpawnCommandInNewTab({
+				args = { "/home/luis/scripts/test.sh" },
+			}),
 		},
 	},
 }
