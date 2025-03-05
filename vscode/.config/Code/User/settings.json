@@ -188,7 +188,7 @@
     "window.commandCenter": false,
     "window.density.editorTabHeight": "compact",
     "editor.cursorStyle": "line",
-    "editor.fontFamily": "'FiraCode', 'monospace'",
+    "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 1,
@@ -238,5 +238,6 @@
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "Rosé Pine"
+    "workbench.colorTheme": "Rosé Pine",
+    "diffEditor.ignoreTrimWhitespace": false
 }
