@@ -63,6 +63,11 @@ local config = {
 		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
 		{
+			key = "Backspace",
+			mods = "CTRL",
+			action = act.CopyMode("ClearPattern"),
+		},
+		{
 			key = "t",
 			mods = "CTRL",
 			action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n"),
