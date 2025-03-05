@@ -238,5 +238,6 @@
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "Rosé Pine"
+    "workbench.colorTheme": "Rosé Pine",
+    "diffEditor.ignoreTrimWhitespace": false
 }
