@@ -46,11 +46,11 @@ local config = {
 	animation_fps = 120,
 	max_fps = 120,
 	front_end = "WebGpu",
-	key_tables = {
-		copy_mode = {
-			{ key = "/", mods = "NONE", action = act.Search("CurrentSelectionOrEmptyString") },
-		},
-	},
+	-- key_tables = {
+	-- 	copy_mode = {
+	-- 		{ key = "/", mods = "NONE", action = act.Search("CurrentSelectionOrEmptyString") },
+	-- 	},
+	-- },
 	keys = {
 		{ key = "1", mods = "CTRL", action = act.ActivateTab(0) },
 		{ key = "2", mods = "CTRL", action = act.ActivateTab(1) },
