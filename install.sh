@@ -1,4 +1,5 @@
 #!/bin/bash
+#why am i doing this is the real question
 
 printf "Welcome to the installation!
 
@@ -100,3 +101,5 @@ while [[ "${SELECTION,,}" != "$TERMINATION_PHRASE" ]]; do
             ;;
     esac
 done
+
+#why am i doing this
