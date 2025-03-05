@@ -6,7 +6,9 @@ cause i got some custom keys going on and u never know when bad stuff can happen
 
 
 # Browser Keyboard Shortcuts
-**link to shortcuts** -> [`brave://settings/system/shortcuts`](brave://settings/system/shortcuts)
+These are only the *vanilla* brave shortcuts. Apart from this, I have [`vimium`](https://github.com/philc/vimium/blob/master/README.md) installed... btw\
+\
+**link to shortcuts** - [`brave://settings/system/shortcuts`](brave://settings/system/shortcuts)
 
 ## Navigation
 
@@ -69,7 +71,7 @@ cause i got some custom keys going on and u never know when bad stuff can happen
 - **Zoom In**: `Ctrl + =`, `Ctrl + NumAdd`, `Ctrl + Shift + =`
 - **Zoom Out**: `Ctrl + -`, `Ctrl + NumSubtract`, `Ctrl + Shift + -`
 - **Reset Zoom**: `Ctrl + 0`, `Ctrl + Num0`
-- **Copy URL**: `Ctrl + '`
+- **Copy URL**: `Ctrl + Alt + '`
 
 ## Developer Tools
 
