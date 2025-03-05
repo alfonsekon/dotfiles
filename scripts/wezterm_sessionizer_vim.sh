@@ -11,7 +11,8 @@ fi
 
 selected=$(realpath "$selected")
 
-wezterm cli spawn --cwd "$selected"
+number=$(wezterm cli spawn --cwd "$selected")
+wezterm cli set-tab-title --tab-id "$number" "$(basename "$selected")"
 
 sleep 0.1
 

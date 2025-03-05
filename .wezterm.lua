@@ -46,6 +46,11 @@ local config = {
 	animation_fps = 120,
 	max_fps = 120,
 	front_end = "WebGpu",
+	-- key_tables = {
+	-- 	copy_mode = {
+	-- 		{ key = "/", mods = "NONE", action = act.Search({ CaseInSensitiveString = "hash" }) },
+	-- 	},
+	-- },
 	keys = {
 		{ key = "1", mods = "CTRL", action = act.ActivateTab(0) },
 		{ key = "2", mods = "CTRL", action = act.ActivateTab(1) },
@@ -76,20 +81,6 @@ local config = {
 			key = ".",
 			mods = "CTRL",
 			action = act.ActivateCopyMode,
-		},
-		{
-			key = ";",
-			mods = "CTRL",
-			action = act.SpawnCommandInNewTab({
-				args = { "/home/luis/dotfiles/scripts/test.sh" },
-			}),
-		},
-		{
-			key = "'",
-			mods = "CTRL",
-			action = act.SpawnCommandInNewTab({
-				args = { "/home/luis/dotfiles/scripts/wezterm_sessionizer_ide.sh" },
-			}),
 		},
 	},
 }
