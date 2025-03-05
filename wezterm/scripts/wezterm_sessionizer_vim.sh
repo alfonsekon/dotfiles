@@ -11,9 +11,18 @@ fi
 
 selected=$(realpath "$selected")
 
-number=$(wezterm cli spawn --cwd "$selected")
-wezterm cli set-tab-title --tab-id "$number" "$(basename "$selected")"
+if [[ -d "$selected" ]]; then
+    tab_id=$(wezterm cli spawn --cwd "$selected")
+    wezterm cli set-tab-title --tab-id "$tab_id" "$(basename "$selected")"
 
-sleep 0.1
+    sleep 0.1
 
-nvim "$selected"
+    nvim "$selected"
+else
+    file_name=$(echo "$selected" | awk -F"/" '{print $NF}')
+    dir_name=$(dirname "$selected")
+
+    tab_id=$(wezterm cli spawn --cwd "$dir_name")
+    wezterm cli set-tab-title --pane-id "$tab_id" "$(basename "$dir_name")"
+    nvim "$selected"
+fi
