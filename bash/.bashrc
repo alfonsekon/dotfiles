@@ -143,16 +143,17 @@ alias savebashrc='source ~/.bashrc'
 alias shellexec='exec $SHELL'
 
 #cd shortcuts (will experiment with zoxide for now)
-alias codinga='z ~/coding/android-studio && ls -la'
-alias codingv='z ~/coding/vscode && ls -la'
-alias dotfiles='z ~/dotfiles && ls -la'
-alias downloads='z ~/Downloads && ls -la'
-alias school='z ~/school/third-year/second-sem/ && ls -la'
+alias codinga='cd ~/coding/android-studio && ls -la'
+alias codingv='cd ~/coding/vscode && ls -la'
+alias dotfiles='cd ~/dotfiles && ls -la'
+alias downloads='cd ~/Downloads && ls -la'
+alias school='cd ~/school/third-year/second-sem/ && ls -la'
 
 #aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
+alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 
 #shell shortcuts
 alias treenogit='tree -I ".git" -la'
