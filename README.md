@@ -25,7 +25,7 @@ Most of the aliases in the `.bashrc` are because I am **lazy**. Do **not** be li
 - [`fzf`](https://github.com/junegunn/fzf)
 - [`exa`](https://github.com/ogham/exa)
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide)
-- [`oh-my-posh`](https://ohmyposh.dev/)
+- [`oh-my-posh`](https://ohmyposh.dev/docs/installation/linux)
 - [`tmux`](https://github.com/tmux/tmux)
 - [`nvim`](https://neovim.io/) with [`kickstart.nvim`](https://github.com/nvim-lua/kickstart.nvim)
 <br></br>
