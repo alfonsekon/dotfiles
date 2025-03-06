@@ -31,12 +31,14 @@ while [[ "${SELECTION,,}" != "$TERMINATION_PHRASE" ]]; do
         "install_dependencies")
             printf "INSTALL DEPENDENCIES\n"
             printf "[1] Install system utilities (fzf, exa, zoxide, etc.)\n"
+			printf "[2] Install oh-my-posh\n"
             printf "[h] Back to home\n\n"
             printf ">>> "
             read SELECTION
 
             case "$SELECTION" in
                 "1") printf "Installing system utilities...\n"; sudo apt install fzf exa zoxide -y ;;
+				"2") printf "Installing oh-my-posh...\n"; curl -s https://ohmyposh.dev/install.sh | bash -s ;;
                 "h") CURRENT_WINDOW="home" ;;
                 *) printf "Invalid selection.\n" ;;
             esac
@@ -62,7 +64,7 @@ while [[ "${SELECTION,,}" != "$TERMINATION_PHRASE" ]]; do
 
         "install_configs")
             printf "INSTALL CONFIGS\n"
-            printf "[1] Install Bash config\n[2] Install i3 config\n[3] Install Neovim config\n[4] Install WezTerm config\n[5] Install Tmux config\n[6] Install Picom config\n[7] Install VS Code config\n"
+            printf "[1] Install Bash config\n[2] Install i3 config\n[3] Install Neovim config\n[4] Install WezTerm config\n[5] Install Tmux config\n[6] Install Picom config\n[7] Install VS Code config\n[8] Install oh-my-posh config\n"
             printf "[h] Back to home\n\n"
             printf ">>> "
             read SELECTION
@@ -75,6 +77,7 @@ while [[ "${SELECTION,,}" != "$TERMINATION_PHRASE" ]]; do
                 "5") printf "Installing Tmux config...\n"; stow -t ~ tmux ;;
                 "6") printf "Installing Picom config...\n"; stow -t ~ picom ;;
                 "7") printf "Installing VS Code config...\n"; stow -t ~ vscode ;;
+                "8") printf "Installing oh-my-posh config...\n"; stow -t ~ oh-my-posh ;;
                 "h") CURRENT_WINDOW="home" ;;
                 *) printf "Invalid selection.\n" ;;
             esac
