@@ -210,7 +210,7 @@
     //must be running on linux to use
     "find-it-faster.general.useTerminalInEditor": true,
     "find-it-faster.general.killTerminalAfterUse": true,
-    "find-it-faster.general.batTheme": "Coldark-Dark",
+    "find-it-faster.general.batTheme": "GitHub",
     "security.workspace.trust.untrustedFiles": "open",
     "find-it-faster.general.restoreFocusTerminal": true,
     "codeium.disableSupercomplete": true,
@@ -232,12 +232,10 @@
     "breadcrumbs.enabled": false,
     "find-it-faster.advanced.disableStartupChecks": true,
     "python.defaultInterpreterPath": "C:\\Users\\Luis\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\pygame-client-hPVMhoM5-py3.13",
-    // "find-it-faster.findWithinFiles.previewWindowConfig": "top,80%,border-bottom,+{2}+3/3,~3",
-    // "find-it-faster.findFiles.previewWindowConfig": "top,50%",
 
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "compact",
     "workbench.colorTheme": "Rosé Pine",
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
 }
