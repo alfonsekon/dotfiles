@@ -24,8 +24,8 @@ These are only the *vanilla* brave shortcuts. Apart from this, I have [`vimium`]
 
 - **New Tab**: `Ctrl + T`
 - **Close Tab**: `Ctrl + W`, `Ctrl + F4`
-- **Next Tab**: `Ctrl + Tab`, `Ctrl + PageDown`
-- **Previous Tab**: `Ctrl + Shift + Tab`, `Ctrl + PageUp`
+- **Next Tab**: `Ctrl + Tab`, `Ctrl + PageDown`, `Ctrl + Alt + N`
+- **Previous Tab**: `Ctrl + Shift + Tab`, `Ctrl + PageUp`, `Ctrl + Alt + P`
 - **Select Tab 1-9**: `Ctrl + [1-9]`, `Ctrl + Num[1-9]`, `Alt + [1-9]`, `Alt + Num[1-9]`
 - **Select Last Tab**: `Ctrl + 9`
 - **Reopen Closed Tab**: `Ctrl + Shift + T`
@@ -36,7 +36,7 @@ These are only the *vanilla* brave shortcuts. Apart from this, I have [`vimium`]
 - **Close Other Tabs**: *(No keybind assigned)*
 - **New Tab to the Right**: *(No keybind assigned)*
 - **Group Tab**: `Ctrl + Alt + H`
-- **Move Group to New Window**: `Ctrl + Alt + N`
+- **Move Group to New Window**: `Ctrl + Alt + O`
 - **Close Duplicate Tabs**: `Ctrl + Alt + U`
 - **Ungroup Current Tab Group**: `Ctrl + Alt + ;`
 - **Remove Tab from Current Group**: `Ctrl + Alt + K`
