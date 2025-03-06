@@ -83,6 +83,17 @@ local config = {
 			action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n"),
 		},
 		{
+			key = "p",
+			mods = "CTRL|ALT",
+			action = act.ActivateTabRelativeNoWrap(-1),
+		},
+		{
+			key = "n",
+			mods = "CTRL|ALT",
+			action = act.ActivateTabRelativeNoWrap(1),
+		},
+		-- testing
+		{
 			key = ".",
 			mods = "CTRL",
 			action = act.ActivateCopyMode,
