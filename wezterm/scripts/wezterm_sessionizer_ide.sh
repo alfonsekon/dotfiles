@@ -13,15 +13,12 @@ fi
 selected=$(realpath "$selected")
 
 if [[ "$selected" == *"android-studio/"* ]]; then
-    #won't add the check if it's a dir or not since ill prolly open full projects with android studio anyways
-    cd "$selected"
-    wezterm cli set-tab-title "$(basename "$selected")"
+    new_pane_id=$(wezterm cli spawn --cwd "$selected")
 
-    wezterm cli spawn --cwd "$selected"
-    echo "Opening in android-studio..."
-    android-studio "$selected" > /dev/null 2>&1 
+    wezterm cli set-tab-title --pane-id "$new_pane_id" "$(basename "$selected")"
 
-    i3 workspace 3
+    echo "Opening in Android Studio..."
+    android-studio "$selected" > /dev/null 2>&1 &
 else
     if [[ -d "$selected" ]]; then
         cd "$selected"
