@@ -218,7 +218,7 @@ for_window [class="Pavucontrol"] move to workspace 8, layout stacking
 for_window [class="blueman-manager"] move to workspace 8, layout stacking
 
 #swap escape and capslock
-exec --no-startup-id sleep 1 && setxkbmap -option caps:swapescape
+exec --no-startup-id && setxkbmap -option caps:swapescape
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
@@ -232,4 +232,3 @@ bindsym Shift+Scroll_Lock exec --no-startup-id maim --select | xclip -selection 
 
 #load wallpaper and set transparency
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png
-exec --no-startup-id picom --experimental-backends -b

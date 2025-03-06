@@ -208,11 +208,7 @@
         "*": true
     },
     //must be running on linux to use
-    "find-it-faster.general.useTerminalInEditor": true,
-    "find-it-faster.general.killTerminalAfterUse": true,
-    "find-it-faster.general.batTheme": "GitHub",
     "security.workspace.trust.untrustedFiles": "open",
-    "find-it-faster.general.restoreFocusTerminal": true,
     "codeium.disableSupercomplete": true,
     "screencastMode.fontSize": 20,
     "screencastMode.keyboardOptions": {
@@ -230,12 +226,41 @@
     "vim.neovimPath": "nvim",
     "vim.enableNeovim": true,
     "breadcrumbs.enabled": false,
-    "find-it-faster.advanced.disableStartupChecks": true,
     "python.defaultInterpreterPath": "C:\\Users\\Luis\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\pygame-client-hPVMhoM5-py3.13",
 
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "Rosé Pine",
     "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorTheme": "Kanagawa",
+
+
+    //custom theme to match terminal
+    // "workbench.colorCustomizations": {
+    //     "editor.foreground": "#786b53",
+    //     "editor.background": "#191919",
+    //     "editorCursor.foreground": "#fac814",
+    //     "editor.selectionBackground": "#786b53",
+    //     "editor.selectionForeground": "#fac800",
+
+    //     "terminal.ansiBlack": "#321300",
+    //     "terminal.ansiRed": "#b2270e",
+    //     "terminal.ansiGreen": "#44a900",
+    //     "terminal.ansiYellow": "#aa820c",
+    //     "terminal.ansiBlue": "#58859a",
+    //     "terminal.ansiMagenta": "#97363d",
+    //     "terminal.ansiCyan": "#b25a1e",
+    //     "terminal.ansiWhite": "#786b53",
+    //     "terminal.ansiBrightBlack": "#433626",
+    //     "terminal.ansiBrightRed": "#ed5d20",
+    //     "terminal.ansiBrightGreen": "#55f238",
+    //     "terminal.ansiBrightYellow": "#f2b732",
+    //     "terminal.ansiBrightBlue": "#85cfed",
+    //     "terminal.ansiBrightMagenta": "#e14c5a",
+    //     "terminal.ansiBrightCyan": "#f07d14",
+    //     "terminal.ansiBrightWhite": "#ffc800"
+    // }
+
+
+
 }

@@ -777,13 +777,13 @@ require("lazy").setup({
 	{ -- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is.
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"rose-pine/nvim",
-		name = "rose-pine",
+
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		name = "kanagawa",
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("rose-pine")
-			-- You can configure highlights by doing something like:
-			-- vim.cmd.hi 'Comment gui=none'
+			vim.cmd.colorscheme("kanagawa")
 		end,
 	},
 

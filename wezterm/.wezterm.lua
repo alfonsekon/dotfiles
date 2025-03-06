@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+local theme2 = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
 
 local function file_exists(path)
 	local f = io.open(path, "r")
@@ -37,8 +38,9 @@ local config = {
 	window_decorations = "RESIZE",
 	window_background_opacity = 0.95,
 	disable_default_key_bindings = false,
-	-- color_scheme = "rose-pine",
-	colors = theme.colors(), -- rose-pine
+	-- color_scheme = "Kanagawa (Gogh)",
+	-- colors = theme.colors(), -- rose-pine
+	colors = theme2,
 	enable_tab_bar = true,
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
