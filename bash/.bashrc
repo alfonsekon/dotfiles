@@ -183,12 +183,27 @@ alias clipp='cat /tmp/tty_clipboard'
 alias eepy='systemctl suspend'
 alias patay='systemctl poweroff'
 
+#brightness controls
+alias b0='sudo brightnessctl set 1%'
+alias b1='sudo brightnessctl set 10%'
+alias b2='sudo brightnessctl set 20%'
+alias b3='sudo brightnessctl set 30%'
+alias b4='sudo brightnessctl set 40%'
+alias b5='sudo brightnessctl set 50%'
+alias b6='sudo brightnessctl set 60%'
+alias b7='sudo brightnessctl set 70%'
+alias b8='sudo brightnessctl set 80%'
+alias b9='sudo brightnessctl set 90%'
+alias b10='sudo brightnessctl set 100%'
+alias bup='sudo brightnessctl set +50'
+alias bdown='sudo brightnessctl set 50-'
+
 #for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
 	if [ -z "$1" ]; then
 		xinput | grep "slave  pointer" | awk '{print}'
-		echo ""
-		echo "    Usage: mb <device-id>\n"
+		printf "\n"
+		printf "    Usage: mb <device-id>\n"
 		return 1
 	fi
 
