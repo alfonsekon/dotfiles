@@ -187,6 +187,7 @@ bindsym $mod+c exec code
 bindsym $mod+x exec android-studio
 #open brave
 bindsym $mod+b exec brave-browser
+bindsym $mod+Shift+b exec brave-browser --incognito
 
 bindsym $mod+r mode "resize"
 
