@@ -186,7 +186,6 @@
     "database-client.autoSync": true,
     "window.zoomLevel": 0.9,
     "window.commandCenter": false,
-    "window.density.editorTabHeight": "compact",
     "editor.cursorStyle": "line",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
@@ -194,7 +193,7 @@
     "editor.stickyScroll.maxLineCount": 1,
     "editor.lightbulb.enabled": "off",
     "editor.cursorSurroundingLines": 12,
-    "workbench.editor.wrapTabs": false,
+    "workbench.editor.wrapTabs": true,
     "workbench.activityBar.location": "hidden",
     "workbench.sideBar.location": "right",
     "workbench.layoutControl.enabled": false,
@@ -230,9 +229,13 @@
 
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
-    "window.menuBarVisibility": "compact",
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.colorTheme": "Kanagawa",
+    "workbench.iconTheme": null,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "window.density.editorTabHeight": "compact",
+    "window.menuBarVisibility": "compact",
 
 
     //custom theme to match terminal
