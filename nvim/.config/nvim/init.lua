@@ -3,7 +3,6 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -159,6 +158,13 @@ require("lazy").setup({
 	"tpope/vim-commentary",
 	"tpope/vim-surround",
 	"nyoom-engineering/oxocarbon.nvim",
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
 	{ "glacambre/firenvim", build = ":call firenvim#install(0)" },
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
