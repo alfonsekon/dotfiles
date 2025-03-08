@@ -2,7 +2,7 @@ return {
 	foreground = "#BFC7D5",
 	background = "#1F1F28",
 
-	cursor_bg = "#BFC7D5",
+	cursor_bg = "#DCD7BA",
 	cursor_fg = "#292D3E",
 	cursor_border = "#BFC7D5",
 
