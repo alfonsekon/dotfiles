@@ -142,7 +142,7 @@ alias todolist='nvim ~/school/todolist'
 alias savebashrc='source ~/.bashrc'
 alias shellexec='exec $SHELL'
 
-#cd shortcuts (will experiment with zoxide for now)
+#cd shortcuts
 alias codinga='cd ~/coding/android-studio && ls -la'
 alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
@@ -163,8 +163,8 @@ alias j='z'
 alias ji='zi'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
-alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
+# alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
+# alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
 alias wec='wezterm cli'
 alias rn='wezterm cli set-tab-title $(basename $(pwd))'
 
@@ -198,6 +198,9 @@ alias b9='sudo brightnessctl set 90%'
 alias b10='sudo brightnessctl set 100%'
 alias bup='sudo brightnessctl set +50'
 alias bdown='sudo brightnessctl set 50-'
+
+alias bg1='feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png'
+alias bg2='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
 
 #for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
