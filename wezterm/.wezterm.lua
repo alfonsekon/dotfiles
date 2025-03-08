@@ -1,7 +1,20 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+local session_manager = dofile("/home/luis/.config/wezterm/wezterm-session-manager/session-manager.lua")
+-- local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+-- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 local theme2 = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
+
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
 
 local function file_exists(path)
 	local f = io.open(path, "r")
@@ -14,6 +27,14 @@ local function file_exists(path)
 end
 
 local config = {
+	leader = {
+		key = "a",
+		mods = "CTRL",
+		timeout_milliseonds = 2000,
+	},
+	unix_domains = {
+		{ name = "unix" },
+	},
 	audible_bell = "Disabled",
 	check_for_updates = false,
 	window_padding = {
@@ -64,47 +85,52 @@ local config = {
 		{ key = "8", mods = "CTRL", action = act.ActivateTab(7) },
 		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
-		{
-			key = "Backspace",
-			mods = "CTRL",
-			action = act.CopyMode("ClearPattern"),
-		},
+
+		{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
+		{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
+		{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
+		{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
+		{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
+		{ key = "t", mods = "CTRL", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
+		{ key = "m", mods = "CTRL", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
 		{
 			key = "t",
-			mods = "CTRL",
-			action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n"),
+			mods = "CTRL|SHIFT",
+			action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\nclear\n"),
 		},
 		{
 			key = "m",
+			mods = "CTRL|SHIFT",
+			action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\nclear\n"),
+		},
+		{ key = "i", mods = "CTRL", action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n") },
+		{ key = "p", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(-1) },
+		{ key = "n", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(1) },
+		{ key = "b", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = ".", mods = "CTRL", action = act.ActivateCopyMode },
+		{ key = ",", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
+		{
+			key = "[",
 			mods = "CTRL",
-			action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n"),
+			action = act.PromptInputLine({
+				description = wezterm.format({
+					{ Attribute = { Intensity = "Bold" } },
+					{ Foreground = { AnsiColor = "Fuchsia" } },
+					{ Text = "Enter name for new workspace" },
+				}),
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:perform_action(
+							act.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
+			}),
 		},
-		{
-			key = "i",
-			mods = "CTRL",
-			action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n"),
-		},
-		{
-			key = "p",
-			mods = "CTRL|ALT",
-			action = act.ActivateTabRelativeNoWrap(-1),
-		},
-		{
-			key = "n",
-			mods = "CTRL|ALT",
-			action = act.ActivateTabRelativeNoWrap(1),
-		},
-		-- testing
-		{
-			key = ".",
-			mods = "CTRL",
-			action = act.ActivateCopyMode,
-		},
-		{
-			key = ",",
-			mods = "CTRL",
-			action = act.Search("CurrentSelectionOrEmptyString"),
-		},
+		-- testing plugins right now
 	},
 }
 
@@ -137,5 +163,7 @@ else
 	table.insert(config.launch_menu, { label = "fish", args = { fish_bin_path, "-l" } })
 	table.insert(config.launch_menu, { label = "bash", args = { "bash", "-l" } })
 end
+
+workspace_switcher.apply_to_config(config)
 
 return config
