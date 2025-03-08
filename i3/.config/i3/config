@@ -211,12 +211,12 @@ bar {
 
 #workspaces on startup
 for_window [class="brave-browser"] move to workspace 1
-for_window [class="wezterm"] move to workspace 2
-for_window [class="Code"] move to workspace 3, layout stacking
-for_window [class="jetbrains-studio"] move to workspace 3, layout stacking
-for_window [class="Wihotspot"] move to workspace 8, layout stacking
-for_window [class="Pavucontrol"] move to workspace 8, layout stacking
-for_window [class="blueman-manager"] move to workspace 8, layout stacking
+for_window [class="wezterm"] move to workspace 2, layout tabbed
+for_window [class="Code"] move to workspace 3, layout tabbed
+for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
+for_window [class="Wihotspot"] move to workspace 8, layout tabbed
+for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
+for_window [class="blueman-manager"] move to workspace 8, layout tabbed
 
 #swap escape and capslock
 exec --no-startup-id && setxkbmap -option caps:swapescape
