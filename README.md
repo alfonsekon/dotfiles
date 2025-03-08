@@ -1,7 +1,8 @@
 # .dotfiles
 
 messiest and most vanilla dotfiles known to man, a forever work in progress.\
-Most of the aliases in the `.bashrc` are because I am **lazy**. Do **not** be like me.
+Most of the aliases in the `.bashrc` are because I am **lazy**. Do **not** be like me.\
+I'm still finding my way around keybinds and stuff... idk if i should set up wezterm with a leader key or just use tmux
 
 ## stuff
 - **OS** → `Pop!_OS 22.04 LTS`
