@@ -86,11 +86,7 @@ local config = {
 		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
 
-		{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
-		{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
-		{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
-		{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
-		{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
+		-- scripts
 		{ key = "t", mods = "CTRL", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
 		{ key = "m", mods = "CTRL", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
 		{
@@ -104,11 +100,19 @@ local config = {
 			action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\nclear\n"),
 		},
 		{ key = "i", mods = "CTRL", action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n") },
+		-- tab navigation/creation
 		{ key = "p", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(-1) },
 		{ key = "n", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(1) },
 		{ key = "b", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
+		-- copy mode
 		{ key = ".", mods = "CTRL", action = act.ActivateCopyMode },
 		{ key = ",", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
+		{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
+		-- workspaces
+		{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
+		{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
+		{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
+		{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
 		{
 			key = "[",
 			mods = "CTRL",
