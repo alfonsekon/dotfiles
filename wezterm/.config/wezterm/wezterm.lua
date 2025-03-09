@@ -1,10 +1,8 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
+local keybinds = require("keybinds")
+local appearance = require("appearance")
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local session_manager = dofile("/home/luis/.config/wezterm/wezterm-session-manager/session-manager.lua")
--- local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
--- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
-local theme2 = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
 
 wezterm.on("save_session", function(window)
 	session_manager.save_state(window)
@@ -27,114 +25,30 @@ local function file_exists(path)
 end
 
 local config = {
-	leader = {
-		key = "a",
-		mods = "CTRL",
-		timeout_milliseonds = 2000,
-	},
+	keys = keybinds.binds,
+	key_tables = keybinds.key_tables,
+	leader = keybinds.leader,
+	disable_default_key_bindings = false,
 	unix_domains = {
 		{ name = "unix" },
 	},
 	audible_bell = "Disabled",
 	check_for_updates = false,
-	window_padding = {
-		left = 20,
-		right = 20,
-		top = 20,
-		bottom = 20,
-	},
-	inactive_pane_hsb = {
-		hue = 1.0,
-		saturation = 1.0,
-		brightness = 1.0,
-	},
-	-- font = wezterm.font("FiraCode"),
-	font = wezterm.font_with_fallback({
-		{ family = "FiraCode", weight = "Regular" },
-		{ family = "FiraCode", weight = "Bold" },
-	}),
-	font_size = 22.0,
-	launch_menu = {},
-	-- leader = { key="a", mods="CTRL" },
-	window_decorations = "RESIZE",
-	window_background_opacity = 0.95,
-	disable_default_key_bindings = false,
-	-- color_scheme = "Kanagawa (Gogh)",
-	-- colors = theme.colors(), -- rose-pine
-	colors = theme2,
-	enable_tab_bar = true,
-	tab_bar_at_bottom = true,
-	use_fancy_tab_bar = false,
-	set_environment_variables = {},
-	animation_fps = 120,
-	max_fps = 120,
+	window_padding = appearance.window_padding,
+	inactive_pane_hsb = appearance.inactive_pane_hsb,
+	font = appearance.font,
+	font_size = appearance.font_size,
+	colors = appearance.theme,
+	window_decorations = appearance.window_decorations,
+	window_background_opacity = appearance.window_background_opacity,
+	tab_bar_at_bottom = appearance.tab_bar_at_bottom,
+	use_fancy_tab_bar = appearance.use_fancy_tab_bar,
+	animation_fps = appearance.animation_fps,
+	max_fps = appearance.max_fps,
 	front_end = "WebGpu",
-	-- key_tables = {
-	-- 	copy_mode = {
-	-- 		{ key = "/", mods = "NONE", action = act.Search("CurrentSelectionOrEmptyString") },
-	-- 	},
-	-- },
-	keys = {
-		{ key = "1", mods = "CTRL", action = act.ActivateTab(0) },
-		{ key = "2", mods = "CTRL", action = act.ActivateTab(1) },
-		{ key = "3", mods = "CTRL", action = act.ActivateTab(2) },
-		{ key = "4", mods = "CTRL", action = act.ActivateTab(3) },
-		{ key = "5", mods = "CTRL", action = act.ActivateTab(4) },
-		{ key = "6", mods = "CTRL", action = act.ActivateTab(5) },
-		{ key = "7", mods = "CTRL", action = act.ActivateTab(6) },
-		{ key = "8", mods = "CTRL", action = act.ActivateTab(7) },
-		{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
-		{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
-
-		-- scripts
-		{ key = "t", mods = "CTRL", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
-		{ key = "m", mods = "CTRL", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
-		{
-			key = "t",
-			mods = "CTRL|SHIFT",
-			action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\nclear\n"),
-		},
-		{
-			key = "m",
-			mods = "CTRL|SHIFT",
-			action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\nclear\n"),
-		},
-		{ key = "i", mods = "CTRL", action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n") },
-		-- tab navigation/creation
-		{ key = "p", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(-1) },
-		{ key = "n", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(1) },
-		{ key = "b", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
-		-- copy mode
-		{ key = ".", mods = "CTRL", action = act.ActivateCopyMode },
-		{ key = ",", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-		{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
-		-- workspaces
-		{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
-		{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
-		{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
-		{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
-		{
-			key = "[",
-			mods = "CTRL",
-			action = act.PromptInputLine({
-				description = wezterm.format({
-					{ Attribute = { Intensity = "Bold" } },
-					{ Foreground = { AnsiColor = "Fuchsia" } },
-					{ Text = "Enter name for new workspace" },
-				}),
-				action = wezterm.action_callback(function(window, pane, line)
-					if line then
-						window:perform_action(
-							act.SwitchToWorkspace({
-								name = line,
-							}),
-							pane
-						)
-					end
-				end),
-			}),
-		},
-		-- testing plugins right now
+	launch_menu = {},
+	set_environment_variables = {
+		PATH = "/usr/local/bin:/usr/bin:/bin:/opt/nvim-linux-x86_64/bin:" .. os.getenv("PATH"),
 	},
 }
 
