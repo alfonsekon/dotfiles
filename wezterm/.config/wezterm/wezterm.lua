@@ -3,6 +3,9 @@ local keybinds = require("keybinds")
 local appearance = require("appearance")
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local session_manager = dofile("/home/luis/.config/wezterm/wezterm-session-manager/session-manager.lua")
+local colors = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
+
+appearance.setup_status()
 
 wezterm.on("save_session", function(window)
 	session_manager.save_state(window)

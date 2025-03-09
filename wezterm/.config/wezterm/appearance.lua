@@ -5,6 +5,25 @@ local theme2 = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
 
 local appearance = {}
 
+function appearance.setup_status()
+	wezterm.on("update-status", function(window)
+		local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+
+		local color_scheme = window:effective_config().resolved_palette
+		local bg = color_scheme.background
+		local fg = color_scheme.foreground
+
+		window:set_right_status(wezterm.format({
+			{ Background = { Color = "#181820" } },
+			{ Foreground = { Color = bg } },
+			{ Text = SOLID_LEFT_ARROW },
+			{ Background = { Color = bg } },
+			{ Foreground = { Color = fg } },
+			{ Text = " " .. window:active_workspace() .. " " },
+		}))
+	end)
+end
+
 appearance.theme = theme2
 appearance.window_decorations = "RESIZE"
 appearance.enable_tab_bar = true
@@ -29,9 +48,5 @@ appearance.inactive_pane_hsb = {
 	saturation = 1.0,
 	brightness = 1.0,
 }
-
-function setup_appearance()
-	return appearance
-end
 
 return appearance

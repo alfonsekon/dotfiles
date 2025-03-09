@@ -61,7 +61,7 @@ keys.binds = {
 	{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
 	-- workspaces
 	{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
-	{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
+	{ key = "'", mods = "CTRL", action = workspace_switcher.switch_workspace() },
 	{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
 	{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
 	{
