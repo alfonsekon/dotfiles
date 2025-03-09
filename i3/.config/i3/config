@@ -196,9 +196,6 @@ focus_wrapping no
 #remove title bar
 for_window [class=".*"] border pixel 2
 
-#bind toggle status bar sa baba
-bindsym $mod+Shift+m bar mode toggle
-
 #TTY binds cause ctrl+alt hurts my hands
 bindsym $mod+F2 exec sudo chvt 2
 bindsym $mod+F3 exec sudo chvt 3
