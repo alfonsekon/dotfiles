@@ -35,3 +35,19 @@ vmap gc :action CommentByLineComment<CR>
 
 "running/testing"
 map <Space>t :action Run<CR>
+
+"harpoon binds"
+
+nmap <Space>d <action>(HarpoonerToggleQuickMenu)
+nmap <Space>a <action>(HarpoonerAddFile)
+
+nmap <Space>0 <action>(HarpoonerOpenFile0)
+nmap <Space>1 <action>(HarpoonerOpenFile1)
+nmap <Space>2 <action>(HarpoonerOpenFile2)
+nmap <Space>3 <action>(HarpoonerOpenFile3)
+nmap <Space>4 <action>(HarpoonerOpenFile4)
+nmap <Space>5 <action>(HarpoonerOpenFile5)
+nmap <Space>6 <action>(HarpoonerOpenFile6)
+nmap <Space>7 <action>(HarpoonerOpenFile7)
+nmap <Space>8 <action>(HarpoonerOpenFile8)
+nmap <Space>9 <action>(HarpoonerOpenFile9)
