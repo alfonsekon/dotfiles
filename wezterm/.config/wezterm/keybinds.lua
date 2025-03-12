@@ -110,7 +110,7 @@ keys.binds = {
 	--STUFF WITH LEADER
 	{ key = "a", mods = "LEADER|CTRL", action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }) },
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "p", mods = "LEADER", action = act.ActivateTabRelativeNoWrap(-1) },
+	{ key = "b", mods = "LEADER", action = act.ActivateTabRelativeNoWrap(-1) },
 	{ key = "n", mods = "LEADER", action = act.ActivateTabRelativeNoWrap(1) },
 	{ key = "1", mods = "LEADER", action = act.ActivateTab(0) },
 	{ key = "2", mods = "LEADER", action = act.ActivateTab(1) },
