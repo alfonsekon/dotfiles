@@ -54,14 +54,21 @@ keys.binds = {
 		mods = "CTRL|SHIFT",
 		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\nclear\n"),
 	},
-	{ key = "i", mods = "CTRL", action = act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n") },
+	{
+		key = "i",
+		mods = "CTRL",
+		action = act.Multiple({
+			act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n"),
+			act.SendKey({ key = "l", mods = "CTRL" }),
+		}),
+	},
 	-- copy mode
 	{ key = ".", mods = "CTRL", action = act.ActivateCopyMode },
 	{ key = ",", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "Backspace", mods = "CTRL", action = act.CopyMode("ClearPattern") },
 	-- workspaces
 	{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
-	{ key = "'", mods = "CTRL", action = workspace_switcher.switch_workspace() },
+	{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
 	{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
 	{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
 	{
