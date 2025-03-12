@@ -230,3 +230,4 @@ bindsym Shift+Scroll_Lock exec --no-startup-id maim --select | xclip -selection 
 
 #load wallpaper and set transparency
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png
+exec --no-startup-id wezterm
