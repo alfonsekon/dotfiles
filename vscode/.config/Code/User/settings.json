@@ -12,75 +12,9 @@
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
     "python.analysis.diagnosticMode": "workspace",
-    "cmake.configureOnOpen": true,
-    "cmake.showOptionsMovedNotification": false,
-    "highlight.regexes": {
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#ffcc00",
-                    "backgroundColor": "#ffcc00",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#ffcc00",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#cc0000",
-                    "backgroundColor": "#cc0000",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#cc0000",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:REVIEW|OPTIMIZE|TSC)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#00ccff",
-                    "backgroundColor": "#00ccff",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#00ccff",
-                    "color": "#1f1f1f"
-                }
-            ]
-        },
-        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:IDEA)(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
-            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
-            "decorations": [
-                {
-                    "overviewRulerColor": "#cc00cc",
-                    "backgroundColor": "#cc00cc",
-                    "color": "#1f1f1f",
-                    "fontWeight": "bold"
-                },
-                {
-                    "backgroundColor": "#cc00cc",
-                    "color": "#1f1f1f"
-                }
-            ]
-        }
-    },
     "editor.codeActionsOnSave": {},
     "editor.minimap.enabled": false,
-    "workbench.settings.applyToAllProfiles": [
-
-    ],
+    "workbench.settings.applyToAllProfiles": [],
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
     ],
@@ -88,88 +22,57 @@
     "julia.enableTelemetry": true,
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     // "terminal.integrated.defaultProfile.windows": "Git Bash",
-    
     //stuff i (manually) put are here
     //extensions needed: Vim (not Neovim), Vim Theme (optional, just a theme), finditfaster
-
     "editor.lineNumbers": "relative",
     "vim.commandLineModeKeyBindings": [],
     "vim.useSystemClipboard": true,
     "vim.leader": "<Space>",
-    "vim.hlsearch": false, 
+    "vim.hlsearch": false,
     "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+        "vscodevim.vim": 1
     },
-
     "vim.normalModeKeyBindingsNonRecursive": [
-        // NAVIGATION
-        // switch b/w buffers
         { "before": ["<S-h>"], "commands": [":bprevious"] },
         { "before": ["<S-l>"], "commands": [":bnext"] },
-        // splits
         { "before": ["leader", "v"], "commands": [":vsplit"] },
         { "before": ["leader", "s", "s"], "commands": [":split"] },
-        // panes
-        {
-        "before": ["leader", "h"],
-        "commands": ["workbench.action.focusLeftGroup"]
-        },
-        {
-        "before": ["leader", "j"],
-        "commands": ["workbench.action.focusBelowGroup"]
-        },
-        {
-        "before": ["leader", "k"],
-        "commands": ["workbench.action.focusAboveGroup"]
-        },
-        {
-        "before": ["leader", "l"],
-        "commands": ["workbench.action.focusRightGroup"]
-        },
-        // NICE TO HAVE
         { "before": ["leader", "w"], "commands": [":w!"] },
-        { "before": ["leader", "q", "q"], "commands": [":q!"] }, //added another q since i keep fatfingering leader q and closing the window
+        { "before": ["leader", "q", "q"], "commands": [":q!"] },
         { "before": ["leader", "x"], "commands": [":x!"] },
-        {
-        "before": ["[", "d"],
-        "commands": ["editor.action.marker.prev"]
-        },
-        {
-        "before": ["]", "d"],
-        "commands": ["editor.action.marker.next"]
-        },
-        {
-        "before": ["<leader>", "c", "a"],
-        "commands": ["editor.action.quickFix"]
-        },
-        { "before": ["leader", "p"], "commands": ["workbench.action.findInFiles"] },
-        { "before": ["leader", "s", "h"], "commands": ["workbench.action.replaceInFiles"] },
+        { "before": ["<C-n>"], "commands": [":nohl"] },
+        { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
+        { "before": ["leader", "u"], "commands": ["editor.action.rename"] },
+        { "before": ["leader", "c", "a"], "commands": ["editor.action.quickFix"] },
+        { "before": ["leader", "h"], "commands": ["workbench.action.focusLeftGroup"] },
+        { "before": ["leader", "j"], "commands": ["workbench.action.focusBelowGroup"] },
+        { "before": ["leader", "k"], "commands": ["workbench.action.focusAboveGroup"] },
+        { "before": ["leader", "l"], "commands": ["workbench.action.focusRightGroup"] },
+        { "before": ["leader", "b"], "commands": ["workbench.action.files.openFolder"] },
+        { "before": ["leader", "5"], "commands": ["workbench.action.debug.start"] },
         { "before": ["leader", "e"], "commands": ["workbench.files.action.focusFilesExplorer"] },
+        { "before": ["leader", "\\"], "commands": ["workbench.action.closeWindow"] },
+        { "before": ["leader", "r", "r"], "commands": ["workbench.action.reloadWindow"] },
         { "before": ["leader", "s", "f"], "commands": ["find-it-faster.findFiles"] },
         { "before": ["leader", "r", "g"], "commands": ["find-it-faster.findWithinFiles"] },
-        { "before": ["leader", "b"], "commands": ["workbench.action.files.openFolder"] },
-        {
-        "before": ["g", "h"],
-        "commands": ["editor.action.showDefinitionPreviewHover"]
-        },
-        {
-        "before": ["<C-n>"],
-        "commands": [":nohl"]
-        },
-        {
-        "before": ["<leader>", "\\"],
-        "commands": ["workbench.action.closeWindow"]
-        },
+        { "before": ["leader", "a"], "commands": ["vscode-harpoon.addEditor"] },
+        { "before": ["leader", "d"], "commands": ["vscode-harpoon.editEditors"] },
+        { "before": ["leader", "p", "e"], "commands": ["vscode-harpoon.editorQuickPick"] },
+        { "before": ["leader", "1"], "commands": ["vscode-harpoon.gotoEditor1"] },
+        { "before": ["leader", "2"], "commands": ["vscode-harpoon.gotoEditor2"] },
+        { "before": ["leader", "3"], "commands": ["vscode-harpoon.gotoEditor3"] },
+        { "before": ["leader", "4"], "commands": ["vscode-harpoon.gotoEditor4"] },
+        { "before": ["leader", "5"], "commands": ["vscode-harpoon.gotoEditor5"] },
+        { "before": ["leader", "6"], "commands": ["vscode-harpoon.gotoEditor6"] },
+        { "before": ["leader", "7"], "commands": ["vscode-harpoon.gotoEditor7"] },
+        { "before": ["leader", "8"], "commands": ["vscode-harpoon.gotoEditor8"] },
+        { "before": ["leader", "9"], "commands": ["vscode-harpoon.gotoEditor9"] }
     ],
     "vim.visualModeKeyBindings": [
-        // Stay in visual mode while indenting
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
         { "before": [">"], "commands": ["editor.action.indentLines"] },
-        // Move selected lines while staying in visual mode
         { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
-        { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
-        // toggle comment selection
-        { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+        { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
     ],
     "vim.mouseSelectionGoesIntoVisualMode": false,
     "vim.neovimConfigPath": "~/.local/bin/nvim",
@@ -181,7 +84,6 @@
     //     "statusBar.foreground": "#ffffff",
     //     "statusBar.debuggingForeground": "#ffffff"
     // },
-
     "python.createEnvironment.trigger": "off",
     "database-client.autoSync": true,
     "window.zoomLevel": 0.9,
@@ -202,13 +104,8 @@
     "zenMode.centerLayout": false,
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.allowChords": false,
-    "codeium.enableCodeLens": false,
-    "codeium.enableConfig": {
-        "*": true
-    },
     //must be running on linux to use
     "security.workspace.trust.untrustedFiles": "open",
-    "codeium.disableSupercomplete": true,
     "screencastMode.fontSize": 20,
     "screencastMode.keyboardOptions": {
         "showCommands": false
@@ -225,8 +122,6 @@
     "vim.neovimPath": "nvim",
     "vim.enableNeovim": true,
     "breadcrumbs.enabled": false,
-    "python.defaultInterpreterPath": "C:\\Users\\Luis\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\pygame-client-hPVMhoM5-py3.13",
-
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -236,8 +131,8 @@
     "workbench.editor.tabSizingFixedMinWidth": 38,
     "window.density.editorTabHeight": "compact",
     "window.menuBarVisibility": "compact",
-
-
+    "workbench.startupEditor": "none",
+    "zenMode.silentNotifications": false,
     //custom theme to match terminal
     // "workbench.colorCustomizations": {
     //     "editor.foreground": "#786b53",
@@ -245,7 +140,6 @@
     //     "editorCursor.foreground": "#fac814",
     //     "editor.selectionBackground": "#786b53",
     //     "editor.selectionForeground": "#fac800",
-
     //     "terminal.ansiBlack": "#321300",
     //     "terminal.ansiRed": "#b2270e",
     //     "terminal.ansiGreen": "#44a900",
@@ -263,7 +157,4 @@
     //     "terminal.ansiBrightCyan": "#f07d14",
     //     "terminal.ansiBrightWhite": "#ffc800"
     // }
-
-
-
 }
