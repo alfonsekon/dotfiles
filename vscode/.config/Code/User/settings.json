@@ -42,7 +42,7 @@
         { "before": ["leader", "x"], "commands": [":x!"] },
         { "before": ["<C-n>"], "commands": [":nohl"] },
         { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
-        { "before": ["leader", "u"], "commands": ["editor.action.rename"] },
+        { "before": ["leader", "r", "n"], "commands": ["editor.action.rename"] },
         { "before": ["leader", "c", "a"], "commands": ["editor.action.quickFix"] },
         { "before": ["leader", "h"], "commands": ["workbench.action.focusLeftGroup"] },
         { "before": ["leader", "j"], "commands": ["workbench.action.focusBelowGroup"] },
