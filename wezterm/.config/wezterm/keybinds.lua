@@ -47,12 +47,12 @@ keys.binds = {
 	{
 		key = "t",
 		mods = "CTRL|SHIFT",
-		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\nclear\n"),
+		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\n"),
 	},
 	{
 		key = "m",
 		mods = "CTRL|SHIFT",
-		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\nclear\n"),
+		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\n"),
 	},
 	{
 		key = "i",
