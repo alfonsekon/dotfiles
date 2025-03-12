@@ -12,15 +12,15 @@ keys.disable_default_key_bindings = false
 keys.leader = {
 	key = "a",
 	mods = "CTRL",
-	timeout_milliseonds = 2000,
+	timeout_milliseconds = 2000,
 }
 
 keys.binds = {
-	-- shortcuts
+	-- shortcuts (NO LEADER KEY BINDS)
 	{
 		key = "w",
 		mods = "SUPER",
-		action = wezterm.action.SpawnCommandInNewTab({
+		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.config_file,
 			args = { "nvim", wezterm.config_file },
 		}),
@@ -28,7 +28,7 @@ keys.binds = {
 	{
 		key = "b",
 		mods = "SUPER",
-		action = wezterm.action.SpawnCommandInNewTab({
+		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/.bashrc",
 			args = { "nvim", wezterm.home_dir .. "/.bashrc" },
 		}),
@@ -36,7 +36,7 @@ keys.binds = {
 	{
 		key = "i",
 		mods = "SUPER",
-		action = wezterm.action.SpawnCommandInNewTab({
+		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/.config/i3/config",
 			args = { "nvim", wezterm.home_dir .. "/.config/i3/config" },
 		}),
@@ -69,8 +69,8 @@ keys.binds = {
 	-- workspaces
 	{ key = ";", mods = "CTRL", action = workspace_switcher.switch_to_prev_workspace() },
 	{ key = ":", mods = "CTRL|SHIFT", action = workspace_switcher.switch_workspace() },
-	{ key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
-	{ key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
+	-- { key = "e", mods = "CTRL|SHIFT", action = act({ EmitEvent = "save_session" }) },
+	-- { key = "r", mods = "CTRL|SHIFT", action = act({ EmitEvent = "restore_session" }) },
 	{
 		key = "[",
 		mods = "CTRL",
@@ -106,6 +106,66 @@ keys.binds = {
 	{ key = "8", mods = "CTRL", action = act.ActivateTab(7) },
 	{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 	{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
+
+	--STUFF WITH LEADER
+	{ key = "a", mods = "LEADER|CTRL", action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }) },
+	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "p", mods = "LEADER", action = act.ActivateTabRelativeNoWrap(-1) },
+	{ key = "n", mods = "LEADER", action = act.ActivateTabRelativeNoWrap(1) },
+	{ key = "1", mods = "LEADER", action = act.ActivateTab(0) },
+	{ key = "2", mods = "LEADER", action = act.ActivateTab(1) },
+	{ key = "3", mods = "LEADER", action = act.ActivateTab(2) },
+	{ key = "4", mods = "LEADER", action = act.ActivateTab(3) },
+	{ key = "5", mods = "LEADER", action = act.ActivateTab(4) },
+	{ key = "6", mods = "LEADER", action = act.ActivateTab(5) },
+	{ key = "7", mods = "LEADER", action = act.ActivateTab(6) },
+	{ key = "8", mods = "LEADER", action = act.ActivateTab(7) },
+	{ key = "9", mods = "LEADER", action = act.ActivateTab(8) },
+	{ key = "0", mods = "LEADER", action = act.ActivateTab(9) },
+	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
+	-- scripts
+	{ key = "t", mods = "LEADER", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
+	{ key = "m", mods = "LEADER", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
+	{
+		key = "t",
+		mods = "LEADER|CTRL",
+		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\n"),
+	},
+	{
+		key = "m",
+		mods = "LEADER|CTRL",
+		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\n"),
+	},
+	-- copy mode
+	{ key = ".", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = ",", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },
+	{ key = "Backspace", mods = "LEADER", action = act.CopyMode("ClearPattern") },
+	-- workspaces
+	{ key = "w", mods = "LEADER", action = workspace_switcher.switch_to_prev_workspace() },
+	{ key = "w", mods = "LEADER|CTRL", action = workspace_switcher.switch_workspace() },
+	-- { key = "e", mods = "LEADER|CTRL", action = act({ EmitEvent = "save_session" }) },
+	-- { key = "r", mods = "LEADER|CTRL", action = act({ EmitEvent = "restore_session" }) },
+	{
+		key = "[",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 	-- testing plugins right now
 }
 
