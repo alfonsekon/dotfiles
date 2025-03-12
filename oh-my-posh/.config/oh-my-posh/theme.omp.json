@@ -24,10 +24,12 @@
         {
           "foreground": "#D0666F",
           "properties": {
+			"fetch_status": true,
+			"fetch_upstream_icon": true,
             "branch_icon": ""
           },
           "style": "plain",
-          "template": "<b><#C8C093>git:(</><#D0868F>{{ .HEAD }}</><#C8C093>)</></b>",
+          "template": "<b><#C8C093>git:(</><#D0868F>{{ .HEAD }}</><#C8C093>)</>{{ if .Working.Changed }} <#BF616A>\u2718</>{{ end }}</b>",
           "type": "git"
         },
         {
