@@ -20,9 +20,22 @@ function appearance.setup_status()
 			{ Background = { Color = bg } },
 			{ Foreground = { Color = fg } },
 			{ Text = " " .. window:active_workspace() .. " " },
+			{ Background = { Color = "#181820" } },
+			{ Foreground = { Color = "#C8C093" } },
+			{ Text = SOLID_LEFT_ARROW },
+			{ Background = { Color = "#C8C093" } },
+			{ Foreground = { Color = "#292D3E" } },
+			{ Text = " " .. wezterm.strftime("%a %b %-d %H:%M") .. " " },
 		}))
 	end)
 end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local index = tab.tab_index + 1
+	local pane = tab.active_pane
+	local title = pane.title
+	return " " .. index .. ":" .. title .. " "
+end)
 
 appearance.theme = theme2
 appearance.window_decorations = "RESIZE"
