@@ -37,6 +37,33 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return " " .. index .. ":" .. title .. " "
 end)
 
+wezterm.on("update-right-status", function(window, _)
+	local color_scheme = window:effective_config().resolved_palette
+	local inactive_tab_bg = "#181820"
+	local new_tab_bg = "#C8C093"
+	local bg = color_scheme.background
+	local fg = color_scheme.foreground
+	local SOLID_LEFT_ARROW = ""
+	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
+	local prefix = ""
+
+	if window:leader_is_active() then
+		prefix = " " .. utf8.char(0x1F3a3)
+		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+	end
+
+	if window:active_tab():tab_id() ~= 0 then
+		ARROW_FOREGROUND = { Foreground = { Color = inactive_tab_bg } }
+	end
+
+	window:set_left_status(wezterm.format({
+		{ Background = { Color = inactive_tab_bg } },
+		{ Text = prefix },
+		ARROW_FOREGROUND,
+		{ Text = SOLID_LEFT_ARROW },
+	}))
+end)
+
 appearance.theme = theme2
 appearance.window_decorations = "RESIZE"
 appearance.enable_tab_bar = true
