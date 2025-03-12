@@ -18,8 +18,8 @@ map <S-h> :action PreviousTab<CR>
 
 "file tree and searching for files"
 "map <Space><Space> :action SearchEverywhere<CR>
-map <Space>sf :action SearchEverywhere<CR>
-map <Space>f :action FindInPath<CR>
+"map <Space>sf :action SearchEverywhere<CR>
+"map <Space>f :action FindInPath<CR>
 map <Space>p :action GotoFile<CR>
 map <Space>r :action GotoText<CR>
 map <Space>e :action ActivateProjectToolWindow<CR>
@@ -37,10 +37,8 @@ vmap gc :action CommentByLineComment<CR>
 map <Space>t :action Run<CR>
 
 "harpoon binds"
-
 nmap <Space>d <action>(HarpoonerToggleQuickMenu)
 nmap <Space>a <action>(HarpoonerAddFile)
-
 nmap <Space>0 <action>(HarpoonerOpenFile0)
 nmap <Space>1 <action>(HarpoonerOpenFile1)
 nmap <Space>2 <action>(HarpoonerOpenFile2)
@@ -51,3 +49,9 @@ nmap <Space>6 <action>(HarpoonerOpenFile6)
 nmap <Space>7 <action>(HarpoonerOpenFile7)
 nmap <Space>8 <action>(HarpoonerOpenFile8)
 nmap <Space>9 <action>(HarpoonerOpenFile9)
+
+"fuzzier plugin"
+"map <Space>sf <action>(com.mituuz.fuzzier.Fuzzier)
+"map <Space>rg <action>(com.mituuz.fuzzier.FuzzyGrep)
+"map <Space>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+"map <Space>mf <action>(com.mituuz.fuzzier.FuzzyMover)
