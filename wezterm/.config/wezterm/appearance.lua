@@ -44,11 +44,11 @@ wezterm.on("update-right-status", function(window, _)
 	local bg = color_scheme.background
 	local fg = color_scheme.foreground
 	local SOLID_LEFT_ARROW = ""
-	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
+	local ARROW_FOREGROUND = { Foreground = { Color = inactive_tab_bg } }
 	local prefix = ""
 
 	if window:leader_is_active() then
-		prefix = " " .. utf8.char(0x1F3a3)
+		prefix = " " .. utf8.char(0x1F3a3) -- fish
 		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 	end
 
@@ -71,8 +71,8 @@ appearance.tab_bar_at_bottom = true
 appearance.use_fancy_tab_bar = false
 appearance.window_background_opacity = 0.95
 appearance.font_size = 20.0
-appearance.animation_fps = 120
-appearance.max_fps = 120
+appearance.animation_fps = 165
+appearance.max_fps = 165
 appearance.font = wezterm.font_with_fallback({
 	{ family = "FiraCode", weight = "Regular" },
 	{ family = "FiraCode", weight = "Bold" },

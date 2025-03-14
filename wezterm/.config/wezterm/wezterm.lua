@@ -28,9 +28,9 @@ local function file_exists(path)
 end
 
 local config = {
+	leader = keybinds.leader,
 	keys = keybinds.binds,
 	key_tables = keybinds.key_tables,
-	leader = keybinds.leader,
 	disable_default_key_bindings = false,
 	unix_domains = {
 		{ name = "unix" },
