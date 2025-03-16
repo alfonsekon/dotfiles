@@ -79,7 +79,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- moving a line up/down in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<C-/>', 'gcc', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = true, silent = true })
 
 vim.opt.background = "dark" -- set this to dark or light
 vim.cmd("autocmd InsertEnter * setlocal guicursor=n-v-c:block") -- Block cursor in Insert Mode
@@ -927,3 +928,22 @@ require("lazy").setup({
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = function(event)
+		local title = "vim"
+		if event.file ~= "" then
+			title = string.format("%s", vim.fs.basename(event.file))
+		end
+
+		vim.fn.system({ "wezterm", "cli", "set-tab-title", title })
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
+	callback = function()
+		-- Setting title to empty string causes wezterm to revert to its
+		-- default behavior of setting the tab title automatically
+		vim.fn.system({ "wezterm", "cli", "set-tab-title", "" })
+	end,
+})
