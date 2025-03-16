@@ -215,4 +215,3 @@ mb() {
 #oh-my-posh config
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
 eval "$(zoxide init bash)"
-
