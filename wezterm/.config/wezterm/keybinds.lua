@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+local workspace_switcher = dofile("/home/luis/dotfiles/wezterm/.config/wezterm/workspace_switcher.lua")
 local keys = {}
 
 keys.disable_default_key_bindings = false
@@ -59,7 +59,7 @@ keys.binds = {
 		mods = "CTRL",
 		action = act.Multiple({
 			act.SendString("wezterm cli set-tab-title $(basename $(pwd))\n"),
-			act.SendKey({ key = "l", mods = "CTRL" }),
+			-- act.SendKey({ key = "l", mods = "CTRL" }),
 		}),
 	},
 	-- copy mode
@@ -106,7 +106,7 @@ keys.binds = {
 	{ key = "8", mods = "CTRL", action = act.ActivateTab(7) },
 	{ key = "9", mods = "CTRL", action = act.ActivateTab(8) },
 	{ key = "0", mods = "CTRL", action = act.ActivateTab(9) },
-
+	------------------------------------------------------------------------------------------------
 	--STUFF WITH LEADER
 	{ key = "a", mods = "LEADER|CTRL", action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }) },
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
@@ -141,10 +141,20 @@ keys.binds = {
 	{ key = ",", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "Backspace", mods = "LEADER", action = act.CopyMode("ClearPattern") },
 	-- workspaces
+	{
+		key = "r",
+		mods = "LEADER",
+		action = wezterm.action.PromptInputLine({
+			description = "Enter new name for tab",
+			action = wezterm.action_callback(function(window, _, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 	{ key = "w", mods = "LEADER", action = workspace_switcher.switch_to_prev_workspace() },
 	{ key = "w", mods = "LEADER|CTRL", action = workspace_switcher.switch_workspace() },
-	-- { key = "e", mods = "LEADER|CTRL", action = act({ EmitEvent = "save_session" }) },
-	-- { key = "r", mods = "LEADER|CTRL", action = act({ EmitEvent = "restore_session" }) },
 	{
 		key = "[",
 		mods = "LEADER",
@@ -166,6 +176,7 @@ keys.binds = {
 			end),
 		}),
 	},
+	{ key = "p", mods = "LEADER", action = act.PasteFrom("Clipboard") },
 	-- testing plugins right now
 }
 
