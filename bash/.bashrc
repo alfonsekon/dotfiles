@@ -150,7 +150,6 @@ alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
-alias changecaps="xcape -e 'Control_L=Caps_Lock'"
 
 #shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -209,7 +208,6 @@ mb() {
 	fi
 
 	setxkbmap -option caps:swapescape
-	xcape -e 'Control_L=Caps_Lock'
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
@@ -218,4 +216,3 @@ mb() {
 eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
 eval "$(zoxide init bash)"
 
-xcape -e 'Control_L=Caps_Lock'
