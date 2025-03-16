@@ -32,8 +32,12 @@ end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local index = tab.tab_index + 1
-	local pane = tab.active_pane
-	local title = pane.title
+	local title = tab.tab_title
+
+	if title == nil or title == "" then
+		title = tab.active_pane.title
+	end
+
 	return " " .. index .. ":" .. title .. " "
 end)
 
@@ -78,10 +82,10 @@ appearance.font = wezterm.font_with_fallback({
 	{ family = "FiraCode", weight = "Bold" },
 })
 appearance.window_padding = {
-	left = 20,
-	right = 20,
-	top = 20,
-	bottom = 20,
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 8,
 }
 appearance.inactive_pane_hsb = {
 	hue = 1.0,
