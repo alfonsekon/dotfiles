@@ -50,13 +50,13 @@
         { "before": ["leader", "l"], "commands": ["workbench.action.focusRightGroup"] },
         { "before": ["leader", "b"], "commands": ["workbench.action.files.openFolder"] },
         { "before": ["leader", "="], "commands": ["workbench.action.debug.start"] },
-        { "before": ["leader", "e"], "commands": ["workbench.files.action.focusFilesExplorer"] },
+        { "before": ["leader", "p", "v"], "commands": ["workbench.files.action.focusFilesExplorer"] },
         { "before": ["leader", "\\"], "commands": ["workbench.action.closeWindow"] },
         { "before": ["leader", "r", "r"], "commands": ["workbench.action.reloadWindow"] },
         { "before": ["leader", "s", "f"], "commands": ["find-it-faster.findFiles"] },
         { "before": ["leader", "r", "g"], "commands": ["find-it-faster.findWithinFiles"] },
         { "before": ["leader", "a"], "commands": ["vscode-harpoon.addEditor"] },
-        { "before": ["leader", "d"], "commands": ["vscode-harpoon.editEditors"] },
+        { "before": ["leader", "e"], "commands": ["vscode-harpoon.editEditors"] },
         { "before": ["leader", "g"], "commands": ["vscode-harpoon.gotoPreviousHarpoonEditor"] },
         { "before": ["leader", "p", "e"], "commands": ["vscode-harpoon.editorQuickPick"] },
         { "before": ["leader", "1"], "commands": ["vscode-harpoon.gotoEditor1"] },
@@ -67,7 +67,8 @@
         { "before": ["leader", "6"], "commands": ["vscode-harpoon.gotoEditor6"] },
         { "before": ["leader", "7"], "commands": ["vscode-harpoon.gotoEditor7"] },
         { "before": ["leader", "8"], "commands": ["vscode-harpoon.gotoEditor8"] },
-        { "before": ["leader", "9"], "commands": ["vscode-harpoon.gotoEditor9"] }
+        { "before": ["leader", "9"], "commands": ["vscode-harpoon.gotoEditor9"] },
+        { "before": ["leader", "v", "m"], "commands": ["markdown.showPreviewToSide"] }
     ],
     "vim.visualModeKeyBindings": [
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
@@ -90,7 +91,7 @@
     "window.zoomLevel": 0.9,
     "window.commandCenter": false,
     "editor.cursorStyle": "line",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 1,
@@ -103,7 +104,7 @@
     "zenMode.hideStatusBar": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
-    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontFamily": "JetBrains Mono",
     "terminal.integrated.allowChords": false,
     //must be running on linux to use
     "security.workspace.trust.untrustedFiles": "open",
@@ -117,9 +118,6 @@
     "vim.cursorStylePerMode.visual": "block",
     "vim.cursorStylePerMode.replace": "block",
     "vim.cursorStylePerMode.normal": "block",
-    //when in wsl
-    // "vim.neovimPath": "/usr/bin/nvim", 
-    //when in windows
     "vim.neovimPath": "nvim",
     "vim.enableNeovim": true,
     "breadcrumbs.enabled": false,

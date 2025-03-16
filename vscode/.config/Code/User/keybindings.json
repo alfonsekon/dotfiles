@@ -190,7 +190,7 @@
   },
   //================leader key workaround in welcome screen or when no file is open============//
   {
-    "key": "space e",
+    "key": "space p v",
     "command": "workbench.files.action.focusFilesExplorer",
     "when": "!editorFocus && !inputFocus"
   },
@@ -199,11 +199,11 @@
     "command": "workbench.action.findInFiles",
     "when": "!editorFocus && !inputFocus"
   },
-  {
-    "key": "space p",
-    "command": "workbench.action.quickOpen",
-    "when": "!editorFocus && !inputFocus"
-  },
+  // {
+  //   "key": "space p",
+  //   "command": "workbench.action.quickOpen",
+  //   "when": "!editorFocus && !inputFocus"
+  // },
   {
     "key": "shift+h",
     "command": "workbench.action.quickOpen",
@@ -212,6 +212,26 @@
   {
     "key": "space b",
     "command": "workbench.action.files.openFolder",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space l",
+    "command": "workbench.action.focusRightGroup",
     "when": "!editorFocus && !inputFocus"
   },
   {
