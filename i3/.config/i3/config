@@ -44,8 +44,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Shift+Return exec wezterm
+# start a wezterm
+bindsym $mod+Shift+Return exec wezterm --config-file /home/luis/dotfiles/wezterm/.config/wezterm/wezterm.lua &
+# start wezterm without config 
+bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua &
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -188,6 +190,9 @@ bindsym $mod+x exec android-studio
 #open brave
 bindsym $mod+b exec brave-browser
 bindsym $mod+Shift+b exec brave-browser --incognito
+#screenkey
+bindsym $mod+o exec screenkey &
+bindsym $mod+shift+o exec pkill screenkey
 
 bindsym $mod+r mode "resize"
 
@@ -217,7 +222,7 @@ for_window [class="blueman-manager"] move to workspace 8, layout tabbed
 
 #swap escape and capslock
 exec --no-startup-id setxkbmap -option caps:swapescape
-exec --no-startup-id xcape -e 'Control_L=Caps_Lock;Control_R=Caps_Lock'
+exec --no-startup-id xcape -e 'Control_L=Caps_Lock;'
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
@@ -229,6 +234,6 @@ bindsym Scroll_Lock exec --no-startup-id maim | xclip -selection clipboard -t im
 bindsym Shift+Scroll_Lock exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
-#load wallpaper and set transparency
+#stuff to load on i3 start
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png
-exec --no-startup-id wezterm
+exec --no-startup-id wezterm --config-file /home/luis/dotfiles/wezterm/.config/wezterm/wezterm.lua &
