@@ -20,7 +20,7 @@ function appearance.setup_status()
 			{ Background = { Color = bg } },
 			{ Foreground = { Color = fg } },
 			{ Text = " " .. window:active_workspace() .. " " },
-			{ Background = { Color = "#181820" } },
+			{ Background = { Color = bg } },
 			{ Foreground = { Color = "#C8C093" } },
 			{ Text = SOLID_LEFT_ARROW },
 			{ Background = { Color = "#C8C093" } },
@@ -78,8 +78,11 @@ appearance.font_size = 20.0
 appearance.animation_fps = 165
 appearance.max_fps = 165
 appearance.font = wezterm.font_with_fallback({
-	{ family = "FiraCode", weight = "Regular" },
-	{ family = "FiraCode", weight = "Bold" },
+	{ family = "JetBrains Mono", weight = "Regular" },
+	{ family = "JetBrains Mono", weight = "Bold" },
+	-- { family = "FiraCode", weight = "Regular" },
+	-- { family = "FiraCode", weight = "Bold" },
+	-- { family = "Monocraft" },
 })
 appearance.window_padding = {
 	left = 8,

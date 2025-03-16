@@ -26,6 +26,14 @@ keys.binds = {
 		}),
 	},
 	{
+		key = "p",
+		mods = "SUPER",
+		action = act.SpawnCommandInNewTab({
+			cwd = wezterm.home_dir .. "/school/todolist.md",
+			args = { "nvim", wezterm.home_dir .. "/school/todolist.md" },
+		}),
+	},
+	{
 		key = "b",
 		mods = "SUPER",
 		action = act.SpawnCommandInNewTab({
