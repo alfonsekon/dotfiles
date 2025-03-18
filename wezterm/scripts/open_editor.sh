@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# this script is used by wezterm/.config/wezterm/keybinds.lua
+# this script opens android-studio or vscode depending on the path
+
 path=$(pwd)
 # printf "$path"
 

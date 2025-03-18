@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# this script is used by wezterm/.config/wezterm/keybinds.lua
+# this script opens neovim in the specified path
+
 path=$(pwd)
 
 tab_id=$(wezterm cli spawn --cwd "$path")

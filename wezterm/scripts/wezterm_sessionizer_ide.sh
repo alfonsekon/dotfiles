@@ -1,7 +1,13 @@
 #!/bin/bash
 
-#only call/execute sessionizers within a bash session.
-#this will not behave as expected when inside vim or other TUI applications
+# this script is used by wezterm/.config/wezterm/keybinds.lua
+# this script opens a fuzzy finder in my common working directories
+# and opens either android-studio or vscode depending on the chosen directory.
+# it also opens another wezterm tab within that directory
+
+# NOTE:
+# only call/execute sessionizers within a bash session.
+# this will not behave as expected when inside vim or other TUI applications
 
 selected=$(find $(pwd) ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
 
