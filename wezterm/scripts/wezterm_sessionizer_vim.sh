@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this script is used by wezterm/.config/wezterm/keybinds.lua
+# this script is used by wezterm/.config/wezterm/keybinds.lua 
 # this script opens a fuzzy finder in my common working directories
 # and opens neovim and another wezterm tab within that directory
 

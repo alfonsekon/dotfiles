@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this script is used by wezterm/.config/wezterm/keybinds.lua
+# this script is used by wezterm/.config/wezterm/keybinds.lua 
 # this script opens a fuzzy finder in my common working directories
 # and opens either android-studio or vscode depending on the chosen directory.
 # it also opens another wezterm tab within that directory

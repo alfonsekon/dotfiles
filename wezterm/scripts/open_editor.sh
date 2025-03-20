@@ -4,7 +4,7 @@
 # this script opens android-studio or vscode depending on the path
 
 path=$(pwd)
-# printf "$path"
+# printf "$path" 
 
 if [[ "$path" == *"android-studio/"* ]]; then
     android-studio "$path" > /dev/null 2>&1 &
