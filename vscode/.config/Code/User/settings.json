@@ -1,5 +1,4 @@
 {
-    "C_Cpp.default.compilerPath": "D:\\MinGW\\bin\\gcc.exe",
     "[python]": {
         "editor.formatOnType": true
     },
@@ -8,22 +7,15 @@
         "comments": "on",
         "strings": "on"
     },
-    "editor.wordWrap": "off",
-    "code-runner.runInTerminal": true,
-    "code-runner.saveFileBeforeRun": true,
+    "editor.wordWrap": "on",
     "python.analysis.diagnosticMode": "workspace",
     "editor.codeActionsOnSave": {},
     "editor.minimap.enabled": false,
     "workbench.settings.applyToAllProfiles": [],
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
     "julia.symbolCacheDownload": true,
     "julia.enableTelemetry": true,
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
-    // "terminal.integrated.defaultProfile.windows": "Git Bash",
-    //stuff i (manually) put are here
-    //extensions needed: Vim (not Neovim), Vim Theme (optional, just a theme), finditfaster
+    //extensions needed: Vim (not Neovim), kanagawa theme, finditfaster, vscode harpoon, apc extension ui++
     "editor.lineNumbers": "relative",
     "vim.commandLineModeKeyBindings": [],
     "vim.useSystemClipboard": true,
@@ -37,9 +29,9 @@
         { "before": ["<S-l>"], "commands": [":bnext"] },
         { "before": ["leader", "v"], "commands": [":vsplit"] },
         { "before": ["leader", "s", "s"], "commands": [":split"] },
-        { "before": ["leader", "w"], "commands": [":w!"] },
-        { "before": ["leader", "q", "q"], "commands": [":q!"] },
-        { "before": ["leader", "x"], "commands": [":x!"] },
+        { "before": ["leader", "w", "f"], "commands": [":w!"] },
+        { "before": ["leader", "\\"], "commands": [":q!"] },
+        { "before": ["leader", "x"], "commands": [":wq"] },
         { "before": ["<C-n>"], "commands": [":nohl"] },
         { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
         { "before": ["leader", "r", "n"], "commands": ["editor.action.rename"] },
@@ -51,7 +43,6 @@
         { "before": ["leader", "b"], "commands": ["workbench.action.files.openFolder"] },
         { "before": ["leader", "="], "commands": ["workbench.action.debug.start"] },
         { "before": ["leader", "p", "v"], "commands": ["workbench.files.action.focusFilesExplorer"] },
-        { "before": ["leader", "\\"], "commands": ["workbench.action.closeWindow"] },
         { "before": ["leader", "r", "r"], "commands": ["workbench.action.reloadWindow"] },
         { "before": ["leader", "s", "f"], "commands": ["find-it-faster.findFiles"] },
         { "before": ["leader", "r", "g"], "commands": ["find-it-faster.findWithinFiles"] },
@@ -87,16 +78,17 @@
     //     "statusBar.debuggingForeground": "#ffffff"
     // },
     "python.createEnvironment.trigger": "off",
-    "database-client.autoSync": true,
     "window.zoomLevel": 0.9,
     "window.commandCenter": false,
     "editor.cursorStyle": "line",
-    "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 1,
     "editor.lightbulb.enabled": "off",
     "editor.cursorSurroundingLines": 10,
+    "editor.fontFamily": "JetBrains Mono",
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.allowChords": false,
     "workbench.editor.wrapTabs": true,
     "workbench.activityBar.location": "hidden",
     "workbench.sideBar.location": "right",
@@ -104,14 +96,8 @@
     "zenMode.hideStatusBar": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
-    "terminal.integrated.fontFamily": "JetBrains Mono",
-    "terminal.integrated.allowChords": false,
     //must be running on linux to use
     "security.workspace.trust.untrustedFiles": "open",
-    "screencastMode.fontSize": 20,
-    "screencastMode.keyboardOptions": {
-        "showCommands": false
-    },
     "vim.cursorStylePerMode.insert": "block",
     "vim.cursorStylePerMode.visualline": "block",
     "vim.cursorStylePerMode.visualblock": "block",
@@ -124,12 +110,10 @@
     //xmodmap fix for esc/capslock switch 
     "keyboard.dispatch": "keyCode",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.colorTheme": "Kanagawa",
-    "workbench.iconTheme": null,
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabSizingFixedMinWidth": 38,
     "window.density.editorTabHeight": "compact",
-    "window.menuBarVisibility": "compact",
+    "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "none",
     "zenMode.silentNotifications": false,
     //custom theme to match terminal
@@ -156,4 +140,27 @@
     //     "terminal.ansiBrightCyan": "#f07d14",
     //     "terminal.ansiBrightWhite": "#ffc800"
     // }
+
+    "window.titleBarStyle": "native",
+    "window.customTitleBarVisibility": "never",
+    "apc.parts.font.family": {
+        "sidebar": "Jetbrains Mono",
+        "titlebar": "Jetbrains Mono",
+        "activityBar": "Jetbrains Mono",
+        "panel": "Jetbrains Mono",
+        "tabs": "Jetbrains Mono",
+        "statusbar": "Jetbrains Mono",
+        "settings-body": "Jetbrains Mono",
+        "extension-editor": "Jetbrains Mono",
+    },
+    "apc.electron": {
+        "titleBarStyle": "hidden", 
+    },
+    "apc.statusBar": {
+        "position": "bottom"
+    },
+    "update.mode": "none",
+    "workbench.iconTheme": "ayu",
+    "workbench.colorTheme": "Ayu Dark"
+
 }
