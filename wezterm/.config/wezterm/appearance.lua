@@ -13,20 +13,37 @@ function appearance.setup_status()
 		local bg = color_scheme.background
 		local fg = color_scheme.foreground
 
+		-- window:set_right_status(wezterm.format({
+		-- 	{ Background = { Color = "#181820" } }, -- kanagawa
+		-- 	{ Foreground = { Color = bg } }, -- kanagawa
+		-- 	{ Text = SOLID_LEFT_ARROW },
+		-- 	{ Background = { Color = bg } },
+		-- 	{ Foreground = { Color = fg } },
+		-- 	{ Text = " " .. window:active_workspace() .. " " },
+		-- 	{ Background = { Color = bg } },
+		-- 	{ Foreground = { Color = "#C8C093" } }, -- kanagawa
+		-- 	{ Text = SOLID_LEFT_ARROW },
+		-- 	{ Background = { Color = "#C8C093" } }, -- kanagawa
+		-- 	{ Foreground = { Color = "#292D3E" } }, -- kanagawa
+		-- 	{ Text = " " .. wezterm.strftime("%a %b %-d %H:%M") .. " " },
+		-- }))
+
 		window:set_right_status(wezterm.format({
-			{ Background = { Color = "#181820" } },
-			{ Foreground = { Color = bg } },
-			{ Text = SOLID_LEFT_ARROW },
-			{ Background = { Color = bg } },
-			{ Foreground = { Color = fg } },
+			{ Background = { Color = "#E5C07B" } },
+			{ Foreground = { Color = "#A0A8B7" } },
+			{ Text = "" },
+			{ Background = { Color = "#0B0E14" } },
+			{ Foreground = { Color = "#A0A8B7" } },
 			{ Text = " " .. window:active_workspace() .. " " },
-			{ Background = { Color = bg } },
-			{ Foreground = { Color = "#C8C093" } },
-			{ Text = SOLID_LEFT_ARROW },
-			{ Background = { Color = "#C8C093" } },
-			{ Foreground = { Color = "#292D3E" } },
+			{ Background = { Color = "#E5C07B" } },
+			{ Foreground = { Color = "#A0A8B7" } },
+			{ Text = "" },
+			{ Background = { Color = "#0B0E14" } },
+			{ Foreground = { Color = "#A0A8B7" } },
 			{ Text = " " .. wezterm.strftime("%a %b %-d %H:%M") .. " " },
 		}))
+
+		-- test
 	end)
 end
 
@@ -68,6 +85,40 @@ wezterm.on("update-right-status", function(window, _)
 	}))
 end)
 
+-- ayu colors
+appearance.colors = {
+	background = "#0B0F15",
+	tab_bar = {
+		background = "#0B0E14", -- Tab bar background
+		active_tab = {
+			bg_color = "#0B0E14", -- Background of the active tab
+			fg_color = "#E5C07B", -- Foreground (text) of the active tab
+			intensity = "Bold",
+		},
+
+		inactive_tab = {
+			bg_color = "#0B0E14", -- Background of inactive tabs
+			fg_color = "#A0A8B7", -- Foreground (text) of inactive tabs
+		},
+
+		inactive_tab_hover = {
+			bg_color = "#0B0E14", -- Background of inactive tab on hover
+			fg_color = "#E5C07B",
+			italic = true,
+		},
+
+		new_tab = {
+			bg_color = "#0B0E14",
+			fg_color = "#A0A8B7",
+		},
+
+		new_tab_hover = {
+			bg_color = "#3E4452",
+			fg_color = "#E5C07B",
+			italic = true,
+		},
+	},
+}
 appearance.theme = theme2
 appearance.window_decorations = "RESIZE"
 appearance.enable_tab_bar = true
