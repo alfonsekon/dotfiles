@@ -201,14 +201,21 @@ focus_wrapping no
 #remove title bar
 for_window [class=".*"] border pixel 2
 
+
 #TTY binds cause ctrl+alt hurts my hands
 bindsym $mod+F2 exec sudo chvt 2
 bindsym $mod+F3 exec sudo chvt 3
 
+# hide status bar
+bindsym $mod+Shift+m bar mode toggle
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+		mode invisible
+        status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+		separator_symbol "<200b>"
+        # status_command i3status
 }
 
 #workspaces on startup
@@ -235,5 +242,6 @@ bindsym Shift+Scroll_Lock exec --no-startup-id maim --select | xclip -selection 
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 #stuff to load on i3 start
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png
 exec --no-startup-id wezterm --config-file /home/luis/dotfiles/wezterm/.config/wezterm/wezterm.lua &
+exec --no-startup-id screenkey
