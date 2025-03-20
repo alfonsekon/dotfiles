@@ -79,6 +79,9 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- moving a line up/down in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>wf", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>\\", ":q!<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>x", ":wq<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- vim.api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = true, silent = true })
 
@@ -787,12 +790,25 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is.
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
-		"rebelot/kanagawa.nvim",
+		-- "rebelot/kanagawa.nvim",
+		-- lazy = false,
+		-- name = "kanagawa",
+		-- priority = 1000,
+		-- init = function()
+		-- 	vim.cmd.colorscheme("kanagawa")
+		-- end,
+
+		"ayu-theme/ayu-vim",
 		lazy = false,
-		name = "kanagawa",
+		name = "ayu",
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("kanagawa")
+			vim.g.ayu_theme = "dark" -- Choose between "dark", "mirage", or "light"
+			vim.cmd.colorscheme("ayu")
+
+			-- Override background color
+			vim.api.nvim_set_hl(0, "Normal", { bg = "#0B0E14" }) -- Change this to your preferred color
+			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#0B0E14" }) -- Optional: Non-current windows
 		end,
 	},
 
