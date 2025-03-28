@@ -3,7 +3,7 @@ local act = wezterm.action
 local workspace_switcher = dofile("/home/luis/dotfiles/wezterm/.config/wezterm/workspace_switcher.lua")
 local keys = {}
 
-keys.disable_default_key_bindings = true
+keys.disable_default_key_bindings = false
 
 -- keys.key_tables = {
 -- 	copy_mode = {},
@@ -16,6 +16,11 @@ keys.leader = {
 }
 
 keys.binds = {
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
 	-- shortcuts (NO LEADER KEY BINDS)
 	{
 		key = "w",
@@ -55,6 +60,14 @@ keys.binds = {
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/dotfiles/nvim/.config/nvim/init.lua",
 			args = { "nvim", wezterm.home_dir .. "/dotfiles/nvim/.config/nvim/init.lua" },
+		}),
+	},
+	{
+		key = "c",
+		mods = "SUPER",
+		action = act.SpawnCommandInNewTab({
+			cwd = wezterm.home_dir .. "/school/work/companies.md",
+			args = { "nvim", wezterm.home_dir .. "/school/work/companies.md" },
 		}),
 	},
 	-- scripts
@@ -140,17 +153,17 @@ keys.binds = {
 	{ key = "0", mods = "LEADER", action = act.ActivateTab(9) },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 	-- scripts
-	{ key = "f", mods = "LEADER", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
-	{ key = "g", mods = "LEADER", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
+	{ key = "f", mods = "LEADER", action = act.SendString("sessionizer_ide\n") },
+	{ key = "g", mods = "LEADER", action = act.SendString("sessionizer_vim\n") },
 	{
 		key = "f",
 		mods = "LEADER|CTRL",
-		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_editor.sh\n"),
+		action = act.SendString("open_ide\n"),
 	},
 	{
 		key = "g",
 		mods = "LEADER|CTRL",
-		action = act.SendString("source ~/dotfiles/wezterm/scripts/open_vim.sh\n"),
+		action = act.SendString("open_vim\n"),
 	},
 	-- copy mode
 	{ key = ".", mods = "LEADER", action = act.ActivateCopyMode },

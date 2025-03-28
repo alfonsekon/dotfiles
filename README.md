@@ -7,15 +7,15 @@ I'm still finding my way around keybinds and stuff... idk if i should set up wez
 ## stuff
 - **OS** → `Pop!_OS 22.04 LTS`
 
-- **Shell stuff** → `.bashrc`, `.tmux.conf`
+- **Shell stuff** → `bash/.bashrc`, `tmux/.tmux.conf`
 
-- **Editor configs** → `nvim/init.lua` (forked from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)), VS Code `settings.json` and `keybindings.json`, Android Studio `.ideavimrc`
+- **Editor configs** → `nvim/.config/nvim/init.lua` (forked from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)), VS Code `settings.json` and `keybindings.json`, Android Studio `.ideavimrc`
 
 - **Window manager setup** → `i3/config`, `picom.conf` 
 
 - **Terminal (Wezterm) config** → `.wezterm.lua`, `scripts/wezterm_sessionizer_ide.sh`, `scripts/wezterm_sessionizer_vim.sh` (tried doing something like [ThePrimeagen's tmux sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer))
 
-- **Theme** → currently using [robbyrussell](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/robbyrussell.omp.json) for the prompt (`oh-my-posh`), [rose-pine](https://rosepinetheme.com/) for the theme/color scheme
+- **Theme** → currently using [robbyrussell](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/robbyrussell.omp.json) for the prompt (`oh-my-posh`), [ayu](https://github.com/ayu-theme/ayu-vim) for the theme/color scheme
 
 ## Dependencies
 - [`i3`](https://i3wm.org/)

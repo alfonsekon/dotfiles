@@ -28,7 +28,7 @@
             "branch_icon": ""
           },
           "style": "plain",
-          "template": "<b><#C2D94C>git:(</><#FE7733>{{ .HEAD }}</><#C2D94C>)</>{{ if .Working.Changed }} <#BF616A>\u2718</>{{ end }}</b>",
+          "template": "<b><#C2D94C>git:(</><#FE7733>{{ .HEAD }}</><#C2D94C>)</>{{ if .Working.Changed }} <#B1885B>\u2718</>{{ end }}</b>",
           "type": "git"
         },
         {

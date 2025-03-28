@@ -33,6 +33,7 @@
         { "before": ["leader", "\\"], "commands": [":q!"] },
         { "before": ["leader", "x"], "commands": [":wq"] },
         { "before": ["<C-n>"], "commands": [":nohl"] },
+        { "before": ["leader", "leader", "p"], "commands": ["workbench.action.showCommands"]},
         { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
         { "before": ["leader", "r", "n"], "commands": ["editor.action.rename"] },
         { "before": ["leader", "c", "a"], "commands": ["editor.action.quickFix"] },
@@ -113,7 +114,6 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabSizingFixedMinWidth": 38,
     "window.density.editorTabHeight": "compact",
-    "window.menuBarVisibility": "toggle",
     "workbench.startupEditor": "none",
     "zenMode.silentNotifications": false,
     //custom theme to match terminal
@@ -161,6 +161,9 @@
     },
     "update.mode": "none",
     "workbench.iconTheme": "ayu",
-    "workbench.colorTheme": "Ayu Dark"
+    "workbench.colorTheme": "Ayu Dark",
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "editor.autoClosingOvertype": "always",
+    "svelte.enable-ts-plugin": true
 
 }

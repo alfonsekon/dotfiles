@@ -116,42 +116,42 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#adding nvim to PATH
+# adding nvim to PATH
 export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH=$PATH:/home/luis/.local/bin
 
-#adding pyenv to PATH
+# adding pyenv to PATH
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
 
-#adding nvm to PATH
+# adding nvm to PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#aliases for editing files
+# aliases for editing files
 alias bashrc='nvim ~/.bashrc'
 alias i3conf='nvim ~/.config/i3/config'
 alias todolist='nvim ~/school/todolist'
 alias savebashrc='source ~/.bashrc'
 alias shellexec='exec $SHELL'
 
-#cd shortcuts
+# cd shortcuts
 alias codinga='cd ~/coding/android-studio && ls -la'
 alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
 alias school='cd ~/school/third-year/second-sem/ && ls -la'
 
-#aliases for opening programs
+# aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 
-#shell shortcuts
+# shell shortcuts
 alias treenogit='tree -I ".git" -la'
 alias ls='exa --icons'
 alias ll='exa --icons -la'
@@ -163,8 +163,12 @@ alias ...='cd ../..'
 # alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
 alias wec='wezterm cli'
 alias rn='wezterm cli set-tab-title $(basename $(pwd))'
+alias sessionizer_ide='source ~/scripts/wezterm_sessionizer_ide.sh'
+alias sessionizer_vim='source ~/scripts/wezterm_sessionizer_vim.sh'
+alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
+alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 
-#git shortcuts
+# git shortcuts
 alias ga='git add'
 alias gc='git commit -m'
 alias gpush='git push'
@@ -172,15 +176,15 @@ alias gpull='git pull'
 alias gs='git status'
 alias gco='git checkout'
 
-#copy and paste between TTYs (very hassle)
+# copy and paste between TTYs (very hassle)
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
-#power options
+# power options
 alias eepy='systemctl suspend'
 alias patay='systemctl poweroff'
 
-#brightness controls
+# brightness controls
 alias b0='sudo brightnessctl set 1%'
 alias b1='sudo brightnessctl set 10%'
 alias b2='sudo brightnessctl set 20%'
@@ -196,9 +200,10 @@ alias bup='sudo brightnessctl set +50'
 alias bdown='sudo brightnessctl set 50-'
 
 alias bg1='feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png'
-alias bg2='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
+alias bg2='feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png'
+alias bg3='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
 
-#for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
+# for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
 	if [ -z "$1" ]; then
 		xinput | grep "slave  pointer" | awk '{print}'
@@ -210,8 +215,10 @@ mb() {
 	setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+	clear
 }
 
 #oh-my-posh config
-eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/theme.omp.json)"
+eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
 eval "$(zoxide init bash)"
+export PATH=$PATH:/usr/local/go/bin
