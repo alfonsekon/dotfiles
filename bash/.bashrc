@@ -150,6 +150,7 @@ alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
+alias cpus='hwinfo --cpu | grep Clock'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -207,6 +208,20 @@ alias bg3='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
 mb() {
 	if [ -z "$1" ]; then
 		xinput | grep "slave  pointer" | awk '{print}'
+		printf "\n"
+		printf "    Usage: mb <device-id>\n"
+		return 1
+	fi
+
+	setxkbmap -option caps:swapescape
+	xinput --set-prop "$1" "libinput Accel Speed" 0
+	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+	clear
+}
+
+mbl() {
+	if [ -z "$1" ]; then
+		xinput | grep "slave  pointer" | awk '{print}' | grep Logitech | awk '{print $5}'
 		printf "\n"
 		printf "    Usage: mb <device-id>\n"
 		return 1
