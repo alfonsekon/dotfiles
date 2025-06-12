@@ -166,8 +166,8 @@ keys.binds = {
 		action = act.SendString("open_vim\n"),
 	},
 	-- copy mode
-	{ key = ".", mods = "LEADER", action = act.ActivateCopyMode },
-	{ key = ",", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },
+	{ key = "j", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "h", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "Backspace", mods = "LEADER", action = act.CopyMode("ClearPattern") },
 	-- workspaces
 	{

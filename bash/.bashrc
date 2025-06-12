@@ -151,6 +151,7 @@ alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
+alias please='sudo'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
