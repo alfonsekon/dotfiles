@@ -45,7 +45,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a wezterm
-bindsym $mod+Shift+Return exec wezterm --config-file /home/luis/dotfiles/wezterm/.config/wezterm/wezterm.lua &
+bindsym $mod+Shift+Return exec wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 # start wezterm without config 
 bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua &
 
@@ -85,10 +85,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -185,20 +185,22 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-#open blueman 
+# open blueman 
 bindsym $mod+i exec blueman-manager
-#open pavucontrol for selecting sound
+# open pavucontrol for selecting sound
 bindsym $mod+p exec pavucontrol
-#open vscode
+# open vscode
 bindsym $mod+c exec code
-#open android-studio
+# open android-studio
 bindsym $mod+x exec android-studio
-#open brave
+# open brave
 bindsym $mod+b exec brave-browser
 bindsym $mod+Shift+b exec brave-browser --incognito
-#screenkey
+# screenkey
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
+# copyq
+# bindsym $mod+v exec --no-startup-id copyq toggle
 
 bindsym $mod+r mode "resize"
 
@@ -234,7 +236,7 @@ for_window [class="blueman-manager"] move to workspace 8, layout tabbed
 
 #swap escape and capslock
 exec --no-startup-id setxkbmap -option caps:swapescape
-exec --no-startup-id xcape -e 'Control_L=Caps_Lock'
+exec --no-startup-id xcape -e 'Alt_R=Caps_Lock'
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
@@ -242,12 +244,12 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/scr
 # bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots-i3/$(date)"
 
 ## Clipboard Screenshots
-bindsym Scroll_Lock exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Shift+Scroll_Lock exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Insert exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 #stuff to load on i3 start
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png
-exec --no-startup-id wezterm --config-file /home/luis/dotfiles/wezterm/.config/wezterm/wezterm.lua &
+exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id screenkey
 # exec --no-startup-id xrdb -merge ~/.Xresources

@@ -164,6 +164,7 @@
     "workbench.colorTheme": "Ayu Dark",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingOvertype": "always",
-    "svelte.enable-ts-plugin": true
+    "svelte.enable-ts-plugin": true,
+    "git.openRepositoryInParentFolders": "never"
 
 }

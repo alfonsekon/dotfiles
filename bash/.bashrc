@@ -133,10 +133,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # aliases for editing files
 alias bashrc='nvim ~/.bashrc'
+alias savebashrc='source ~/.bashrc'
 alias i3conf='nvim ~/.config/i3/config'
 alias todolist='nvim ~/school/todolist'
-alias savebashrc='source ~/.bashrc'
 alias shellexec='exec $SHELL'
+alias localdorm='192.168.68.240'
 
 # cd shortcuts
 alias codinga='cd ~/coding/android-studio && ls -la'
@@ -144,12 +145,16 @@ alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
 alias school='cd ~/school/third-year/second-sem/ && ls -la'
+alias cdeeznuts='cd'
+alias please='sudo'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
+alias cpus='hwinfo --cpu | grep Clock'
+alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -181,7 +186,7 @@ alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
 # power options
-alias eepy='systemctl suspend'
+alias eepy='systemctl suspend -i'
 alias patay='systemctl poweroff'
 
 # brightness controls
@@ -203,6 +208,10 @@ alias bg1='feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png
 alias bg2='feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png'
 alias bg3='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
 
+# battery/charging limitation
+alias batt85='sudo sh -c "echo 85 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
+alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
+
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 mb() {
 	if [ -z "$1" ]; then
@@ -218,7 +227,10 @@ mb() {
 	clear
 }
 
+xinput set-prop "ASUF1300:00 2808:0203 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Enabled" 1
+
 #oh-my-posh config
-eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
+eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
 eval "$(zoxide init bash)"
 export PATH=$PATH:/usr/local/go/bin

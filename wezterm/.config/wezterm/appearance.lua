@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
-local theme2 = dofile("/home/luis/dotfiles/wezterm/colors/kanagawa.lua")
+local theme2 = dofile("/home/luis/.dotfiles/wezterm/colors/kanagawa.lua")
 
 local appearance = {}
 

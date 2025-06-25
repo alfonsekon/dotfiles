@@ -963,3 +963,5 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 		vim.fn.system({ "wezterm", "cli", "set-tab-title", "" })
 	end,
 })
+vim.keymap.set("n", "<C-O>", "}O", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-O>", "<Esc>}O", { noremap = true, silent = true })
