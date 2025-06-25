@@ -199,8 +199,6 @@ bindsym $mod+Shift+b exec brave-browser --incognito
 # screenkey
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
-# copyq
-# bindsym $mod+v exec --no-startup-id copyq toggle
 
 bindsym $mod+r mode "resize"
 
