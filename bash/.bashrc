@@ -155,6 +155,7 @@ alias vim='nvim'
 alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
+alias please='sudo'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -229,6 +230,20 @@ mb() {
 
 xinput set-prop "ASUF1300:00 2808:0203 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Enabled" 1
+
+mbl() {
+	if [ -z "$1" ]; then
+		xinput | grep "slave  pointer" | awk '{print}' | grep Logitech | awk '{print $5}'
+		printf "\n"
+		printf "    Usage: mb <device-id>\n"
+		return 1
+	fi
+
+	setxkbmap -option caps:swapescape
+	xinput --set-prop "$1" "libinput Accel Speed" 0
+	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+	clear
+}
 
 #oh-my-posh config
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
