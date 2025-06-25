@@ -233,7 +233,7 @@ xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Ena
 
 mbl() {
 	if [ -z "$1" ]; then
-		xinput | grep "slave  pointer" | awk '{print}' | grep Logitech | awk '{print $5}'
+		xinput | grep "slave  pointer" | awk '{print}' | grep UGREEN | awk '{print $5}'
 		printf "\n"
 		printf "    Usage: mb <device-id>\n"
 		return 1
