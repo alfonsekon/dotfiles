@@ -192,28 +192,6 @@ keys.binds = {
 			act.SendKey({ key = "Enter" }),
 		}),
 	},
-	-- open work documents immediately
-	-- {
-	-- 	key = "d",
-	-- 	mods = "LEADER",
-	-- 	action = act.Multiple({
-	-- 		workspace_switcher.switch_workspace(),
-	-- 		act.SendString("dlrc-website\n"),
-	-- 		-- act.SendKey({ key = "d" }),
-	-- 		-- act.SendKey({ key = "l" }),
-	-- 		-- act.SendKey({ key = "r" }),
-	-- 		-- act.SendKey({ key = "c" }),
-	-- 		-- act.SendKey({ key = "-" }),
-	-- 		-- act.SendKey({ key = "w" }),
-	-- 		-- act.SendKey({ key = "e" }),
-	-- 		-- act.SendKey({ key = "b" }),
-	-- 		-- act.SendKey({ key = "s" }),
-	-- 		-- act.SendKey({ key = "i" }),
-	-- 		-- act.SendKey({ key = "t" }),
-	-- 		-- act.SendKey({ key = "e" }),
-	-- 		-- act.SendKey({ key = "\n" }),
-	-- 	}),
-	-- },
 	-- copy mode
 	{ key = "j", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "h", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },

@@ -144,9 +144,8 @@ alias codinga='cd ~/coding/android-studio && ls -la'
 alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
-alias school='cd ~/school/third-year/second-sem/ && ls -la'
+alias school='cd ~/school/fourth-year/first-sem/ && ls -la'
 alias cdeeznuts='cd'
-alias please='sudo'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
@@ -156,6 +155,7 @@ alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'
+alias roblox='flatpak run org.vinegarhq.Sober'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -169,20 +169,22 @@ alias ...='cd ../..'
 # alias ff='selected=$(fzf); [ -n "$selected" ] && vim "$selected"'
 alias wec='wezterm cli'
 alias rn='wezterm cli set-tab-title $(basename $(pwd))'
-alias sessionizer_ide='source ~/scripts/wezterm_sessionizer_ide.sh'
-alias sessionizer_vim='source ~/scripts/wezterm_sessionizer_vim.sh'
+# alias sessionizer_ide='source ~/scripts/wezterm_sessionizer_ide.sh'
+# alias sessionizer_vim='source ~/scripts/wezterm_sessionizer_vim.sh'
+alias sessionizer_ide='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_ide.sh'
+alias sessionizer_vim='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_vim.sh'
 alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 
 # git shortcuts
-alias ga='git add'
-alias gc='git commit -m'
-alias gpush='git push'
-alias gpull='git pull'
-alias gs='git status'
-alias gco='git checkout'
+# alias ga='git add'
+# alias gc='git commit -m'
+# alias gpush='git push'
+# alias gpull='git pull'
+# alias gs='git status'
+# alias gco='git checkout'
 
-# copy and paste between TTYs (very hassle)
+# copy and paste between TTYs (very hassle) (dont use anymore)
 alias cclip='cat > /tmp/tty_clipboard'
 alias clipp='cat /tmp/tty_clipboard'
 
@@ -204,6 +206,9 @@ alias b9='sudo brightnessctl set 90%'
 alias b10='sudo brightnessctl set 100%'
 alias bup='sudo brightnessctl set +50'
 alias bdown='sudo brightnessctl set 50-'
+
+alias m1on='xrandr --output eDP-1 --auto'
+alias m1off='xrandr --output eDP-1 --off'
 
 alias bg1='feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png'
 alias bg2='feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png'
@@ -249,3 +254,5 @@ mbl() {
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
 eval "$(zoxide init bash)"
 export PATH=$PATH:/usr/local/go/bin
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
