@@ -230,7 +230,6 @@ mb() {
 	setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
-	clear
 }
 
 xinput set-prop "ASUF1300:00 2808:0203 Touchpad" "libinput Tapping Enabled" 1
@@ -247,7 +246,6 @@ mbl() {
 	setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
-	clear
 }
 
 #oh-my-posh config
