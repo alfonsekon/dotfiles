@@ -156,6 +156,8 @@ alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'
 alias roblox='flatpak run org.vinegarhq.Sober'
+alias zotero='bash ~/Downloads/Zotero_linux-x86_64/zotero > /dev/null'
+alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
@@ -247,6 +249,9 @@ mbl() {
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
+
+#tinamad irecompile xv6 (cs140 lawl)
+alias recompile='make clean; CPUS=1 make qemu'
 
 #oh-my-posh config
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
