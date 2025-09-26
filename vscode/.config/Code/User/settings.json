@@ -82,7 +82,7 @@
     "window.zoomLevel": 0.9,
     "window.commandCenter": false,
     "editor.cursorStyle": "line",
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 1,
     "editor.lightbulb.enabled": "off",
