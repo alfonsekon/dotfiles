@@ -142,6 +142,8 @@ keys.binds = {
 	-- -- tab navigation/creation
 	-- { key = "p", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(-1) },
 	-- { key = "n", mods = "CTRL|ALT", action = act.ActivateTabRelativeNoWrap(1) },
+	{ key = "p", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(-1) },
+	{ key = "n", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(1) },
 	-- { key = "b", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
 	-- { key = "1", mods = "CTRL", action = act.ActivateTab(0) },
 	-- { key = "2", mods = "CTRL", action = act.ActivateTab(1) },
