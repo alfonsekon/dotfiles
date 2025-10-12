@@ -155,9 +155,9 @@ alias picom='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'
-alias roblox='flatpak run org.vinegarhq.Sober'
 alias zotero='bash ~/Downloads/Zotero_linux-x86_64/zotero > /dev/null'
 alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
+alias arduino='~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
 
 # shell shortcuts
 alias treenogit='tree -I ".git" -la'
