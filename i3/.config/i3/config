@@ -227,6 +227,7 @@ bar {
 for_window [class="brave-browser"] move to workspace 1
 for_window [class="wezterm"] move to workspace 2, layout tabbed
 for_window [class="Code"] move to workspace 3, layout tabbed
+for_window [class="Arduino*"] move to workspace 3, layout tabbed
 for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
 for_window [class="Wihotspot"] move to workspace 8, layout tabbed
 for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
@@ -247,7 +248,9 @@ bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipb
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 #stuff to load on i3 start
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id screenkey
-# exec --no-startup-id xrdb -merge ~/.Xresources
+exec --no-startup-id picom
+exec --no-startup-id libinput-gestures-setup restart > /dev/null
+# exec --no-startup-id compton --config ~/.config/compton.conf -b
