@@ -192,6 +192,8 @@ bindsym $mod+p exec pavucontrol
 # open vscode
 bindsym $mod+c exec code
 # open arudino ide
+bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
+# brightness controls
 bindsym $mod+y exec brightnessctl set 1600-
 bindsym $mod+u exec brightnessctl set +1600
 # open android-studio
