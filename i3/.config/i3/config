@@ -105,7 +105,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -187,10 +187,13 @@ mode "resize" {
 
 # open blueman 
 bindsym $mod+i exec blueman-manager
-# open pavucontrol for selecting sound
+# open pavucontrol
 bindsym $mod+p exec pavucontrol
 # open vscode
 bindsym $mod+c exec code
+# open arudino ide
+bindsym $mod+y exec brightnessctl set 1600-
+bindsym $mod+u exec brightnessctl set +1600
 # open android-studio
 # bindsym $mod+x exec android-studio
 # open brave
@@ -209,8 +212,8 @@ for_window [class=".*"] border pixel 2
 
 
 #TTY binds cause ctrl+alt hurts my hands
-bindsym $mod+F2 exec sudo chvt 2
-bindsym $mod+F3 exec sudo chvt 3
+# bindsym $mod+F2 exec sudo chvt 2
+# bindsym $mod+F3 exec sudo chvt 3
 
 # hide status bar
 bindsym $mod+Shift+m bar mode toggle
@@ -248,7 +251,8 @@ bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipb
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 #stuff to load on i3 start
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+# exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id screenkey
 exec --no-startup-id picom
