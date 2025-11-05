@@ -36,10 +36,14 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym $mod+Shift+Up exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -67,10 +71,10 @@ bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -79,10 +83,10 @@ bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -194,8 +198,10 @@ bindsym $mod+c exec code
 # open arudino ide
 bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
 # brightness controls
-bindsym $mod+y exec brightnessctl set 1600-
-bindsym $mod+u exec brightnessctl set +1600
+bindsym $mod+Shift+Left exec brightnessctl set 1600-
+bindsym $mod+Shift+Right exec brightnessctl set +1600
+bindsym $mod+Left exec bash -c '[ $(brightnessctl g) -gt 1600 ] && brightnessctl set 1600-'
+bindsym $mod+Right exec brightnessctl set +1600
 # open android-studio
 # bindsym $mod+x exec android-studio
 # open brave
@@ -250,6 +256,7 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/scr
 ## Clipboard Screenshots
 bindsym Insert exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 #stuff to load on i3 start
@@ -257,6 +264,6 @@ bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipb
 exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id screenkey
-exec --no-startup-id picom
+exec --no-startup-id picom --experimental-backends > /dev/null 2>&1 &
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
 # exec --no-startup-id compton --config ~/.config/compton.conf -b
