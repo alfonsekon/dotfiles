@@ -60,8 +60,13 @@
         { "before": ["leader", "7"], "commands": ["vscode-harpoon.gotoEditor7"] },
         { "before": ["leader", "8"], "commands": ["vscode-harpoon.gotoEditor8"] },
         { "before": ["leader", "9"], "commands": ["vscode-harpoon.gotoEditor9"] },
-        { "before": ["leader", "v", "m"], "commands": ["markdown.showPreviewToSide"] }
+        { "before": ["leader", "v", "m"], "commands": ["markdown.showPreviewToSide"] },
+        { "before": ["leader", "f", "h"], "commands": ["fileutils.newFile"]}, // File Utils
+        { "before": ["leader", "f", "p"], "commands": ["fileutils.newFileAtRoot"]},
+        { "before": ["leader", "d", "h"], "commands": ["fileutils.newFolder"]},
+        { "before": ["leader", "d", "p"], "commands": ["fileutils.newFolderAtRoot"]}
     ],
+    "fileutils.inputBox.pathType": "workspace",
     "vim.visualModeKeyBindings": [
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
         { "before": [">"], "commands": ["editor.action.indentLines"] },
@@ -165,6 +170,8 @@
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingOvertype": "always",
     "svelte.enable-ts-plugin": true,
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "fileutils.inputBox.pathTypeIndicator": "#",
+    "C_Cpp.errorSquiggles": "enabled",
 
 }
