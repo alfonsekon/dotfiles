@@ -94,10 +94,6 @@
     "command": "editor.emmet.action.matchTag"
   },
   {
-    "key": "ctrl+z",
-    "command": "workbench.action.toggleZenMode"
-  },
-  {
     "key": "ctrl+shift+w",
     "command": "workbench.action.closeActiveEditor"
   },
