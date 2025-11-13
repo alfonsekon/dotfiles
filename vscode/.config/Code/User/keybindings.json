@@ -88,6 +88,27 @@
     "command": "deleteFile",
     "when": "filesExplorerFocus && !inputFocus"
   },
+  // File Utils
+  {
+    "key": "space f h",
+    "command": "fileutils.newFile",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space f p",
+    "command": "fileutils.newFileAtRoot",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space d h",
+    "command": "fileutils.newFolder",
+    "when": "!editorFocus && !inputFocus"
+  },
+  {
+    "key": "space d p",
+    "command": "fileutils.newFolderAtRoot",
+    "when": "!editorFocus && !inputFocus"
+  },
   // EXTRA
   {
     "key": "ctrl+shift+5",
@@ -191,7 +212,7 @@
     "when": "!editorFocus && !inputFocus"
   },
   {
-    "key": "space f",
+    "key": "space f f",
     "command": "workbench.action.findInFiles",
     "when": "!editorFocus && !inputFocus"
   },
@@ -349,5 +370,13 @@
     "key": "ctrl+k",
     "command": "quickInput.previous",
     "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateForward"
   }
 ]

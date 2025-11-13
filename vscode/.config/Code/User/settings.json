@@ -171,7 +171,8 @@
     "editor.autoClosingOvertype": "always",
     "svelte.enable-ts-plugin": true,
     "git.openRepositoryInParentFolders": "never",
-    "fileutils.inputBox.pathTypeIndicator": "#",
-    "C_Cpp.errorSquiggles": "enabled",
+    "fileutils.inputBox.pathTypeIndicator": "@",
+    "extensions.ignoreRecommendations": true,
+    "window.menuBarVisibility": "toggle",
 
 }
