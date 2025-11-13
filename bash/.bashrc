@@ -151,7 +151,7 @@ alias cdeeznuts='cd'
 alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx /usr/bin/i3'
 alias vim='nvim'
-alias picom='picom --experimental-backends > /dev/null 2>&1 &'
+alias picomm='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'
@@ -160,6 +160,7 @@ alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
 alias arduino='~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
 
 # shell shortcuts
+alias py='python'
 alias treenogit='tree -I ".git" -la'
 alias ls='exa --icons'
 alias ll='exa --icons -la'
@@ -177,6 +178,7 @@ alias sessionizer_ide='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_ide
 alias sessionizer_vim='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_vim.sh'
 alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
+alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill -9'
 
 # git shortcuts
 # alias ga='git add'
@@ -229,7 +231,7 @@ mb() {
 		return 1
 	fi
 
-	setxkbmap -option caps:swapescape
+	# setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
@@ -245,13 +247,28 @@ mbl() {
 		return 1
 	fi
 
-	setxkbmap -option caps:swapescape
+	# setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
 
-#tinamad irecompile xv6 (cs140 lawl)
-alias recompile='make clean; CPUS=1 make qemu'
+runrr() {
+    local cpus=${1:-1} ;
+    make clean;
+    CPUS=$cpus make qemu;
+}
+
+runmqss() {
+    local cpus=${1:-1} ;
+    make clean;
+    CPUS=$cpus make qemu SCHEDULING_POLICY=MQSS;
+}
+
+runmlfq() {
+    local cpus=${1:-1} ;
+    make clean;
+    CPUS=$cpus make qemu SCHEDULING_POLICY=MLFQ;
+}
 
 #oh-my-posh config
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
