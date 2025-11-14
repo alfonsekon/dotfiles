@@ -271,7 +271,7 @@ runmlfq() {
 }
 
 #oh-my-posh config
-eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/ayu.omp.json)"
+eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox.omp.json)"
 eval "$(zoxide init bash)"
 export PATH=$PATH:/usr/local/go/bin
 

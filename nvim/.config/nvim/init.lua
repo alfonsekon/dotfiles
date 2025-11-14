@@ -798,20 +798,35 @@ require("lazy").setup({
 		-- 	vim.cmd.colorscheme("kanagawa")
 		-- end,
 
-		"ayu-theme/ayu-vim",
-		lazy = false,
-		name = "ayu",
-		priority = 1000,
-		init = function()
-			vim.g.ayu_theme = "dark" -- Choose between "dark", "mirage", or "light"
-			vim.cmd.colorscheme("ayu")
+		-- "ayu-theme/ayu-vim",
+		-- lazy = false,
+		-- name = "ayu",
+		-- priority = 1000,
+		-- init = function()
+		-- 	vim.g.ayu_theme = "dark" -- Choose between "dark", "mirage", or "light"
+		-- 	vim.cmd.colorscheme("ayu")
 
-			-- Override background color
-			vim.api.nvim_set_hl(0, "Normal", { bg = "#0B0E14" }) -- Change this to your preferred color
-			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#0B0E14" }) -- Optional: Non-current windows
+		-- 	-- Override background color
+		-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "#0B0E14" }) -- Change this to your preferred color
+		-- 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "#0B0E14" }) -- Optional: Non-current windows
+		-- end,
+
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		name = "gruvbox",
+		priority = 1000,
+		terminal_colors = true,
+		config = function()
+			-- Setup gruvbox with optional settings
+			require("gruvbox").setup({
+				bold = true,
+				contrast = "hard", -- or "soft" / "medium"
+			})
+
+			-- Apply the colorscheme
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",

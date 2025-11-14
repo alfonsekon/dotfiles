@@ -29,21 +29,19 @@ function appearance.setup_status()
 		-- }))
 
 		window:set_right_status(wezterm.format({
-			{ Background = { Color = "#E5C07B" } },
-			{ Foreground = { Color = "#A0A8B7" } },
+			{ Background = { Color = "#1d2021" } }, -- main background
+			{ Foreground = { Color = "#ebdbb2" } }, -- main text
 			{ Text = "" },
-			{ Background = { Color = "#0B0E14" } },
-			{ Foreground = { Color = "#A0A8B7" } },
+			{ Background = { Color = "#1d2021" } }, -- workspace background
+			{ Foreground = { Color = "#458588" } }, -- workspace highlight
 			{ Text = " " .. window:active_workspace() .. " " },
-			{ Background = { Color = "#E5C07B" } },
-			{ Foreground = { Color = "#A0A8B7" } },
+			{ Background = { Color = "#1d2021" } }, -- second background accent
+			{ Foreground = { Color = "#ebdbb2" } },
 			{ Text = "" },
-			{ Background = { Color = "#0B0E14" } },
-			{ Foreground = { Color = "#A0A8B7" } },
+			{ Background = { Color = "#1d2021" } }, -- datetime background
+			{ Foreground = { Color = "#fabd2f" } }, -- datetime accent
 			{ Text = " " .. wezterm.strftime("%a %b %-d %H:%M") .. " " },
 		}))
-
-		-- test
 	end)
 end
 
@@ -87,34 +85,63 @@ end)
 
 -- ayu colors
 appearance.colors = {
-	background = "#0B0F15",
+	foreground = "#ebdbb2",
+	background = "#1d2021",
+
+	cursor_bg = "#ebdbb2",
+	cursor_fg = "#1d2021",
+	cursor_border = "#ebdbb2",
+
+	ansi = {
+		"#3c3836", -- black
+		"#cc241d", -- red
+		"#98971a", -- green
+		"#d79921", -- yellow
+		"#458588", -- blue
+		"#b16286", -- magenta
+		"#689d6a", -- cyan
+		"#a89984", -- white
+	},
+
+	brights = {
+		"#928374", -- bright black
+		"#fb4934", -- bright red
+		"#b8bb26", -- bright green
+		"#fabd2f", -- bright yellow
+		"#83a598", -- bright blue
+		"#d3869b", -- bright magenta
+		"#8ec07c", -- bright cyan
+		"#ebdbb2", -- bright white
+	},
+
 	tab_bar = {
-		background = "#0B0E14", -- Tab bar background
+		background = "#1d2021",
+
 		active_tab = {
-			bg_color = "#0B0E14", -- Background of the active tab
-			fg_color = "#E5C07B", -- Foreground (text) of the active tab
+			bg_color = "#3c3836",
+			fg_color = "#ebdbb2",
 			intensity = "Bold",
 		},
 
 		inactive_tab = {
-			bg_color = "#0B0E14", -- Background of inactive tabs
-			fg_color = "#A0A8B7", -- Foreground (text) of inactive tabs
+			bg_color = "#1d2021",
+			fg_color = "#a89984",
 		},
 
 		inactive_tab_hover = {
-			bg_color = "#0B0E14", -- Background of inactive tab on hover
-			fg_color = "#E5C07B",
+			bg_color = "#3c3836",
+			fg_color = "#ebdbb2",
 			italic = true,
 		},
 
 		new_tab = {
-			bg_color = "#0B0E14",
-			fg_color = "#A0A8B7",
+			bg_color = "#1d2021",
+			fg_color = "#a89984",
 		},
 
 		new_tab_hover = {
-			bg_color = "#3E4452",
-			fg_color = "#E5C07B",
+			bg_color = "#3c3836",
+			fg_color = "#ebdbb2",
 			italic = true,
 		},
 	},

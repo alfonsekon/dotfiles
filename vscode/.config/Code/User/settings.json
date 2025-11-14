@@ -93,6 +93,7 @@
     "editor.lightbulb.enabled": "off",
     "editor.cursorSurroundingLines": 10,
     "editor.fontFamily": "JetBrains Mono",
+    "editor.fontWeight": "600",
     "terminal.integrated.fontFamily": "JetBrains Mono",
     "terminal.integrated.allowChords": false,
     "workbench.editor.wrapTabs": true,
@@ -165,8 +166,8 @@
         "position": "bottom"
     },
     "update.mode": "none",
-    "workbench.iconTheme": "ayu",
-    "workbench.colorTheme": "Ayu Dark",
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingOvertype": "always",
     "svelte.enable-ts-plugin": true,
@@ -174,5 +175,6 @@
     "fileutils.inputBox.pathTypeIndicator": "@",
     "extensions.ignoreRecommendations": true,
     "window.menuBarVisibility": "toggle",
+    "find-it-faster.general.batTheme": "gruvbox-dark",
 
 }
