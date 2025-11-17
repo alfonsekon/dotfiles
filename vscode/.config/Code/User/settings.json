@@ -176,5 +176,7 @@
     "extensions.ignoreRecommendations": true,
     "window.menuBarVisibility": "toggle",
     "find-it-faster.general.batTheme": "gruvbox-dark",
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.textColor": "#fabd2f",
 
 }

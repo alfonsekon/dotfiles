@@ -321,21 +321,21 @@
     "command": "-workbench.action.files.openLocalFile",
     "when": "remoteFileDialogVisible"
   },
-  {
-    "key": "shift+r",
-    "command": "revealFileInOS",
-    "when": "!editorFocus"
-  },
+  // {
+  //   "key": "shift+r",
+  //   "command": "revealFileInOS",
+  //   "when": "!editorFocus"
+  // },
   {
     "key": "shift+alt+r",
     "command": "-revealFileInOS",
     "when": "!editorFocus"
   },
-  {
-    "key": "shift+r",
-    "command": "remote-wsl.revealInExplorer",
-    "when": "editorFocus && remoteName == 'wsl'"
-  },
+  // {
+  //   "key": "shift+r",
+  //   "command": "remote-wsl.revealInExplorer",
+  //   "when": "editorFocus && remoteName == 'wsl'"
+  // },
   {
     "key": "shift+alt+r",
     "command": "-remote-wsl.revealInExplorer",
