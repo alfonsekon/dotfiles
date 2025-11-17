@@ -1,0 +1,29 @@
+# do not stow to home dir, instead to /etc/keyd/
+[ids]
+
+*
+
+[main]
+tab = overloadt(arrows, tab, 195)
+capslock = esc
+rightshift = layer(symbols)
+
+[symbols:S]
+capslock = capslock
+
+[arrows]
+h = left
+j = down
+k = up
+l = right
+
+backspace = C-backspace
+space = leftshift
+
+o = C-right
+y = C-left
+9 = C-up
+0 = C-down
+[ = C-up
+] = C-down
+
