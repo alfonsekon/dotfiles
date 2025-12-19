@@ -252,24 +252,6 @@ mbl() {
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
 }
 
-runrr() {
-    local cpus=${1:-1} ;
-    make clean;
-    CPUS=$cpus make qemu;
-}
-
-runmqss() {
-    local cpus=${1:-1} ;
-    make clean;
-    CPUS=$cpus make qemu SCHEDULING_POLICY=MQSS;
-}
-
-runmlfq() {
-    local cpus=${1:-1} ;
-    make clean;
-    CPUS=$cpus make qemu SCHEDULING_POLICY=MLFQ;
-}
-
 #oh-my-posh config
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox.omp.json)"
 eval "$(zoxide init bash)"

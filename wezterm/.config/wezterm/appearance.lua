@@ -83,7 +83,7 @@ wezterm.on("update-right-status", function(window, _)
 	}))
 end)
 
--- ayu colors
+-- gruvbox colors
 appearance.colors = {
 	foreground = "#ebdbb2",
 	background = "#1d2021",
@@ -153,8 +153,8 @@ appearance.tab_bar_at_bottom = true
 appearance.use_fancy_tab_bar = false
 appearance.window_background_opacity = 1.00
 appearance.font_size = 20.0
-appearance.animation_fps = 165
-appearance.max_fps = 165
+appearance.animation_fps = 75
+appearance.max_fps = 75
 appearance.font = wezterm.font_with_fallback({
 	{ family = "JetBrains Mono", weight = "Regular" },
 	{ family = "JetBrains Mono", weight = "Bold" },

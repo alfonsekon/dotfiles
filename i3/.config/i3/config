@@ -89,10 +89,10 @@ bindsym $mod+Shift+semicolon move right
 # bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -142,6 +142,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 bindsym $mod+minus workspace number $ws11
 bindsym $mod+equal workspace number $ws12
+bindsym $mod+y exec  bash -c "i3-input -F 'workspace %s' -P 'go to workspace: '"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -156,6 +157,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+minus move container to workspace number $ws11
 bindsym $mod+Shift+equal move container to workspace number $ws12
+bindsym $mod+Shift+y exec  bash -c "i3-input -F 'move container to workspace %s' -P 'move to workspace: '"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -193,10 +195,12 @@ mode "resize" {
 bindsym $mod+i exec blueman-manager
 # open pavucontrol
 bindsym $mod+p exec pavucontrol
+# open nemo
+bindsym $mod+n exec nemo
 # open vscode
 bindsym $mod+c exec code
 # open arudino ide
-bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
+# bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
 # brightness controls
 bindsym $mod+Shift+Left exec brightnessctl set 1600-
 bindsym $mod+Shift+Right exec brightnessctl set +1600
@@ -210,6 +214,8 @@ bindsym $mod+Shift+b exec brave-browser --incognito
 # screenkey
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
+# i3lock
+bindsym $mod+x exec /home/$USER/.config/scripts/lock
 
 bindsym $mod+r mode "resize"
 
@@ -242,11 +248,12 @@ for_window [class="Arduino*"] move to workspace 3, layout tabbed
 for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
 for_window [class="Wihotspot"] move to workspace 8, layout tabbed
 for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
+for_window [class="nemo"] move to workspace 4, layout tabbed
 for_window [class="blueman-manager"] move to workspace 8, layout tabbed
 
 #swap escape and capslock (now using keyd to set shift+capslock to capslock)
 # exec --no-startup-id setxkbmap -option caps:swapescape # keyd replaces this
-exec --no-startup-id xcape -e 'Alt_R=Caps_Lock'
+# exec --no-startup-id xcape -e 'Alt_R=Caps_Lock'
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
@@ -259,11 +266,10 @@ bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipb
 bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
-#stuff to load on i3 start
+# i3 startup
 # exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
 exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
-exec --no-startup-id screenkey
+# exec --no-startup-id screenkey
 exec --no-startup-id picom --experimental-backends > /dev/null 2>&1 &
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
-# exec --no-startup-id compton --config ~/.config/compton.conf -b
