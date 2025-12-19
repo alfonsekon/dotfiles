@@ -1,4 +1,4 @@
-# .dotfiles
+# dotfiles
 
 messiest and most vanilla dotfiles known to man, a forever work in progress.\
 Most of the aliases in the `.bashrc` are because I am **lazy**. Do **not** be like me.\
