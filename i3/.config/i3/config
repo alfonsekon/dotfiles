@@ -13,11 +13,12 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
+font pango:JetBrains Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -36,13 +37,13 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+1 i3blocks
+bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
+bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
+bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
 # bindsym $mod+Shift+Up exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -222,7 +223,7 @@ bindsym $mod+r mode "resize"
 focus_wrapping no
 
 #remove title bar
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 
 
 #TTY binds cause ctrl+alt hurts my hands
@@ -235,9 +236,10 @@ bindsym $mod+Shift+m bar mode toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
-		# separator_symbol "<200b>"
-        status_command i3status
+        # status_command i3status -c /home/$USER/.config/i3status/i3status.conf
+        status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
+		# i3bar_command i3bar --transparency
+		# tray_output none
 }
 
 #workspaces on startup
@@ -268,8 +270,23 @@ bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipb
 
 # i3 startup
 # exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
-exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
+# exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
+exec --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/pexels-dreamypixel-547115.jpg
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 # exec --no-startup-id screenkey
 exec --no-startup-id picom --experimental-backends > /dev/null 2>&1 &
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
+
+
+# Color shemes for windows 
+set $bgcolor    #523d64
+set $in-bgcolor #363636
+set $text       #ffffff
+set $u-bgcolor  #ff0000
+set $indicator  #a8a3c1
+set $in-text    #969696
+#                       border          background      text            indicator (a line which shows where the next window will be placed)     
+client.focused          $bgcolor        $bgcolor        $text           $indicator
+client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
