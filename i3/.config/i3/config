@@ -240,6 +240,15 @@ bar {
         status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
 		# i3bar_command i3bar --transparency
 		# tray_output none
+        colors {
+                background $bgcolor
+                separator #191919
+                #                       border          background      text
+                focused_workspace       $bgcolor        $bgcolor        $text
+                inactive_workspace      $in-bgcolor     $in-bgcolor     $text
+                urgent_workspace        $u-bgcolor      $u-bgcolor      $text   
+
+        }
 }
 
 #workspaces on startup
@@ -279,9 +288,9 @@ exec --no-startup-id libinput-gestures-setup restart > /dev/null
 
 
 # Color shemes for windows 
-set $bgcolor    #523d64
-set $in-bgcolor #363636
-set $text       #ffffff
+set $bgcolor    #1d2021
+set $in-bgcolor #303030
+set $text       #fec925
 set $u-bgcolor  #ff0000
 set $indicator  #a8a3c1
 set $in-text    #969696
