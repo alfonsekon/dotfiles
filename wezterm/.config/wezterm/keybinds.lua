@@ -34,7 +34,7 @@ keys.binds = {
 	-- shortcuts (NO LEADER KEY BINDS)
 	{
 		key = "w",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.config_file,
 			args = { "nvim", wezterm.config_file },
@@ -42,7 +42,7 @@ keys.binds = {
 	},
 	{
 		key = "p",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/school/todolist.md",
 			args = { "nvim", wezterm.home_dir .. "/school/todolist.md" },
@@ -50,7 +50,7 @@ keys.binds = {
 	},
 	{
 		key = "b",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/.bashrc",
 			args = { "nvim", wezterm.home_dir .. "/.bashrc" },
@@ -58,7 +58,7 @@ keys.binds = {
 	},
 	{
 		key = "k",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir,
 			args = { "nvim", wezterm.home_dir .. "/key.txt" },
@@ -66,7 +66,7 @@ keys.binds = {
 	},
 	{
 		key = "i",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/.config/i3/config",
 			args = { "nvim", wezterm.home_dir .. "/.config/i3/config" },
@@ -74,7 +74,7 @@ keys.binds = {
 	},
 	{
 		key = "n",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/dotfiles/nvim/.config/nvim/init.lua",
 			args = { "nvim", wezterm.home_dir .. "/dotfiles/nvim/.config/nvim/init.lua" },
@@ -82,7 +82,7 @@ keys.binds = {
 	},
 	{
 		key = "c",
-		mods = "SUPER",
+		mods = "ALT",
 		action = act.SpawnCommandInNewTab({
 			cwd = wezterm.home_dir .. "/school/work/companies.md",
 			args = { "nvim", wezterm.home_dir .. "/school/work/companies.md" },
