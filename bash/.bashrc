@@ -149,7 +149,8 @@ alias cdeeznuts='cd'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
-alias starti3='startx /usr/bin/i3'
+# alias starti3='startx /usr/bin/i3'
+alias starti3='startx'
 alias vim='nvim'
 alias picomm='picom --experimental-backends > /dev/null 2>&1 &'
 alias cpus='hwinfo --cpu | grep Clock'
@@ -255,6 +256,10 @@ mbl() {
 #oh-my-posh config
 eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox.omp.json)"
 eval "$(zoxide init bash)"
-export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/usr/local/go/bin
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+source ~/.config/envman/load.sh

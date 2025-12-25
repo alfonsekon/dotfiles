@@ -1,0 +1,6 @@
+# select the theme
+~/.icons/default/index.theme
+
+# load the cursor and change the size
+~/.xinitrc
+~/.Xresources
