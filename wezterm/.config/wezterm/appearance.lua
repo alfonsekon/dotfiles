@@ -58,7 +58,7 @@ end)
 
 wezterm.on("update-right-status", function(window, _)
 	local color_scheme = window:effective_config().resolved_palette
-	local inactive_tab_bg = "#181820"
+	local inactive_tab_bg = "#1C2021"
 	local new_tab_bg = "#C8C093"
 	local bg = color_scheme.background
 	local fg = color_scheme.foreground
@@ -152,9 +152,9 @@ appearance.enable_tab_bar = true
 appearance.tab_bar_at_bottom = true
 appearance.use_fancy_tab_bar = false
 appearance.window_background_opacity = 1.00
-appearance.font_size = 20.0
-appearance.animation_fps = 75
-appearance.max_fps = 75
+appearance.font_size = 16.0
+appearance.animation_fps = 60
+appearance.max_fps = 60
 appearance.font = wezterm.font_with_fallback({
 	{ family = "JetBrains Mono", weight = "Regular" },
 	{ family = "JetBrains Mono", weight = "Bold" },
@@ -163,10 +163,10 @@ appearance.font = wezterm.font_with_fallback({
 	-- { family = "Monocraft" },
 })
 appearance.window_padding = {
-	left = 8,
-	right = 8,
-	top = 8,
-	bottom = 8,
+	left = "1cell",
+	right = "1cell",
+	top = "0.5cell",
+	bottom = "0.2cell",
 }
 appearance.inactive_pane_hsb = {
 	hue = 1.0,

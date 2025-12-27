@@ -274,10 +274,10 @@ bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipb
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 # i3 startup
-# exec --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
-# exec --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
-# exec --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/pexels-dreamypixel-547115.jpg
-exec --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/GDWP-932-RIGHT-HD-No-Logo.jpg
+# exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
+# exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
+# exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/pexels-dreamypixel-547115.jpg
+exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/GDWP-932-RIGHT-HD-No-Logo.jpg
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 # exec --no-startup-id screenkey
 exec --no-startup-id picom --experimental-backends > /dev/null 2>&1 &

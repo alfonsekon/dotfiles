@@ -9,39 +9,42 @@
 # only call/execute sessionizers within a bash session.
 # this will not behave as expected when inside vim or other TUI applications
 
-selected=$(find $(pwd) $(zoxide query -l) ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
+dirs=(
+  "$(pwd)"
+  $(zoxide query -l)
+  "$HOME"
+  "$HOME/coding/android-studio"
+  "$HOME/coding/vscode"
+  "$HOME/school/third-year/second-sem"
+  "$HOME/dotfiles"
+)
+
+selected=$(
+  for d in "${dirs[@]}"; do
+    [[ -d "$d" ]] && find "$d" -mindepth 1 -maxdepth 1
+  done | fzf
+)
 
 if [[ -z "$selected" ]]; then
-    wezterm cli spawn --cwd "$PWD"
-    exit 0
+	sleep 0.1
+	return
 fi
 
 selected=$(realpath "$selected")
 
-if [[ "$selected" == *"android-studio/"* ]]; then
-    new_pane_id=$(wezterm cli spawn --cwd "$selected")
+if [[ -d "$selected" ]]; then
+	cd "$selected"
+	wezterm cli set-tab-title "$(basename "$selected")"
 
-    wezterm cli set-tab-title --pane-id "$new_pane_id" "$(basename "$selected")"
-
-    echo "Opening in Android Studio..."
-    android-studio "$selected" > /dev/null 2>&1 &
+	# echo "Opening in vscode..."
+	code -n --reuse-window "$selected" > /dev/null 2>&1
+	i3 workspace 3 > /dev/null 2>&1
 else
-    if [[ -d "$selected" ]]; then
-        cd "$selected"
-        wezterm cli set-tab-title "$(basename "$selected")"
+	dir_name=$(dirname "$selected")
+	cd "$dir_name"
 
-        echo "Opening in vscode..."
-        code -n --reuse-window "$selected" > /dev/null 2>&1 &
-        i3 workspace 3
-    else
-        dir_name=$(dirname "$selected")
-        cd "$dir_name"
-
-        wezterm cli set-tab-title "$(basename "$dir_name")"
-        echo "Opening in vscode..."
-        code -n --reuse-window "$selected" > /dev/null 2>&1 &
-        i3 workspace 3
-    fi
+	wezterm cli set-tab-title "$(basename "$dir_name")"
+	# echo "Opening in vscode..."
+	code -n --reuse-window "$selected" > /dev/null 2>&1
+	i3 workspace 3 > /dev/null 2>&1
 fi
-
-clear

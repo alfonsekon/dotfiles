@@ -149,7 +149,6 @@ alias cdeeznuts='cd'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
-# alias starti3='startx /usr/bin/i3'
 alias starti3='startx'
 alias vim='nvim'
 alias picomm='picom --experimental-backends > /dev/null 2>&1 &'
@@ -189,10 +188,6 @@ alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill
 # alias gs='git status'
 # alias gco='git checkout'
 
-# copy and paste between TTYs (very hassle) (dont use anymore)
-alias cclip='cat > /tmp/tty_clipboard'
-alias clipp='cat /tmp/tty_clipboard'
-
 # power options
 alias eepy='systemctl suspend -i'
 alias patay='systemctl poweroff'
@@ -215,12 +210,9 @@ alias bdown='brightnessctl set 1920-'
 alias m1on='xrandr --output eDP-1 --auto'
 alias m1off='xrandr --output eDP-1 --off'
 
-alias bg1='feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-jungle-red.png'
-alias bg2='feh --bg-scale /usr/share/backgrounds/pop/kate-hazen-fractal-mountains.png'
-alias bg3='feh --bg-fill ~/Pictures/Screenshots/IMG_1699.png'
-
 # battery/charging limitation
 alias batt85='sudo sh -c "echo 85 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
+alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
@@ -235,6 +227,7 @@ mb() {
 	# setxkbmap -option caps:swapescape
 	xinput --set-prop "$1" "libinput Accel Speed" 0
 	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
+	printf "mb success"
 }
 
 xinput set-prop "ASUF1300:00 2808:0203 Touchpad" "libinput Tapping Enabled" 1
@@ -242,10 +235,11 @@ xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Ena
 
 mbl() {
 	if [ -z "$1" ]; then
-		xinput | grep "slave  pointer" | awk '{print}' | grep UGREEN | awk '{print $5}'
-		printf "\n"
-		printf "    Usage: mb <device-id>\n"
-		return 1
+		device_id=$(xinput | grep "slave  pointer" | grep -m 1 UGREEN | awk '{print $5}' | cut -d= -f2)
+		echo "$device_id"
+		printf "    Usage: mbl <device-id>\n"
+		mb $device_id
+		return 0
 	fi
 
 	# setxkbmap -option caps:swapescape
@@ -254,11 +248,11 @@ mbl() {
 }
 
 #oh-my-posh config
-eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox.omp.json)"
+eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox-theme.omp.json)"
 eval "$(zoxide init bash)"
 # export PATH=$PATH:/usr/local/go/bin
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

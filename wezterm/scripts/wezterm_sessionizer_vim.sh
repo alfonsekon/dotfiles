@@ -8,10 +8,24 @@
 # only call/execute sessionizers within a bash session.
 # this will not behave as expected when inside vim or other TUI applications
 
-selected=$(find $(pwd) $(zoxide query -l) ~/ ~/coding/android-studio/ ~/coding/vscode ~/school/third-year/second-sem ~/dotfiles -mindepth 1 -maxdepth 1 | fzf)
+dirs=(
+  "$(pwd)"
+  $(zoxide query -l)
+  "$HOME"
+  "$HOME/coding/android-studio"
+  "$HOME/coding/vscode"
+  "$HOME/school/third-year/second-sem"
+  "$HOME/dotfiles"
+)
+
+selected=$(
+  for d in "${dirs[@]}"; do
+    [[ -d "$d" ]] && find "$d" -mindepth 1 -maxdepth 1
+  done | fzf
+)
 
 if [[ -z "$selected" ]]; then
-    exit 0
+	return
 fi
 
 selected=$(realpath "$selected")
@@ -23,10 +37,12 @@ if [[ -d "$selected" ]]; then
     sleep 0.1
 
     nvim "$selected"
+	return
 else
     dir_name=$(dirname "$selected")
 
     tab_id=$(wezterm cli spawn --cwd "$dir_name")
     wezterm cli set-tab-title --pane-id "$tab_id" "$(basename "$dir_name")"
     nvim "$selected"
+	return
 fi
