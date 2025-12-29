@@ -88,6 +88,11 @@ keys.binds = {
 			args = { "nvim", wezterm.home_dir .. "/school/work/companies.md" },
 		}),
 	},
+	{
+		key = "g",
+		mods = "ALT",
+		action = act.SendString("theme_switch && source ~/.cache/omp_theme\n"),
+	},
 	-- -- scripts
 	-- { key = "t", mods = "CTRL", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },
 	-- { key = "m", mods = "CTRL", action = act.SendString("bash ~/scripts/wezterm_sessionizer_vim.sh\n") },
