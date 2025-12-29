@@ -179,14 +179,7 @@ alias sessionizer_vim='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_vim
 alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill -9'
-
-# git shortcuts
-# alias ga='git add'
-# alias gc='git commit -m'
-# alias gpush='git push'
-# alias gpull='git pull'
-# alias gs='git status'
-# alias gco='git checkout'
+alias theme_switch='~/personal/bin/theme_switch.sh'
 
 # power options
 alias eepy='systemctl suspend -i'
@@ -216,39 +209,12 @@ alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
-mb() {
-	if [ -z "$1" ]; then
-		xinput | grep "slave  pointer" | awk '{print}'
-		printf "\n"
-		printf "    Usage: mb <device-id>\n"
-		return 1
-	fi
-
-	# setxkbmap -option caps:swapescape
-	xinput --set-prop "$1" "libinput Accel Speed" 0
-	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
-	printf "mb success"
-}
-
-xinput set-prop "ASUF1300:00 2808:0203 Touchpad" "libinput Tapping Enabled" 1
-xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Enabled" 1
-
-mbl() {
-	if [ -z "$1" ]; then
-		device_id=$(xinput | grep "slave  pointer" | grep -m 1 UGREEN | awk '{print $5}' | cut -d= -f2)
-		echo "$device_id"
-		printf "    Usage: mbl <device-id>\n"
-		mb $device_id
-		return 0
-	fi
-
-	# setxkbmap -option caps:swapescape
-	xinput --set-prop "$1" "libinput Accel Speed" 0
-	xinput --set-prop "$1" "Coordinate Transformation Matrix" 0.6 0 0 0 0.6 0 0 0 1
-}
+alias mbl='~/personal/bin/mbb.sh'
 
 #oh-my-posh config
-eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox-theme.omp.json)"
+if [ -f ~/.cache/omp_theme ]; then
+    source ~/.cache/omp_theme
+fi
 eval "$(zoxide init bash)"
 # export PATH=$PATH:/usr/local/go/bin
 
