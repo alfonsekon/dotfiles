@@ -151,7 +151,7 @@ alias cdeeznuts='cd'
 alias obs='flatpak run com.obsproject.Studio &'
 alias starti3='startx'
 alias vim='nvim'
-alias picomm='picom --experimental-backends > /dev/null 2>&1 &'
+alias picomm='bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"'
 alias cpus='hwinfo --cpu | grep Clock'
 alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'

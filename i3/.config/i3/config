@@ -50,7 +50,7 @@ bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 
 floating_modifier $mod
 
 # start a wezterm
-bindsym $mod+Shift+Return exec wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
+bindsym $mod+Return exec wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 # start wezterm without config 
 bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua &
 
@@ -58,12 +58,10 @@ bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua &
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1d2021' -nf '#969696' -sb '#303030' -sf '#fec925'
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+bindsym Mod1+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launchers/type-6/style-10.rasi
+bindsym $mod+x exec --no-startup-id /home/luis/.config/rofi/powermenu/type-5/powermenu.sh
+# bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1d2021' -nf '#969696' -sb '#303030' -sf '#fec925'
 
 # change focus
 bindsym $mod+j focus left
@@ -71,23 +69,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 # bindsym $mod+h split h
@@ -104,6 +90,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
+floating_modifier Mod1
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
@@ -216,19 +203,20 @@ bindsym $mod+Shift+b exec brave-browser --incognito
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
 # i3lock
-bindsym $mod+x exec /home/$USER/.config/scripts/lock
+# bindsym $mod+x exec /home/$USER/.config/scripts/lock
 
 bindsym $mod+r mode "resize"
 
 focus_wrapping no
 
 #remove title bar
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 4
 
 # gaps
 gaps inner 4
 gaps outer 4
-smart_gaps on
+# smart_gaps on
+smart_borders on
 
 # hide status bar
 bindsym $mod+Shift+m bar mode toggle
@@ -236,17 +224,18 @@ bindsym $mod+Shift+m bar mode toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # status_command i3status -c /home/$USER/.config/i3status/i3status.conf
+		id mainbar
         status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
-		# tray_output none
+     	padding 2px 6px 4px 1px
+		font pango:JetBrains Mono 9
 		position top
         colors {
                 background $bgcolor
-                separator #191919
+                separator #999999
                 #                       border          background      text
-                focused_workspace       $in-bgcolor     $in-bgcolor     $text
-                inactive_workspace      $bgcolor        $bgcolor        $text
-                urgent_workspace        $u-bgcolor      $u-bgcolor      $text   
+                focused_workspace       $in-bgcolor     $in-bgcolor     $pink
+                inactive_workspace      $bgcolor        $bgcolor        $pink
+                urgent_workspace        $u-bgcolor      $u-bgcolor      $pink   
 
         }
 }
@@ -274,13 +263,11 @@ bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipb
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
 # i3 startup
-# exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/pop/nick-nazzaro-space-blue.png
 # exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
-# exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/pexels-dreamypixel-547115.jpg
-exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/GDWP-932-RIGHT-HD-No-Logo.jpg
+# exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/wallpapers/GDWP-932-RIGHT-HD-No-Logo.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/martin-martz-Sjp4w1dYpoc-unsplash.jpg
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
-# exec --no-startup-id screenkey
-exec --no-startup-id picom --experimental-backends > /dev/null 2>&1 &
+exec --no-startup-id bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
 
 
@@ -288,11 +275,13 @@ exec --no-startup-id libinput-gestures-setup restart > /dev/null
 set $bgcolor    #1d2021
 set $in-bgcolor #303030
 set $text       #fec925
-set $u-bgcolor  #ff0000
+set $dark-text  #dea900
+set $pink       #cb9592
+set $u-bgcolor  #ff5555
 set $indicator  #a8a3c1
 set $in-text    #969696
 #                       border          background      text            indicator (a line which shows where the next window will be placed)     
-client.focused          $bgcolor        $bgcolor        $text           $indicator
+client.focused          $pink           $pink           $bgcolor        $indicator
 client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
