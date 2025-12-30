@@ -90,8 +90,8 @@ keys.binds = {
 	},
 	{
 		key = "g",
-		mods = "ALT",
-		action = act.SendString("theme_switch && source ~/.cache/omp_theme\n"),
+		mods = "ALT|SHIFT",
+		action = act.SendString("theme_switch\n source ~/.cache/omp_theme\n"),
 	},
 	-- -- scripts
 	-- { key = "t", mods = "CTRL", action = act.SendString("source ~/scripts/wezterm_sessionizer_ide.sh\n") },

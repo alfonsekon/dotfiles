@@ -16,12 +16,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
-font pango:JetBrains Mono 8
+font pango:JetBrains Mono 9
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -40,22 +35,22 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+1 i3blocks
-bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
-bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
-bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
-# bindsym $mod+Shift+Up exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $refresh_i3blocks pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
+bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3blocks
+bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks
+bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier Mod1
 
 # start a wezterm
 bindsym $mod+Return exec wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 # start wezterm without config 
-bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua &
+bindsym $mod+Ctrl+Return exec wezterm --config-file /home/luis/.wezterm.lua & &&
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -78,12 +73,6 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# split in horizontal orientation
-# bindsym $mod+h split h
-
-# split in vertical orientation
-# bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -93,17 +82,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-floating_modifier Mod1
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-# bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -154,6 +136,8 @@ bindsym $mod+Shift+y exec  bash -c "i3-input -F 'move container to workspace %s'
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# # restart i3 and switch theme
+# bindsym $mod+g exec --no-startup-id ~/personal/bin/theme_switch.sh
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -170,43 +154,30 @@ mode "resize" {
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 
-# open blueman 
-# bindsym $mod+i exec blueman-manager
-# open pavucontrol
+# open applications
 bindsym $mod+p exec pavucontrol
-# open nemo
 bindsym $mod+n exec nemo
-# open vscode
 bindsym $mod+c exec code
-# open arudino ide
+bindsym $mod+b exec brave-browser
+bindsym $mod+Shift+b exec brave-browser --incognito
+bindsym $mod+o exec screenkey &
+bindsym $mod+shift+o exec pkill screenkey
 # bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
+# bindsym $mod+x exec android-studio
+# bindsym $mod+i exec blueman-manager
+# bindsym $mod+x exec /home/$USER/.config/scripts/lock
+
 # brightness controls
 bindsym $mod+Shift+Left exec brightnessctl set 1600-
 bindsym $mod+Shift+Right exec brightnessctl set +1600
 bindsym $mod+Left exec bash -c '[ $(brightnessctl g) -gt 1600 ] && brightnessctl set 1600-'
 bindsym $mod+Right exec brightnessctl set +1600
-# open android-studio
-# bindsym $mod+x exec android-studio
-# open brave
-bindsym $mod+b exec brave-browser
-bindsym $mod+Shift+b exec brave-browser --incognito
-# screenkey
-bindsym $mod+o exec screenkey &
-bindsym $mod+shift+o exec pkill screenkey
-# i3lock
-# bindsym $mod+x exec /home/$USER/.config/scripts/lock
 
 bindsym $mod+r mode "resize"
 
@@ -218,7 +189,6 @@ for_window [class=".*"] border pixel 4
 # gaps
 gaps inner 4
 gaps outer 4
-# smart_gaps on
 smart_borders on
 
 # hide status bar
@@ -242,7 +212,6 @@ bar {
         }
 }
 
-#workspaces on startup
 for_window [class="brave-browser"] move to workspace 1, layout tabbed
 for_window [class="wezterm"] move to workspace 2, layout tabbed
 for_window [class="Code"] move to workspace 3, layout tabbed
@@ -264,12 +233,18 @@ bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipb
 bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 
+# Clipboard history (greenclip)
+bindsym $mod+v exec --no-startup-id sh -c 'greenclip print | rofi -dmenu -i -p "Clipboard" -theme "$HOME/.config/rofi/launchers/type-6/style-8.rasi" | xclip -selection clipboard'
+bindsym $mod+Shift+v exec --no-startup-id greenclip clear
+bindsym $mod+Ctrl+v exec --no-startup-id greenclip daemon
+
 # i3 startup
-# exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/martin-martz-Sjp4w1dYpoc-unsplash.jpg
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"
-exec_always --no-startup-id sh -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox-theme.omp.json)" > ~/.cache/omp_theme && source ~/.cache/omp_theme'
+exec --no-startup-id greenclip daemon
+exec_always --no-startup-id bash -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox-theme.omp.json)" > ~/.cache/omp_theme'
+exec_always --no-startup-id ~/personal/bin/pointers.sh
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
 
 # Color shemes for windows 

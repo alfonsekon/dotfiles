@@ -140,12 +140,9 @@ alias shellexec='exec $SHELL'
 alias localdorm='192.168.68.240'
 
 # cd shortcuts
-alias codinga='cd ~/coding/android-studio && ls -la'
-alias codingv='cd ~/coding/vscode && ls -la'
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
 alias school='cd ~/school/fourth-year/first-sem/ && ls -la'
-alias cdeeznuts='cd'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
@@ -153,7 +150,6 @@ alias starti3='startx'
 alias vim='nvim'
 alias picomm='bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"'
 alias cpus='hwinfo --cpu | grep Clock'
-alias switchcaps="pkill xcape && xcape -e 'Alt_R=Caps_Lock'"
 alias please='sudo'
 alias zotero='bash ~/Downloads/Zotero_linux-x86_64/zotero > /dev/null'
 alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
@@ -164,8 +160,6 @@ alias py='python'
 alias treenogit='tree -I ".git" -la'
 alias ls='exa --icons'
 alias ll='exa --icons -la'
-alias j='z'
-alias ji='zi'
 alias ..='cd ..'
 alias ...='cd ../..'
 # alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
@@ -209,7 +203,7 @@ alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
-alias mbl='~/personal/bin/mbb.sh'
+alias pointers='~/personal/bin/pointers.sh'
 
 #oh-my-posh config
 if [ -f ~/.cache/omp_theme ]; then
@@ -223,3 +217,5 @@ eval "$(zoxide init bash)"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 source ~/.config/envman/load.sh
+
+# bind 'TAB:menu-complete'
