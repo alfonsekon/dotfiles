@@ -218,4 +218,5 @@ eval "$(zoxide init bash)"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 source ~/.config/envman/load.sh
 
-# bind 'TAB:menu-complete'
+bind 'TAB:menu-complete'
+bind 'set show-all-if-ambiguous on'
