@@ -154,6 +154,7 @@ alias please='sudo'
 alias zotero='bash ~/Downloads/Zotero_linux-x86_64/zotero > /dev/null'
 alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
 alias arduino='~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
+alias code='codium'
 
 # shell shortcuts
 alias py='python'
@@ -173,7 +174,7 @@ alias sessionizer_vim='source ~/dotfiles/wezterm/scripts/wezterm_sessionizer_vim
 alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill -9'
-alias theme_switch='~/personal/bin/theme_switch.sh'
+alias theme_switch='~/personal/scripts/theme_switch.sh'
 
 # power options
 alias eepy='systemctl suspend -i'
@@ -203,7 +204,7 @@ alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
-alias pointers='~/personal/bin/pointers.sh'
+alias pointers='~/personal/scripts/pointers.sh'
 
 #oh-my-posh config
 if [ -f ~/.cache/omp_theme ]; then
@@ -220,3 +221,4 @@ source ~/.config/envman/load.sh
 
 bind 'TAB:menu-complete'
 bind 'set show-all-if-ambiguous on'
+bind '"\e[Z":menu-complete-backward'
