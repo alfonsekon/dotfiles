@@ -75,7 +75,7 @@
     ],
     "vim.mouseSelectionGoesIntoVisualMode": false,
     "vim.neovimConfigPath": "~/.local/bin/nvim",
-    // "vim.statusBarColorControl": false,
+    "vim.statusBarColorControl": false,
     // "workbench.colorCustomizations": {
     //     "statusBar.background": "#005f87",
     //     "statusBar.noFolderBackground": "#005f87",
@@ -84,8 +84,9 @@
     //     "statusBar.debuggingForeground": "#ffffff"
     // },
     "python.createEnvironment.trigger": "off",
-    "window.zoomLevel": 0.9,
+    "window.zoomLevel": 1.0,
     "window.commandCenter": false,
+    "editor.fontSize": 16,
     "editor.cursorStyle": "line",
     "editor.fontLigatures": false,
     "editor.stickyScroll.enabled": true,
@@ -100,6 +101,19 @@
     "workbench.activityBar.location": "hidden",
     "workbench.sideBar.location": "right",
     "workbench.layoutControl.enabled": false,
+    "workbench.colorCustomizations": {
+        "statusBar.border": "#00000000",
+
+        "editorGroupHeader.border": "#00000000",
+        "editorGroupHeader.tabsBorder": "#00000000",
+        "editorGroup.border": "#00000000",
+
+        "tab.border": "#00000000",
+        "tab.activeBorder": "#00000000",
+        "tab.unfocusedActiveBorder": "#00000000",
+
+        "titleBar.border": "#00000000"
+    },
     "zenMode.hideStatusBar": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false,
@@ -163,10 +177,10 @@
         "titleBarStyle": "hidden", 
     },
     "apc.statusBar": {
-        "position": "bottom"
+        "position": "editor-bottom"
     },
     "update.mode": "none",
-    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingOvertype": "always",
@@ -179,5 +193,6 @@
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.textColor": "#fabd2f",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "material-icon-theme.folders.color": "#443f3c",
 
 }
