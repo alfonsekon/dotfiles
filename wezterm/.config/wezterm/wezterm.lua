@@ -1,9 +1,7 @@
 local wezterm = require("wezterm")
 local keybinds = require("keybinds")
 local appearance = require("appearance")
--- local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local workspace_switcher = dofile("/home/luis/.dotfiles/wezterm/.config/wezterm/workspace_switcher.lua")
-local colors = dofile("/home/luis/.dotfiles/wezterm/colors/kanagawa.lua")
 
 appearance.setup_status()
 
