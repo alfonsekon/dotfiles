@@ -73,7 +73,7 @@
         { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
         { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
     ],
-    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.mouseSelectionGoesIntoVisualMode": true,
     "vim.neovimConfigPath": "~/.local/bin/nvim",
     "vim.statusBarColorControl": false,
     // "workbench.colorCustomizations": {
@@ -88,7 +88,7 @@
     "window.commandCenter": false,
     "editor.fontSize": 16,
     "editor.cursorStyle": "line",
-    "editor.fontLigatures": false,
+    "editor.fontLigatures": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 1,
     "editor.lightbulb.enabled": "off",

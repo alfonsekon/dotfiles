@@ -205,7 +205,8 @@ alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_contro
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 alias pointers='~/personal/scripts/pointers.sh'
-
+alias enable_tlp='sudo ~/personal/scripts/enable_tlp.sh'
+alias disable_tlp='sudo ~/personal/scripts/disable_tlp.sh'
 #oh-my-posh config
 if [ -f ~/.cache/omp_theme ]; then
     source ~/.cache/omp_theme
@@ -219,6 +220,6 @@ eval "$(zoxide init bash)"
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 source ~/.config/envman/load.sh
 
-bind 'TAB:menu-complete'
-bind 'set show-all-if-ambiguous on'
-bind '"\e[Z":menu-complete-backward'
+# bind 'TAB:menu-complete'
+# bind 'set show-all-if-ambiguous on'
+# bind '"\e[Z":menu-complete-backward'
