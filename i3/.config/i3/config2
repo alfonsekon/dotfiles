@@ -186,6 +186,7 @@ mode "resize" {
 # bindsym $mod+i exec blueman-manager
 # open pavucontrol
 bindsym $mod+p exec pavucontrol
+bindsym $mod+Shift+p exec blueman-manager
 # open nemo
 bindsym $mod+n exec nemo
 # open vscode
@@ -235,18 +236,24 @@ for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
 for_window [class="Nemo"] move to workspace 4, layout tabbed
 for_window [class="Wihotspot"] move to workspace 8, layout tabbed
 for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
-for_window [class="blueman-manager"] move to workspace 8, layout tabbed
+for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots-i3/$(date)"
+exec --no-startup-id flameshot &
+# bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots-i3/$(date)"
+# bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots-i3/$(date)"
 # bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots-i3/$(date)"
+bindsym Print exec --no-startup-id bash -c '~/personal/scripts/fs_fullsave.sh'
+bindsym Shift+Print exec --no-startup-id bash -c '~/personal/scripts/fs_cropsave.sh'
 
 ## Clipboard Screenshots
-bindsym Insert exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+# bindsym Insert exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# bindsym Shift+Insert exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+# bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 # bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Insert exec --no-startup-id bash -c '~/personal/scripts/fs_fullclip.sh'
+bindsym Shift+Insert exec --no-startup-id bash -c '~/personal/scripts/fs_cropclip.sh'
+bindsym Mod4+Shift+s exec --no-startup-id bash -c '~/personal/scripts/fs_ss.sh'
 
 # Clipboard history (greenclip)
 bindsym $mod+v exec --no-startup-id sh -c 'greenclip print | rofi -dmenu -i -p "Clipboard" -theme "$HOME/.config/rofi/launchers/type-6/style-8.rasi" | xclip -selection clipboard'

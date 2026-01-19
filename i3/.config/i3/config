@@ -56,10 +56,9 @@ bindsym $mod+Shift+Return exec wezterm --config-file /home/luis/.wezterm.lua &
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id /home/luis/.config/rofi/launchers/type-6/launcher.sh
-bindsym Mod1+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launchers/type-6/style-10.rasi
-bindsym $mod+x exec --no-startup-id /home/luis/.config/rofi/powermenu/type-5/powermenu.sh
-bindsym $mod+Shift+d exec --no-startup-id /home/luis/personal/scripts/emoji.sh
+bindsym $mod+d exec --no-startup-id /home/luis/.config/rofi/launchers/type-3/launcher.sh
+bindsym Mod1+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launchers/type-3/style-10.rasi
+bindsym $mod+x exec --no-startup-id /home/luis/.config/rofi/powermenu/type-3/powermenu.sh
 # bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1d2021' -nf '#969696' -sb '#303030' -sf '#fec925'
 
 # change focus
@@ -163,6 +162,7 @@ mode "resize" {
 
 # open applications
 bindsym $mod+p exec pavucontrol
+bindsym $mod+Shift+p exec blueman-manager
 bindsym $mod+n exec nemo
 bindsym $mod+c exec codium
 bindsym $mod+b exec vivaldi-stable
@@ -215,12 +215,13 @@ bar {
 
 for_window [class="wezterm"] move to workspace 2, layout tabbed
 for_window [class="VSCodium"] move to workspace 3, layout tabbed
+for_window [class="Code"] move to workspace 3, layout tabbed
 for_window [class="Arduino*"] move to workspace 3, layout tabbed
 for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
 for_window [class="Nemo"] move to workspace 4, layout tabbed
 for_window [class="Wihotspot"] move to workspace 8, layout tabbed
 for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
-for_window [class="blueman-manager"] move to workspace 8, layout tabbed
+for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
 
 ## Screenshots
 exec --no-startup-id flameshot &
@@ -249,7 +250,7 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/martin-martz-Sj
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"
 exec --no-startup-id greenclip daemon
-exec_always --no-startup-id bash -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox-theme.omp.json)" > ~/.cache/omp_theme'
+exec_always --no-startup-id bash -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/luis.omp.json)" > ~/.cache/omp_theme'
 exec_always --no-startup-id ~/personal/scripts/pointers.sh
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
 

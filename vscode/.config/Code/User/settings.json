@@ -194,5 +194,6 @@
     "vim.highlightedyank.textColor": "#fabd2f",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "material-icon-theme.folders.color": "#443f3c",
+    "workbench.editor.empty.hint": "hidden",
 
 }

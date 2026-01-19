@@ -21,10 +21,10 @@ generic_pointer() {
 	echo "generic_pointer success"
 }
 
-# automatically 
+# automatically look for UGREEN mouse
 ugreen_pointer() {
 	if [ -z "$1" ]; then
-		device_id=$(xinput | grep "slave  pointer" | grep -m 1 UGREEN | awk '{print $5}' | cut -d= -f2)
+		device_id=$(xinput | grep "slave  pointer" | grep -m 1 'UGREEN Mouse  ' | awk '{print $5}' | cut -d= -f2)
 		echo "$device_id"
 		printf "    Usage: ugreen_pointer <device-id>\n"
 		generic_pointer $device_id
@@ -36,3 +36,4 @@ ugreen_pointer() {
 }
         
 ugreen_pointer
+# generic_pointer

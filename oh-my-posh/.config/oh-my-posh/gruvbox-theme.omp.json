@@ -1,129 +1,141 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
+  "console_title_template": "{{ .Folder }}",
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-		  "type": "os",
-		  "style": "diamond",
-		  "background": "#3A3A3A",
-		  "foreground": "#ffffff",
-		  "leading_diamond": "\ue0b6",
-		  "template": " \u2EE5"
+          "type": "os",
+          "style": "diamond",
+          "background": "#3A3A3A",
+          "foreground": "#ffffff",
+          "leading_diamond": "\ue0b6",
+          "template": " \u2EE5"
         },
         {
+          "type": "path",
+          "style": "powerline",
           "background": "#458588",
           "foreground": "#282828",
           "powerline_symbol": "\ue0b0",
-          "options": {
-            "style": "full"
-          },
-		  "properties": {
-			"style": "folder"
-		  },
-          "style": "powerline",
           "template": " {{ .Path }} ",
-          "type": "path"
+          "properties": {
+            "style": "agnoster_short",
+			"max_depth": 3,
+			"hide_root_location": true
+          }
         },
         {
+          "type": "git",
+          "style": "powerline",
           "background": "#98971A",
           "foreground": "#282828",
           "leading_diamond": "\ue0b6",
           "powerline_symbol": "\ue0b0",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .HEAD }}{{ if .Working.Changed }} ✘{{ end }} ",
           "properties": {
             "fetch_status": true
-          },
-          "style": "powerline",
-		  "template": " {{ .HEAD }}{{ if or .Working.Changed }} \u2718{{ end }} ",
-          "trailing_diamond": "\ue0b4",
-          "type": "git"
+          }
         },
         {
+          "type": "go",
+          "style": "powerline",
           "background": "#8ED1F7",
           "foreground": "#111111",
           "powerline_symbol": "\ue0b0",
+          "template": " \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "options": {
             "fetch_version": true
-          },
-          "style": "powerline",
-          "template": " \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "type": "go"
+          }
         },
         {
+          "type": "julia",
+          "style": "powerline",
           "background": "#4063D8",
           "foreground": "#111111",
           "powerline_symbol": "\ue0b0",
+          "template": " \ue624 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "options": {
             "fetch_version": true
-          },
-          "style": "powerline",
-          "template": " \ue624 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "type": "julia"
+          }
         },
         {
+          "type": "python",
+          "style": "powerline",
           "background": "#FFDE57",
           "foreground": "#111111",
           "powerline_symbol": "\ue0b0",
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "options": {
             "display_mode": "files",
             "fetch_virtual_env": false
-          },
-          "style": "powerline",
-          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "type": "python"
+          }
         },
         {
+          "type": "ruby",
+          "style": "powerline",
           "background": "#AE1401",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
+          "template": " \ue791 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "options": {
             "display_mode": "files",
             "fetch_version": true
-          },
-          "style": "powerline",
-          "template": " \ue791 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "type": "ruby"
+          }
         },
         {
+          "type": "azfunc",
+          "style": "powerline",
           "background": "#FEAC19",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
+          "template": " \uf0e7{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "options": {
             "display_mode": "files",
             "fetch_version": false
-          },
-          "style": "powerline",
-          "template": " \uf0e7{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "type": "azfunc"
+          }
         },
         {
-          "background_templates": [
-            "{{if contains \"default\" .Profile}}#FFA400{{end}}",
-            "{{if contains \"jan\" .Profile}}#f1184c{{end}}"
-          ],
+          "type": "aws",
+          "style": "powerline",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
+          "template": " \ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} ",
+          "background_templates": [
+            "{{ if contains \"default\" .Profile }}#FFA400{{ end }}",
+            "{{ if contains \"jan\" .Profile }}#f1184c{{ end }}"
+          ],
           "options": {
             "display_default": false
-          },
-          "style": "powerline",
-          "template": " \ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} ",
-          "type": "aws"
+          }
         },
         {
+          "type": "root",
+          "style": "powerline",
           "background": "#ffff66",
           "foreground": "#111111",
           "powerline_symbol": "\ue0b0",
-          "style": "powerline",
-          "template": " \uf0ad ",
-          "type": "root"
+          "template": " \uf0ad "
         }
-      ],
-      "type": "prompt"
+      ]
+    },
+    {
+      "type": "prompt",
+      "newline": true,
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#8ED1F7",
+          "template": "❯"
+        }
+      ]
     }
-  ],
-  "console_title_template": "{{ .Folder }}",
-  "final_space": true,
-  "version": 4
+  ]
 }

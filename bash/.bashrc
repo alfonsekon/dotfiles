@@ -88,9 +88,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+###########################
+# ADDING BINARIES TO PATH #
+###########################
+
 # adding nvim to PATH
 export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH=$PATH:/home/luis/.local/bin
@@ -131,13 +135,39 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# export PATH=$PATH:/usr/local/go/bin
+
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+##################
+# SOURCING FILES #
+##################
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+source ~/.config/envman/load.sh
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# Print newline AFTER executing a command
+PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+alias clear="unset PROMPT_COMMAND; clear; PROMPT_COMMAND='export PROMPT_COMMAND=echo'"
+eval "$(zoxide init bash)"
+
+#oh-my-posh config
+if [ -f ~/.cache/omp_theme ]; then
+    source ~/.cache/omp_theme
+fi
+
+###########
+# ALIASES #
+###########
+
 # aliases for editing files
 alias bashrc='nvim ~/.bashrc'
 alias savebashrc='source ~/.bashrc'
 alias i3conf='nvim ~/.config/i3/config'
 alias todolist='nvim ~/school/todolist'
-alias shellexec='exec $SHELL'
-alias localdorm='192.168.68.240'
 
 # cd shortcuts
 alias dotfiles='cd ~/dotfiles && ls -la'
@@ -154,13 +184,14 @@ alias please='sudo'
 alias zotero='bash ~/Downloads/Zotero_linux-x86_64/zotero > /dev/null'
 alias qbit='~/Downloads/qbittorrent-5.1.2_x86_64.AppImage > /dev/null'
 alias arduino='~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
-alias code='codium'
+# alias code='codium'
 
 # shell shortcuts
 alias py='python'
 alias treenogit='tree -I ".git" -la'
-alias ls='exa --icons'
-alias ll='exa --icons -la'
+alias ls='eza --icons -G'
+alias ll='eza --icons -lah'
+alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 # alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
@@ -175,6 +206,8 @@ alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill -9'
 alias theme_switch='~/personal/scripts/theme_switch.sh'
+alias d_keyd="sudo sed -i 's/^\[main\]$/[mainn]/' /etc/keyd/default.conf && sudo systemctl restart keyd"
+alias e_keyd="sudo sed -i 's/^\[mainn\]$/[main]/' /etc/keyd/default.conf && sudo systemctl restart keyd"
 
 # power options
 alias eepy='systemctl suspend -i'
@@ -198,27 +231,19 @@ alias bdown='brightnessctl set 1920-'
 alias m1on='xrandr --output eDP-1 --auto'
 alias m1off='xrandr --output eDP-1 --off'
 
-# battery/charging limitation
+# battery/charging limitation and TLP 
 alias batt85='sudo sh -c "echo 85 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
+alias enable_tlp='sudo ~/personal/scripts/enable_tlp.sh'
+alias disable_tlp='sudo ~/personal/scripts/disable_tlp.sh'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 alias pointers='~/personal/scripts/pointers.sh'
-alias enable_tlp='sudo ~/personal/scripts/enable_tlp.sh'
-alias disable_tlp='sudo ~/personal/scripts/disable_tlp.sh'
-#oh-my-posh config
-if [ -f ~/.cache/omp_theme ]; then
-    source ~/.cache/omp_theme
-fi
-eval "$(zoxide init bash)"
-# export PATH=$PATH:/usr/local/go/bin
 
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-source ~/.config/envman/load.sh
+############
+# KEYBINDS #
+############
 
 # bind 'TAB:menu-complete'
 # bind 'set show-all-if-ambiguous on'

@@ -196,5 +196,10 @@
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "material-icon-theme.folders.color": "#443f3c",
     "workbench.editor.enablePreview": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "clangd.path": "/home/luis/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/21.1.0/clangd_21.1.0/bin/clangd",
+    "editor.inlayHints.enabled": "off",
 
 }

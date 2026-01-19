@@ -126,6 +126,7 @@ appearance.colors = {
 		inactive_tab = {
 			bg_color = "#1d2021",
 			fg_color = "#a89984",
+			intensity = "Normal",
 		},
 
 		inactive_tab_hover = {
@@ -157,7 +158,7 @@ appearance.animation_fps = 60
 appearance.max_fps = 60
 appearance.font = wezterm.font_with_fallback({
 	{ family = "JetBrains Mono", weight = "Regular" },
-	{ family = "JetBrains Mono", weight = "Bold" },
+	-- { family = "JetBrains Mono", weight = "Bold" },
 	-- { family = "FiraCode", weight = "Regular" },
 	-- { family = "FiraCode", weight = "Bold" },
 	-- { family = "Monocraft" },

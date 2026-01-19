@@ -13,7 +13,7 @@ local keys = {}
 --   )
 -- end)
 
-keys.disable_default_key_bindings = false
+keys.disable_default_key_bindings = true
 
 -- keys.key_tables = {
 -- 	copy_mode = {},
@@ -22,7 +22,7 @@ keys.disable_default_key_bindings = false
 keys.leader = {
 	key = "a",
 	mods = "CTRL",
-	timeout_milliseconds = 2000,
+	timeout_milliseconds = 2500,
 }
 
 keys.binds = {

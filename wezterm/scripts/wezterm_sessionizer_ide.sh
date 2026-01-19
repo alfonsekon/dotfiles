@@ -37,7 +37,7 @@ if [[ -d "$selected" ]]; then
 	wezterm cli set-tab-title "$(basename "$selected")"
 
 	# echo "Opening in vscode..."
-	code -n --reuse-window "$selected" > /dev/null 2>&1
+	codium -n --reuse-window "$selected" > /dev/null 2>&1
 	i3 workspace 3 > /dev/null 2>&1
 else
 	dir_name=$(dirname "$selected")
@@ -45,6 +45,6 @@ else
 
 	wezterm cli set-tab-title "$(basename "$dir_name")"
 	# echo "Opening in vscode..."
-	code -n --reuse-window "$selected" > /dev/null 2>&1
+	codium -n --reuse-window "$selected" > /dev/null 2>&1
 	i3 workspace 3 > /dev/null 2>&1
 fi
