@@ -1,7 +1,7 @@
 # dotfiles
 
 Messiest and most vanilla dotfiles known to man, a forever work in progress.\
-Most of the aliases in the `.bashrc` are because I am **lazy**  Do **not** be like me.\
+Most of the aliases in `.bashrc` are because I am **lazy**  Do **not** be like me.\
 I've moved some scripts to `$HOME/personal/scripts` on my machine, but they can be found [here](./scripts/scripts/).
 
 Currently trying to clean up each file to make finding stuff and editing easier.\
