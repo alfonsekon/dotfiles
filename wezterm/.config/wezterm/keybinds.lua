@@ -13,7 +13,7 @@ local keys = {}
 --   )
 -- end)
 
-keys.disable_default_key_bindings = true
+keys.disable_default_key_bindings = false
 
 -- keys.key_tables = {
 -- 	copy_mode = {},
