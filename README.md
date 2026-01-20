@@ -24,9 +24,9 @@ To install `tlp`, run
 ```bash
 stow -v -t /etc tlp
 ```
-In general, `stow` will install at the specified directory you place. i.e.,
+In general, `stow` will install at the specified directory you place. For example,
 ```bash
-stow -v -t $HOME/personal ./ideavim/
+stow -v -t $HOME/personal ideavim
 ```
 will install `.ideavimrc` in _$HOME/personal_ (_$HOME/personal/.ideavimrc_)
 
