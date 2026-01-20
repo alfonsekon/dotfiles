@@ -1,5 +1,7 @@
 # dotfiles
 
+![terminal-preview](./images/screenshots/2026-01-21_01-01-47.png)
+
 Messiest and most vanilla dotfiles known to man, a forever work in progress.\
 Most of the aliases in `.bashrc` are because I am **lazy**  Do **not** be like me.\
 I've moved some scripts to `$HOME/personal/scripts` on my machine, but they can be found [here](./scripts/scripts/).
@@ -48,19 +50,19 @@ stow -D <package-name>
 
 - **Terminal (Wezterm) config** → [`wezterm/.config/wezterm/wezterm.lua`](./wezterm/.config/wezterm/wezterm.lua), `scripts/wezterm_sessionizer_ide.sh`, `scripts/wezterm_sessionizer_vim.sh` (tried doing something like [ThePrimeagen's tmux sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer))
 
-- **Browser** → [Vivaldi Browser](https://vivaldi.com/download/) and keybindings in [browser-keybinds.md](./browser-keybinds.md)
+- **Browser** → [Vivaldi Browser](https://vivaldi.com/download/). keybindings in [browser-keybinds.md](./browser-keybinds.md), theme in [vivalarc.css](./vivaldi-custom/vivalarc.css) 
 
 - **Theme** → currently using a [custom prompt](./oh-my-posh/.config/oh-my-posh/luis.omp.json) using `oh-my-posh`, [gruvbox](https://github.com/morhetz/gruvbox) for the terminal and code editor theme/color scheme 
 
 ## Dependencies
 - [`stow`](https://savannah.gnu.org/git/?group=stow) to install configs
-- [`i3`](https://i3wm.org/)
-- [`picom`](https://github.com/yshui/picom)
+- [`i3`](https://i3wm.org/) (built from source since `apt` didn't have the latest version 4.25)
+- [`picom`](https://github.com/yshui/picom) (built from source)
 - [`wezterm`](https://wezterm.org/index.html) (stable version)
 - [`bash`](https://www.gnu.org/software/bash/)
 - [`grep`](https://www.gnu.org/software/grep/)
 - [`fzf`](https://github.com/junegunn/fzf) 
-- [`eza`](https://github.com/eza-community/eza) for terminal icons
+- [`eza`](https://github.com/eza-community/eza) for terminal icons (binary installed manually)
 - [`keyd`](https://github.com/rvaiya/keyd) for software level keymapping (disabled when using split keyboard)
 - [`libinput-gestures`](https://github.com/bulletmark/libinput-gestures) for touchpad gestures
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide)
