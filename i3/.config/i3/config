@@ -171,7 +171,6 @@ bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
 # bindsym $mod+a exec --no-startup-id bash -c '~/Downloads/arduino-ide_2.3.6_Linux_64bit.AppImage > /dev/null'
 # bindsym $mod+x exec android-studio
-# bindsym $mod+i exec blueman-manager
 # bindsym $mod+x exec /home/$USER/.config/scripts/lock
 
 # brightness controls
@@ -213,6 +212,7 @@ bar {
         }
 }
 
+for_window [class="Vivaldi-stable"] move to workspace 1, layout tabbed
 for_window [class="wezterm"] move to workspace 2, layout tabbed
 for_window [class="VSCodium"] move to workspace 3, layout tabbed
 for_window [class="Code"] move to workspace 3, layout tabbed
