@@ -48,6 +48,8 @@ stow -D <package-name>
 
 - **Terminal (Wezterm) config** → [`wezterm/.config/wezterm/wezterm.lua`](./wezterm/.config/wezterm/wezterm.lua), `scripts/wezterm_sessionizer_ide.sh`, `scripts/wezterm_sessionizer_vim.sh` (tried doing something like [ThePrimeagen's tmux sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer))
 
+-**Browser** → [Vivaldi Browser](https://vivaldi.com/download/) and keybindings in [browser-keybinds.md](./browser-keybinds.md)
+
 - **Theme** → currently using a [custom prompt](./oh-my-posh/.config/oh-my-posh/luis.omp.json) using `oh-my-posh`, [gruvbox](https://github.com/morhetz/gruvbox) for the terminal and code editor theme/color scheme 
 
 ## Dependencies
