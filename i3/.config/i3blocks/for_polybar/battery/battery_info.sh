@@ -19,13 +19,13 @@ then
 
     # Logic to determine icon and color
     if [ "$IS_CHARGING" = "Charging" ]; then
-        ICON="CHR :" # Nerd Font Charging Bolt
+        ICON="CHR:" # Nerd Font Charging Bolt
         COLOR=$COLOR_YELLOW
     elif [ "${BAT_LEVEL%?}" -le 20 ]; then
-        ICON="BATT :" # Nerd Font Battery Low
+        ICON="BATT:" # Nerd Font Battery Low
         COLOR=$COLOR_RED
     else
-        ICON="BATT :" # Nerd Font Battery Full
+        ICON="BATT:" # Nerd Font Battery Full
         COLOR=$COLOR_BLUE
     fi
 
