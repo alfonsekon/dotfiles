@@ -27,6 +27,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         { "before": ["<S-h>"], "commands": [":bprevious"] },
         { "before": ["<S-l>"], "commands": [":bnext"] },
+        { "before": ["<S-y>"], "after": ["y", "$"] },
         { "before": ["leader", "v"], "commands": [":vsplit"] },
         { "before": ["leader", "s", "s"], "commands": [":split"] },
         { "before": ["leader", "w", "f"], "commands": [":w!"] },
