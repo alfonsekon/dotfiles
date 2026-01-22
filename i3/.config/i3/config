@@ -14,6 +14,9 @@ set $pink       #cb9592
 set $u-bgcolor  #ff5555
 set $indicator  #a8a3c1
 set $in-text    #969696
+set $gruvbox-green #b8bb26
+set $gruvbox-blue #83a598
+set $dark-green #98971a
 
 # Define names for default workspaces
 set $ws1 "1"
@@ -40,11 +43,12 @@ for_window [class=".*"] border pixel 4
 # gaps
 gaps inner 4
 gaps outer 4
+gaps top 30
 smart_borders on
 
 # Window Colors
 #                       border          background      text            indicator
-client.focused          $pink           $pink           $bgcolor        $indicator
+client.focused          $gruvbox-blue   $gruvbox-blue   $bgcolor        $indicator
 client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
@@ -208,20 +212,21 @@ for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
 #######################
 bindsym $mod+Shift+m bar mode toggle
 
-bar {
-        status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
-     	padding 2px 6px 4px 1px
-		font pango:JetBrains Mono 9
-		position top
-        colors {
-                background $bgcolor
-                separator #999999
-                #                       border          background      text
-                focused_workspace       $pink           $pink           $bgcolor
-                inactive_workspace      $bgcolor        $bgcolor        $pink
-                urgent_workspace        $u-bgcolor      $u-bgcolor      #eeeeee
-        }
-}
+# bar {
+#         status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
+#      	padding 2px 6px 4px 1px
+# 		font pango:JetBrains Mono 9
+# 		position top
+# 		tray_output none
+#         colors {
+#                 background $bgcolor
+#                 separator #999999
+#                 #                       border          background      text
+#                 focused_workspace       $pink           $pink           $bgcolor
+#                 inactive_workspace      $bgcolor        $bgcolor        $pink
+#                 urgent_workspace        $u-bgcolor      $u-bgcolor      #eeeeee
+#         }
+# }
 
 #######################
 # AUTOSTART           #
@@ -235,5 +240,6 @@ exec --no-startup-id bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 
 exec --no-startup-id greenclip daemon
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/martin-martz-Sjp4w1dYpoc-unsplash.jpg
+exec_always --no-startup-id bash -c 'killall polybar; polybar main --config=~/.config/polybar/config.ini'
 exec_always --no-startup-id bash -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/luis.omp.json)" > ~/.cache/omp_theme'
 exec_always --no-startup-id ~/personal/scripts/pointers.sh
