@@ -1,7 +1,7 @@
 # dotfiles
 
-![terminal-preview](./images/screenshots/2026-01-21_01-01-47.png)
-![browser-preview](./images/screenshots/2026-01-21_01-25-16.png)
+![terminal-preview](./images/screenshots/terminal-current.png)
+![browser-preview](./images/screenshots/browser-current.png)
 
 Messiest and most vanilla dotfiles known to man, a forever work in progress.\
 Most of the aliases in `.bashrc` are because I am **lazy**  Do **not** be like me.\
