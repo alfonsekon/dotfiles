@@ -206,8 +206,8 @@ alias open_ide='source ~/dotfiles/wezterm/scripts/open_editor.sh'
 alias open_vim='source ~/dotfiles/wezterm/scripts/open_vim.sh'
 alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill -9'
 alias theme_switch='~/personal/scripts/theme_switch.sh'
-alias d_keyd="sudo sed -i 's/^\[main\]$/[mainn]/' /etc/keyd/default.conf && sudo systemctl restart keyd"
-alias e_keyd="sudo sed -i 's/^\[mainn\]$/[main]/' /etc/keyd/default.conf && sudo systemctl restart keyd"
+alias d_keyd="sudo d_keyd" # /usr/local/bin
+alias e_keyd="sudo e_keyd" # /usr/local/bin
 
 # power options
 alias eepy='systemctl suspend -i'

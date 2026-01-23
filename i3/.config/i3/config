@@ -43,7 +43,8 @@ for_window [class=".*"] border pixel 4
 # gaps
 gaps inner 4
 gaps outer 4
-gaps top 30
+# change to 0 if using i3status/blocks
+gaps top 30 
 smart_borders on
 
 # Window Colors
@@ -144,6 +145,8 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+Shift+b exec vivaldi-stable --incognito
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
+bindsym $mod+u exec sudo /usr/local/bin/d_keyd
+bindsym $mod+Shift+u exec sudo /usr/local/bin/e_keyd
 
 # Clipboard history (greenclip)
 bindsym $mod+v exec --no-startup-id sh -c 'greenclip print | rofi -dmenu -i -p "Clipboard" -theme "$HOME/.config/rofi/launchers/type-3/style-10.rasi" | xclip -selection clipboard'
@@ -210,7 +213,7 @@ for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
 #######################
 # BAR CONFIGURATION   #
 #######################
-bindsym $mod+Shift+m bar mode toggle
+# bindsym $mod+Shift+m bar mode toggle
 
 # bar {
 #         status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
