@@ -44,7 +44,7 @@ for_window [class=".*"] border pixel 4
 gaps inner 4
 gaps outer 4
 # change to 0 if using i3status/blocks
-gaps top 30 
+gaps top 36
 smart_borders on
 
 # Window Colors
@@ -145,8 +145,8 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+Shift+b exec vivaldi-stable --incognito
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
-bindsym $mod+u exec sudo /usr/local/bin/d_keyd
-bindsym $mod+Shift+u exec sudo /usr/local/bin/e_keyd
+bindsym $mod+u exec sudo d_keyd
+bindsym $mod+Shift+u exec sudo e_keyd
 
 # Clipboard history (greenclip)
 bindsym $mod+v exec --no-startup-id sh -c 'greenclip print | rofi -dmenu -i -p "Clipboard" -theme "$HOME/.config/rofi/launchers/type-3/style-10.rasi" | xclip -selection clipboard'
