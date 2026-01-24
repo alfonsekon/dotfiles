@@ -172,7 +172,7 @@ alias todolist='nvim ~/school/todolist'
 # cd shortcuts
 alias dotfiles='cd ~/dotfiles && ls -la'
 alias downloads='cd ~/Downloads && ls -la'
-alias school='cd ~/school/fourth-year/first-sem/ && ls -la'
+alias school='cd ~/school/fourth-year/second-sem/ && ls -la'
 
 # aliases for opening programs
 alias obs='flatpak run com.obsproject.Studio &'
