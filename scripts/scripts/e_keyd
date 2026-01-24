@@ -2,5 +2,5 @@
 
 # this file is to be placed in /usr/loca/bin
 #
-/usr/bin/sed -i 's/^\[mainn\]$/[main]/' /etc/keyd/default.conf
-/usr/bin/systemctl restart keyd
+sed -i 's/^\[mainn\]$/[main]/' /etc/keyd/default.conf
+systemctl restart keyd
