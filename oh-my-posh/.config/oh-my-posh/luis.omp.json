@@ -29,7 +29,7 @@
             "branch_icon": ""
           },
           "style": "plain",
-          "template": "<#689D6A>git:(</><#FB4934>{{ .HEAD }}</><#689D6A>)</>{{ if .Working.Changed }} <#C78A0F>\u2718</>{{ end }}",
+          "template": "<#689D6A>git:(</><#FB4934>{{ .HEAD }}</><#689D6A>)</>{{ if .Working }} <#C78A0F>\u2718</>{{ end }}",
           "type": "git"
         },
         {
