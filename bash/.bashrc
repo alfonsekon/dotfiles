@@ -192,6 +192,7 @@ alias treenogit='tree -I ".git" -la'
 alias ls='eza --icons -G'
 alias ll='eza --icons -la'
 alias cat='bat'
+alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 # alias fd='selected=$(find . -type d | fzf); [ -n "$selected" ] && cd "$selected"'
@@ -208,6 +209,7 @@ alias kill_tty3='ps -ft tty3 | grep Xorg | awk "{print $2}" | xargs -r sudo kill
 alias theme_switch='~/personal/scripts/theme_switch.sh'
 alias d_keyd="sudo d_keyd" # /usr/local/bin
 alias e_keyd="sudo e_keyd" # /usr/local/bin
+alias claudea='claude --dangerously-skip-permissions'
 
 # power options
 alias eepy='systemctl suspend -i'
@@ -237,9 +239,12 @@ alias batt90='sudo sh -c "echo 90 > /sys/class/power_supply/BAT0/charge_control_
 alias batt100='sudo sh -c "echo 100 > /sys/class/power_supply/BAT0/charge_control_end_threshold"'
 alias enable_tlp='sudo ~/personal/scripts/enable_tlp.sh'
 alias disable_tlp='sudo ~/personal/scripts/disable_tlp.sh'
+alias gp='gcloud compute ssh alfonso_luis_delosreyes@instance-20260402-152813 --zone=us-central1-f'
+alias gp2='gcloud compute ssh alfonso_luis_delosreyes@instance-20260428-082324 --zone=us-central1-f'
 
 # for external mouse and keyboard since setxkbmap doesn't work if i plug peripherals after boot
 alias pointers='~/personal/scripts/pointers.sh'
+pointers > /dev/null 2>&1
 
 ############
 # KEYBINDS #
@@ -248,3 +253,12 @@ alias pointers='~/personal/scripts/pointers.sh'
 # bind 'TAB:menu-complete'
 # bind 'set show-all-if-ambiguous on'
 # bind '"\e[Z":menu-complete-backward'
+
+# opencode
+export PATH=/home/luis/.opencode/bin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/luis/google-cloud-sdk/path.bash.inc' ]; then . '/home/luis/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/luis/google-cloud-sdk/completion.bash.inc' ]; then . '/home/luis/google-cloud-sdk/completion.bash.inc'; fi
