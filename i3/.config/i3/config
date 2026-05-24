@@ -31,6 +31,14 @@ set $ws9 "9"
 set $ws10 "10"
 set $ws11 "11"
 set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
 
 #######################
 # VISUALS & BORDERS   #
@@ -41,10 +49,10 @@ font pango:JetBrains Mono 8
 for_window [class=".*"] border pixel 4
 
 # gaps
-gaps inner 4
-gaps outer 4
+# gaps inner 4
+# gaps outer 4
 # change to 0 if using i3status/blocks
-gaps top 36
+# gaps top 36
 smart_borders on
 
 # Window Colors
@@ -105,8 +113,34 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-bindsym $mod+minus workspace number $ws11
-bindsym $mod+equal workspace number $ws12
+# bindsym $mod+minus workspace number $ws11
+# bindsym $mod+equal workspace number $ws12
+#########################################
+# dual monitor bind for normal keybaord #
+#########################################
+bindsym Mod1+1 workspace number $ws11
+bindsym Mod1+2 workspace number $ws12
+bindsym Mod1+3 workspace number $ws13
+bindsym Mod1+4 workspace number $ws14
+bindsym Mod1+5 workspace number $ws15
+bindsym Mod1+6 workspace number $ws16
+bindsym Mod1+7 workspace number $ws17
+bindsym Mod1+8 workspace number $ws18
+bindsym Mod1+9 workspace number $ws19
+bindsym Mod1+0 workspace number $ws20
+########################################
+# dual monitor bind for split keybaord #
+########################################
+bindsym $mod+F1 workspace number $ws11
+bindsym $mod+F2 workspace number $ws12
+bindsym $mod+F3 workspace number $ws13
+bindsym $mod+F4 workspace number $ws14
+bindsym $mod+F5 workspace number $ws15
+bindsym $mod+F6 workspace number $ws16
+bindsym $mod+F7 workspace number $ws17
+bindsym $mod+F8 workspace number $ws18
+bindsym $mod+F9 workspace number $ws19
+bindsym $mod+F10 workspace number $ws20
 bindsym $mod+y exec bash -c 'i3-msg workspace "$(rofi -dmenu -p "goto workspace" -theme "$HOME/.config/rofi/launchers/type-1/style-3.rasi" )"'
 
 # move focused container to workspace
@@ -120,8 +154,34 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+Shift+minus move container to workspace number $ws11
-bindsym $mod+Shift+equal move container to workspace number $ws12
+# bindsym $mod+Shift+minus move container to workspace number $ws11
+# bindsym $mod+Shift+equal move container to workspace number $ws12
+#########################################
+# dual monitor bind for normal keybaord #
+#########################################
+bindsym Mod1+Shift+1 move container to workspace number $ws11
+bindsym Mod1+Shift+2 move container to workspace number $ws12
+bindsym Mod1+Shift+3 move container to workspace number $ws13
+bindsym Mod1+Shift+4 move container to workspace number $ws14
+bindsym Mod1+Shift+5 move container to workspace number $ws15
+bindsym Mod1+Shift+6 move container to workspace number $ws16
+bindsym Mod1+Shift+7 move container to workspace number $ws17
+bindsym Mod1+Shift+8 move container to workspace number $ws18
+bindsym Mod1+Shift+9 move container to workspace number $ws19
+bindsym Mod1+Shift+0 move container to workspace number $ws20
+########################################
+# dual monitor bind for split keybaord #
+########################################
+bindsym $mod+Shift+F1 move container to workspace number $ws11
+bindsym $mod+Shift+F2 move container to workspace number $ws12
+bindsym $mod+Shift+F3 move container to workspace number $ws13
+bindsym $mod+Shift+F4 move container to workspace number $ws14
+bindsym $mod+Shift+F5 move container to workspace number $ws15
+bindsym $mod+Shift+F6 move container to workspace number $ws16
+bindsym $mod+Shift+F7 move container to workspace number $ws17
+bindsym $mod+Shift+F8 move container to workspace number $ws18
+bindsym $mod+Shift+F9 move container to workspace number $ws19
+bindsym $mod+Shift+F10 move container to  workspace number $ws20
 bindsym $mod+Shift+y exec bash -c 'i3-msg move container to workspace "$(rofi -dmenu -p "move window to workspace" -theme "$HOME/.config/rofi/launchers/type-1/style-3.rasi" )"'
 
 ##########################
@@ -143,6 +203,8 @@ bindsym $mod+n exec nemo
 bindsym $mod+c exec codium
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+Shift+b exec vivaldi-stable --incognito
+bindsym $mod+Ctrl+b exec brave-browser
+bindsym $mod+Shift+w exec wireshark
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
 bindsym $mod+u exec sudo d_keyd
@@ -163,6 +225,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl position 10+
+bindsym XF86AudioPrev exec --no-startup-id playerctl position 10-
 bindsym $mod+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3blocks
 bindsym $mod+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks
 bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
@@ -206,9 +272,12 @@ for_window [class="Code"] move to workspace 3, layout tabbed
 for_window [class="Arduino*"] move to workspace 3, layout tabbed
 for_window [class="jetbrains-studio"] move to workspace 3, layout tabbed
 for_window [class="Nemo"] move to workspace 4, layout tabbed
+for_window [class="discord"] move to workspace 5, layout tabbed
 for_window [class="Wihotspot"] move to workspace 8, layout tabbed
 for_window [class="Pavucontrol"] move to workspace 8, layout tabbed
 for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
+for_window [class="Brave-browser"] move to workspace 11, layout tabbed
+for_window [class="Wireshark"] move to workspace 11, layout tabbed
 
 #######################
 # BAR CONFIGURATION   #
@@ -237,11 +306,12 @@ for_window [class="Blueman-manager"] move to workspace 8, layout tabbed
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id flameshot &
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id bash -c "~/dotfiles/picom-12.5/build/src/picom > /dev/null 2>&1 &"
 exec --no-startup-id greenclip daemon
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id bash -c 'killall flameshot; flameshot &'
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/martin-martz-Sjp4w1dYpoc-unsplash.jpg
 exec_always --no-startup-id bash -c 'killall polybar; polybar main --config=~/.config/polybar/config.ini'
 exec_always --no-startup-id bash -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/luis.omp.json)" > ~/.cache/omp_theme'

@@ -18,6 +18,14 @@ set $ws9 "9"
 set $ws10 "10"
 set $ws11 "11"
 set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -91,9 +99,35 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-bindsym $mod+minus workspace number $ws11
-bindsym $mod+equal workspace number $ws12
-bindsym $mod+y exec  bash -c "i3-input -F 'workspace %s' -P 'go to workspace: '"
+# bindsym $mod+minus workspace number $ws11
+# bindsym $mod+equal workspace number $ws12
+#########################################
+# dual monitor bind for normal keybaord #
+#########################################
+bindsym Mod1+1 workspace number $ws11
+bindsym Mod1+2 workspace number $ws12
+bindsym Mod1+3 workspace number $ws13
+bindsym Mod1+4 workspace number $ws14
+bindsym Mod1+5 workspace number $ws15
+bindsym Mod1+6 workspace number $ws16
+bindsym Mod1+7 workspace number $ws17
+bindsym Mod1+8 workspace number $ws18
+bindsym Mod1+9 workspace number $ws19
+bindsym Mod1+0 workspace number $ws20
+########################################
+# dual monitor bind for split keybaord #
+########################################
+bindsym $mod+F1 workspace number $ws11
+bindsym $mod+F2 workspace number $ws12
+bindsym $mod+F3 workspace number $ws13
+bindsym $mod+F4 workspace number $ws14
+bindsym $mod+F5 workspace number $ws15
+bindsym $mod+F6 workspace number $ws16
+bindsym $mod+F7 workspace number $ws17
+bindsym $mod+F8 workspace number $ws18
+bindsym $mod+F9 workspace number $ws19
+bindsym $mod+F10 workspace number $ws20
+bindsym $mod+y exec bash -c 'i3-msg workspace "$(rofi -dmenu -p "goto workspace" -theme "$HOME/.config/rofi/launchers/type-1/style-3.rasi" )"'
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -106,9 +140,35 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-bindsym $mod+Shift+minus move container to workspace number $ws11
-bindsym $mod+Shift+equal move container to workspace number $ws12
-bindsym $mod+Shift+y exec  bash -c "i3-input -F 'move container to workspace %s' -P 'move to workspace: '"
+# bindsym $mod+Shift+minus move container to workspace number $ws11
+# bindsym $mod+Shift+equal move container to workspace number $ws12
+#########################################
+# dual monitor bind for normal keybaord #
+#########################################
+bindsym Mod1+Shift+1 move container to workspace number $ws11
+bindsym Mod1+Shift+2 move container to workspace number $ws12
+bindsym Mod1+Shift+3 move container to workspace number $ws13
+bindsym Mod1+Shift+4 move container to workspace number $ws14
+bindsym Mod1+Shift+5 move container to workspace number $ws15
+bindsym Mod1+Shift+6 move container to workspace number $ws16
+bindsym Mod1+Shift+7 move container to workspace number $ws17
+bindsym Mod1+Shift+8 move container to workspace number $ws18
+bindsym Mod1+Shift+9 move container to workspace number $ws19
+bindsym Mod1+Shift+0 move container to workspace number $ws20
+########################################
+# dual monitor bind for split keybaord #
+########################################
+bindsym $mod+Shift+F1 move container to workspace number $ws11
+bindsym $mod+Shift+F2 move container to workspace number $ws12
+bindsym $mod+Shift+F3 move container to workspace number $ws13
+bindsym $mod+Shift+F4 move container to workspace number $ws14
+bindsym $mod+Shift+F5 move container to workspace number $ws15
+bindsym $mod+Shift+F6 move container to workspace number $ws16
+bindsym $mod+Shift+F7 move container to workspace number $ws17
+bindsym $mod+Shift+F8 move container to workspace number $ws18
+bindsym $mod+Shift+F9 move container to workspace number $ws19
+bindsym $mod+Shift+F10 move container to  workspace number $ws20
+bindsym $mod+Shift+y exec bash -c 'i3-msg move container to workspace "$(rofi -dmenu -p "move window to workspace" -theme "$HOME/.config/rofi/launchers/type-1/style-3.rasi" )"'
 
 ##########################
 # KEYBINDS - APPLICATIONS#
@@ -130,6 +190,8 @@ bindsym $mod+n exec nemo
 bindsym $mod+c exec codium
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+Shift+b exec vivaldi-stable --incognito
+bindsym $mod+Ctrl+b exec brave-browser
+bindsym $mod+Shift+w exec wireshark
 bindsym $mod+o exec screenkey &
 bindsym $mod+shift+o exec pkill screenkey
 
@@ -184,6 +246,8 @@ mode "resize" {
 # WINDOW RULES        #
 #######################
 for_window [class="Vivaldi-stable"] move to workspace 1, layout tabbed
+for_window [class="Brave-browser"] move to workspace 11, layout tabbed
+for_window [class="Wireshark"] move to workspace 11, layout tabbed
 for_window [class="wezterm"] move to workspace 2, layout tabbed
 for_window [class="Code"] move to workspace 3, layout tabbed
 for_window [class="VSCodium"] move to workspace 3, layout tabbed
@@ -209,10 +273,10 @@ bar {
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id flameshot &
 exec --no-startup-id wezterm --config-file /home/luis/.dotfiles/wezterm/.config/wezterm/wezterm.lua &
 exec --no-startup-id greenclip daemon
 exec --no-startup-id libinput-gestures-setup restart > /dev/null
+exec_always --no-startup-id bash -c 'killall flameshot; flameshot &'
 exec_always --no-startup-id feh --bg-scale /home/luis/Pictures/screenshots-i3/Thu\ Oct\ 16\ 08:28:57\ PM\ PST\ 2025
 exec_always --no-startup-id sh -c 'echo eval "$(/home/luis/.local/bin/oh-my-posh init bash --config ~/.config/oh-my-posh/gruvbox.omp.json)" > ~/.cache/omp_theme'
 exec_always --no-startup-id ~/personal/bin/pointers.sh
