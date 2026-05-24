@@ -27,6 +27,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         { "before": ["<S-h>"], "commands": [":bprevious"] },
         { "before": ["<S-l>"], "commands": [":bnext"] },
+        { "before": ["<S-y>"], "after": ["y", "$"] },
         { "before": ["leader", "v"], "commands": [":vsplit"] },
         { "before": ["leader", "s", "s"], "commands": [":split"] },
         { "before": ["leader", "w", "f"], "commands": [":w!"] },
@@ -34,6 +35,8 @@
         { "before": ["leader", "x"], "commands": [":wq"] },
         { "before": ["<C-n>"], "commands": [":nohl"] },
         { "before": ["leader", "leader", "p"], "commands": ["workbench.action.showCommands"]},
+        { "before": ["leader", "leader", "i"], "commands": ["editor.action.formatDocument"]},
+        { "before": ["leader", "z"], "commands": ["git-graph.view"]},
         { "before": ["g", "h"], "commands": ["editor.action.showDefinitionPreviewHover"] },
         { "before": ["leader", "r", "n"], "commands": ["editor.action.rename"] },
         { "before": ["leader", "c", "a"], "commands": ["editor.action.quickFix"] },
@@ -180,7 +183,7 @@
         "position": "editor-bottom"
     },
     "update.mode": "none",
-    "workbench.iconTheme": "material-icon-theme",
+    // "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingOvertype": "always",
