@@ -38,6 +38,7 @@ local config = {
 	use_fancy_tab_bar = appearance.use_fancy_tab_bar,
 	animation_fps = appearance.animation_fps,
 	max_fps = appearance.max_fps,
+	enable_scroll_bar = true,
 	front_end = "WebGpu",
 	launch_menu = {},
 	set_environment_variables = {
