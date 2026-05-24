@@ -2,7 +2,7 @@
 
 # touchpad property changes on ASUS Vivobook
 xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Tapping Enabled" 1
-xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Enabled" 0
+xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Natural Scrolling Enabled" 1
 xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Scrolling Pixel Distance" 20
 xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "libinput Accel Speed" 0
 xinput set-prop 'ASUF1300:00 2808:0203 Touchpad' "Coordinate Transformation Matrix" 1.0 0 0 0 1.0 0 0 0 1
