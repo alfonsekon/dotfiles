@@ -1,4 +1,5 @@
 #!/bin/sh
+# exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) i3
 
 # Load X resources (cursor size/theme, DPI, etc.)
 xrdb -merge ~/.Xresources
@@ -11,4 +12,4 @@ export XCURSOR_THEME=macOS
 xsetroot -cursor_name left_ptr
 
 # Start i3
-exec i3
+exec dbus-run-session i3
